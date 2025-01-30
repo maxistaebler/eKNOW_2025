@@ -1,0 +1,723 @@
+Monetary-Fiscal Interaction and the Liquidity of Government Debt ∗
+
+Cristiano Cantore †
+
+Edoardo Leonardi ‡
+
+January 2025
+
+Abstract
+
+How does the monetary and fiscal policy mix alter households' saving incentives? To answer these questions, we build a heterogenous agents New Keynesian model where three different types of agents can save in assets with different liquidity profiles to insure against idiosyncratic risk. Policy mixes affect saving incentives differently according to their effect on the liquidity premium- the return difference between less liquid assets and public debt. We derive an intuitive analytical expression linking the liquidity premium with consumption differentials amongst different types of agents. This underscores the presence of a transmission mechanism through which the interaction of monetary and fiscal policy shapes economic stability via its effect on the portfolio choice of private agents. We call it the self-insurance demand channel , which moves the liquidity premium in the opposite direction to the standard policy-driven supply channel . Our analysis thus reveals the presence of two competing forces driving the liquidity premium. We show that the relative strength of the two is tightly linked to the policy mix in place and the type of business cycle shock hitting the economy. This implies that to stabilize the economy, monetary policy should consider the impact of the self-insurance on the liquidity premium.
+
+Keywords: monetary-fiscal interaction, liquidity, government debt, HANK
+
+JEL Classification: E12, E52, E62, E58, E63.
+
+1 Introduction
+
+In recent years, the responses of fiscal and monetary policies to the financial crisis and the COVID-19 pandemic have led to a convergence of their operational boundaries. This has revived the attention on the long-term implications for economic stability and policy effectiveness of the fiscal-monetary policy mix and poses new challenges for the conduct of monetary policy in the presence of substantial fiscal expansions.
+
+At the same time, a burgeoning research agenda has highlighted the empirical differences in portfolios across the distribution of wealth and its relevance in terms of policy effectiveness and macroeconomic dynamics. In a seminal contribution, Kaplan et al. (2018) distinguish types of households by the prevalence of liquid or illiquid assets in their portfolios and describe the implications of different types of households for the transmission of monetary policy. Bayer et al. (2023) point to the importance of the liquidity channel of fiscal policy for its overall effect: the issuance of liquid government debt to finance discretionary government spending leads to a fall in the liquidity premium, defined as the return difference between less liquid assets and public debt. This, in turn, induces the households to save more in liquid assets that improve their ability to smooth consumption after negative shocks. We build on their work and analyze the transmission mechanism through which the interaction of monetary and fiscal policy shapes economic stability, i.e., via its effect on the portfolio choice of private agents. The purpose of this paper is to study how different combinations of active and passive policies affect the liquidity properties of the portfolios of different types of agents in the economy and what are the resulting challenges for the conduct of monetary policy.
+
+For this, we use a New-Keynesian model with limited household heterogeneity in which three types of agents differ in their ability to trade in financial assets, in the spirit of Bilbiie (2024). The model features incomplete financial markets, on which agents can only trade liquid, nominal government bonds and an illiquid, real physical asset, i.e., capital. Our economy is made of capitalists , who can trade in both markets; savers , who can only adjust their liquid asset portfolio and cannot access the return from capital investments for consumption purposes; and hand-to-mouth
+
+households, who cannot engage in the purchase of any asset, therefore relying on their labor income and previously accumulated government bonds for their consumption. Households are subject to idiosyncratic shocks that make them switch types according to an exogenous transition probability. When moving across types, households may only carry with them their government bonds. This characteristic defines the liquidity of this asset, contrary to capital.
+
+Additionally, the presence of a fiscal authority that chooses the quantity of nominal tax revenues in a model with idiosyncratic uncertainty serves the further purpose of extending the range of policy mixes that we can consider in our analysis. Hagedorn (2021) shows that the demand for nominal bonds in incomplete-market economies combined with a fiscal authority that targets a nominal quantity leads to price-level determinacy independently of any interest rate rule. In our setup, the fiscal authority chooses the quantity of nominal taxes, and determinacy is attained by allowing nominal debt to adjust automatically to ensure that the government budget constraint is satisfied for any price level. The central bank then sets freely the nominal interest rate that clears the bond market, with no need to respond to any endogenous variable. Hence, the price level can be uniquely determined, jointly by monetary and fiscal policy, even when the interest rate is exogenously chosen. 1 Hence, when fiscal policy is specified in nominal terms, shifts in the price level affect the real value of debt and thus affect real aggregate demand. 2 Crucially, this setup is different from the Fiscal Theory of the Price Level, which assumes that the government budget constraint must be satisfied by only one price level.
+
+The first contribution of this paper is methodological. We extend the model of Bilbiie (2024) to a three-agent (or states) setting, with different liquidity across two assets that are traded and held in positive net supply in equilibrium, so there is some notion of a 'portfolio choice', but still in a tractable way. This extension is needed to capture the 'self-insurance' channel at the center of our analysis. This channel is present in quantitative HANK models like Bayer et al. (2023) and Auclert
+
+et al. (2024). We show that a two-agent set up is not enough to capture it and that our analytically tractable three-agents setup allows us to isolate this channel in the transmission of business cycle shocks, which is more difficult to do with a quantitative HANK model.
+
+By considering different combinations of the monetary-fiscal regime together with the portfolio choice, we can indeed isolate this transmission mechanism that works via the liquidity premium. Due to the liquidity friction, government bonds are the preferred asset to build up a buffer stock of savings to partially insure against idiosyncratic uncertainty. Therefore, policy regimes that worsen the consumption ability of the hand-to-mouth by lowering their labor income or their bond income from previous states would increase the demand for self-insurance of the capitalist type, leading to a shift in their portfolios towards more liquid assets, ceteris paribus. This is what we will label the 'self-insurance' channel, and it works through asset demand. In the analysis, we highlight the importance of this 'self-insurance' channel for the dynamics of the liquidity premium, taken as encompassing the trade-off between investing in liquid and illiquid assets, deriving an equation that relates it directly to consumption differentials across types. To the best of our knowledge, we are the first to derive such an intuitive relation linking the liquidity premium to household consumption differentials in a HANK model.
+
+Secondly, the policy regime will also determine the change in the supply of nominal government debt due to the change in the interest payment on its stock and the strength through which the government will curb the movement in debt. This is the standard 'supply' channel, and it will have a further effect on the liquidity premium as the asset returns will have to adjust for markets to clear. This second channel would be present even in a representative agent/complete markets version of the model. As a result, in our model, the liquidity premium is driven by the combination of two competing channels. One that works through asset demand ('self-insurance') and the other via asset supply. Different policy mixes will affect the relative strength of these two channels and, therefore, provide different results in terms of the relationship between the liquidity premium and the portfolio choice of households.
+
+We then use the model to highlight the challenges for the conduct of monetary policy and answer
+
+questions regarding the aggregate implications of the combination of these two portfolio channels under different monetary and fiscal regimes. In our first experiment, we simulate and explore the implications of technology shock. Our objective is two-fold. On the one hand, we want to gauge the relative strength of the two channels highlighted above under different policy regimes. On the other hand, we want to explore the relative strength of the trade-off between the 'self-insurance' channel via government bonds and the alternative 'insurance-through-investment' channel. The latter comes from the fact that whilst a decline in liquid assets has a negative effect in principle because of the lower ability of agents to smooth consumption, a concomitant increase in capital investment may represent an indirect, general equilibrium form of insurance by potentially increasing the demand for labor and therefore the income of the hand-to-mouth type.
+
+Through this experiment, we show first that in regimes in which there is a large change in government debt, as when the monetary policy changes the interest rate strongly, and the fiscal policy does not intervene through taxes (active monetary, less passive fiscal regime), the supply channel reinforces the gap in the liquidity premium, inducing the profit motive of the capitalist to prevail. In this case, an increase in the liquidity premium leads capitalists to move towards less liquid assets, spurring an increase in investment. Regimes for which the change in government debt is more tamed, however, see a dominance of the self-insurance mechanism, whereby a worsening of the risky state induces a shift of capitalists towards the more liquid asset. Then, we show that in our model, in which we adopt a standard Cobb-Douglas production function, the 'investment-through-insurance' channel discussed above is very weak due to the poor complementarity between the two productive assets. This implies that the building of more capital stock does not represent a viable substitute for liquid savings for agents in the hand-to-mouth state.
+
+In our second experiment, we look at the effects of a fiscal stimulus with different combinations of the monetary/fiscal policy mix. An increase in government spending that produces a strong income effect for the hand-to-mouth agents reduces the 'self-insurance' channel and induces capitalists to swap bonds for capital. At the same time, the fiscal stimulus increases the bond supply. We show that, once again, the relative strength of these two effects depends on the policy mix and has
+
+important implications for the conduct of monetary policy, especially in scenarios where fiscal policy is either too rigid or overly accommodative.
+
+When monetary policy is active, the supply channel dominates independently from the actions put in place by the fiscal authority. Whereas a less passive fiscal policy generates a larger cumulative fiscal multiplier, capitalists keep investing in bonds at the expense of capital. However, with passive monetary policy, a different picture emerges. The fiscal stimulus now induces a larger income effect on the hand-to-mouth, which pushes the liquidity premium further down and makes the 'self-insurance' channel stronger. Under both fiscal policy scenarios, capitalists now substitute bonds with capital, which generates substantially larger fiscal multipliers compared to the active monetary policy simulations.
+
+Finally, we look at the effects of a monetary policy shock. A monetary easing that reduces the interest rate has a direct effect on the liquidity premium, which falls. This induces a shift of the capitalists towards capital, which increases the investment in the economy. The increase in the price level reduces the real value of government debt, which in turn decreases the supply of bonds, making them even less attractive than capital. The strength of this supply channel, however, depends on the fiscal policy stance.
+
+Comparing the simulations, under all experiments, of the proposed three-agent economy with the ones implied by a standard two-agent one demonstrates the importance of the 'self-insurance' transmission channel we focus our analysis on. In the two-agent economy, the 'self-insurance' channel is not active, and the liquidity premium between illiquid capital and liquid government bonds is only driven by the supply of public debt. As a result, in the two-agent economy, aggregate dynamics are mainly driven by monetary policy and do not depend on the fiscal policy stance. We show that this is not the case in the three-agent model, where aggregate dynamics now depend on the joint fiscal-monetary mix, given the presence of the 'self-insurance' channel in affecting the dynamics of the liquidity premium.
+
+Therefore, our analysis highlights that, in the current policy environment characterized by substantial fiscal expansions in response to the financial crisis and the COVID-19 pandemic, central
+
+banks should also consider the impact of the 'self-insurance' channel on the liquidity premium when setting the monetary policy stance.
+
+1.1 Literature review
+
+Understanding monetary-fiscal policy dynamics is crucial to the formulation and implementation of effective policy measures aimed at promoting economic growth and stability. We see our paper contributing and merging two streams of the existing literature, i.e., the study of monetary and fiscal interactions and the aggregate consequences of households' portfolio choices, both of which are extremely prolific.
+
+First, we delve into the evolving discourse surrounding the interplay between monetary and fiscal policies. Initially, Sargent and Wallace (1981) introduced the notion of 'unpleasant monetarist arithmetic,' illustrating the quandary faced by a central bank dedicated to curbing inflation while needing to accommodate inherently inflationary fiscal policies. Building upon this, Sargent (1984) extended the discussion to show how shifts in fiscal policy could undermine a central bank's commitment to maintaining low inflation. This research underscored the significance of fiscal policy expectations in influencing the efficacy of monetary policy, adding a crucial dimension to the discourse on the interaction of fiscal and monetary policies. Subsequently, Leeper (1991) introduced the concepts of 'active' and 'passive' monetary and fiscal policies and illustrated how both monetary and fiscal policies are endogenously determined within a model. Leeper's analysis highlighted the pivotal role of the chosen policy regime, whether fiscal or monetary policy is active or passive, in shaping the economy's response to shocks.
+
+Building upon these foundations, a further series of studies explored the implications of policy rules and regime switching in the context of monetary and fiscal policy interactions (Davig and Leeper, 2006, 2011; Bianchi and Melosi, 2019; Bianchi et al. , 2020).
+
+Instead of going down the route of regime-switching models, our contribution to this literature, leveraging the work of Hagedorn (2021), consists of extending the static exploration of policy interactions beyond the traditional set of parameters' space. As discussed above, allowing the
+
+government to set fiscal policy in nominal terms induces price level determinacy in the model, even with passive monetary policy.
+
+Then, our study adds to the dialogue on the aggregate consequences of households' portfolio decisions in the presence of assets varying by their liquidity attributes. The role of government debt as liquidity, previously addressed by Woodford (1990), has recently gained renewed attention, as evidenced by studies such as Bayer et al. (2023), Bilbiie et al. (2022) and Bilbiie (2024). Importantly, the 'self-insurance' we study here is also present in Bayer et al. (2023) and subsequent work like Auclert et al. (2024). 3 While they strive to quantitatively identify the liquidity channel's influence on the effectiveness of fiscal policy using a model with a fully heterogeneous population of households, our study adopts an approach more closely aligned with that of Bilbiie et al. (2022) and Bilbiie (2024), focusing on limited heterogeneity among household types. This method allows us to retain key elements of the larger, more complex models while clearly illustrating the 'self-insurance' mechanism of transmission. In doing so, we also offer a methodological contribution by extending the Bilbiie (2024)'s set-up to a three-agent (or state) setting. This gives us the possibility to derive an intuitive and analytical expression linking the liquidity premium to the consumption risk of agents and to show that a two-agent setup is not enough to capture the 'self-insurance' channel we focus on in this analysis. Moreover, our analytical tractable setup allows us to isolate this channel in the transmission of business cycle shocks, which is more difficult to do with a quantitative HANK model.
+
+The paper is structured as follows. In Section 2, we outline the model. Then, in Section 3, we explore the results of our experiments. In particular, we first look at a technology shock to answer the question of which of the channels outlined above prevails under different regimes, and then we move to the transmission of a fiscal and a monetary policy shock to study what the addition of the portfolio choice implies for the transmission of fiscal and monetary policies. We conclude by outlining how this analysis could be extended in future works.
+
+2 The benchmark model
+
+In this section, we present the model economy. As the main action takes place on the household side of the economy, we will be mainly focusing on detailing this. The production side follows the standard New-Keynesian specification (see Gal'ı, 2015), with CES final good producers and monopolistically competitive Rotemberg-pricing intermediate good firms. The government side will be modeled as a fiscal authority that chooses the quantity of nominal government debt and tax revenues, as in Hagedorn (2021), to finance exogenous government spending.
+
+2.1 Households
+
+The household's side is modeled in a way that can be defined as Luetticke (2020) meets Bilbiie et al. (2022). This means that we are going to borrow the infrequent capital trading friction from the former and introduce it into the latter model of limited heterogeneity. In particular, we are going to focus on a three-agent model, in which households will switch between three states with exogenous transition probabilities governed by the matrix Λ with generic component 𝜆 𝑖, 𝑗 for ( 𝑖, 𝑗 ) ∈ { 𝐻, 𝑆, 𝐾 } 2 as the transition probability of moving from state 𝑖 to state 𝑗 . The difference among the three agents is going to be in their ability to access financial markets to insure against future income shocks. In particular, capitalists (indexed by 𝐾 ) can access capital markets in a way that allows them to adjust both their bond and capital holdings, whereas savers (indexed by 𝑆 ) will only be able to adjust and ripe the returns from government bonds. Furthermore, we assume that only capitalists are the firm's shareholders and receive their profits. Finally, hand-to-mouth agents ( 𝐻 ) will consume their labor income every period, as well as their accumulated savings income from bonds before transitioning to the hand-to-mouth state. It is in this sense that we define government bonds as a liquid asset and capital as an illiquid one, i.e., in terms of their consumption-smoothing insurance value to households.
+
+We think of each type of agent as living on an island populated by their own type. Bonds can be carried across such islands, though they can only be adjusted on islands 𝐾 and 𝑆 , and, as
+
+such, forward-looking agents will consider the consumption risk moving forward in their portfolio decisions. The benefits from holding capital, instead, can only be enjoyed on the 𝐾 island, therefore presenting a trade-off between the higher return commanded by its illiquidity and the desire to smooth consumption across states. 4 Given our tractable set-up, we will be able to highlight analytically the link between consumption risk and the liquidity premium in this economy.
+
+2.1.1 Population and financial accounting
+
+We can think about the three types of consumers as inhabiting three distinct islands. We normalize the total population in the economy to 1 and denote with Π 𝑖,𝑡 for 𝑖 ∈ { 𝐻, 𝑆, 𝐾 } the share of the population on each of the islands. Given our normalization, we have that Π 𝐻,𝑡 = 1 -Π 𝑆,𝑡 -Π 𝐾,𝑡 . The evolution of each of these two shares follows the following laws of motion:
+
+Π 𝐾,𝑡 + 1 = 𝜆 𝐾,𝐾 Π 𝐾,𝑡 + 𝜆 𝑆,𝐾 Π 𝑆,𝑡 + 𝜆 𝐻,𝐾 ( 1 -Π 𝐾,𝑡 -Π 𝑆,𝑡 ) (1)
+
+Π 𝑆,𝑡 + 1 = 𝜆 𝐾,𝑆 Π 𝐾,𝑡 + 𝜆 𝑆,𝑆 Π 𝑆,𝑡 + 𝜆 𝐻,𝑆 ( 1 -Π 𝐾,𝑡 -Π 𝑆,𝑡 ) . (2)
+
+We look for the stationary distribution by setting Π 𝑖,𝑡 + 1 = Π 𝑖,𝑡 = Π 𝑖 in the system above, which can be solved for the stationary shares as a function of the exogenous transition probabilities. From now onward, when referring to population shares, we mean the stationary ones, therefore omitting time subscripts.
+
+We follow the notation in Bilbiie (2024) and Bilbiie et al. (2022) and call 𝐵 𝑗 𝑡 + 1 , for 𝑗 ∈ { 𝐾, 𝑆 } , the per-capita nominal beginning-of-period 𝑡 + 1 bond holdings: after the consumption-saving choice, and also after changing state and pooling with the other agents of the same type. With a 'bold' letter B , we denote island-wide bond holdings at the beginning of the period. 𝑍 𝑗 𝑡 + 1 instead are the end-of-period 𝑡 per-capita holdings of bonds of agent 𝑗 , which the agents can choose after the consumption-saving choice but before they move across islands. Their respective evolution is as
+
+follows:
+
+B 𝐾 𝑡 + 1 = Π 𝐾 𝐵 𝐾 𝑡 + 1 = 𝜆 𝐾,𝐾 Π 𝐾 𝑍 𝐾 𝑡 + 1 + 𝜆 𝑆,𝐾 Π 𝑆 𝑍 𝑆 𝑡 + 1 (3)
+
+B 𝑆 𝑡 + 1 = Π 𝑆 𝐵 𝑆 𝑡 + 1 = 𝜆 𝐾,𝑆 Π 𝐾 𝑍 𝐾 𝑡 + 1 + 𝜆 𝑆,𝑆 Π 𝑆 𝑍 𝑆 𝑡 + 1 (4)
+
+B 𝐻 𝑡 + 1 = ( 1 -Π 𝐾 -Π 𝑆 ) 𝐵 𝐻 𝑡 + 1 = 𝜆 𝐾,𝐻 Π 𝐾 𝑍 𝐾 𝑡 + 1 + 𝜆 𝑆,𝐻 Π 𝑆 𝑍 𝑆 𝑡 + 1 . (5)
+
+2.1.2 Household problem
+
+Each of the agent types will maximize the discounted sum of lifetime utility depending on the same specification as a function of the final consumption good and disutility from labor. Following the literature on the topic, we assume that there is a union that centralizes the wage-setting decision by pooling the labor supply of both types and allocates the hours equally across types, i.e. 𝑁 𝐾 𝑡 = 𝑁 𝑆 𝑡 = 𝑁 𝐻 𝑡 = 𝑁 𝑡 .
+
+Therefore, agents will choose a path of consumption and, when possible, asset holdings to maximize the following period utility function:
+
+E 0 ∞ ∑︁ 𝑡 = 0 𝛽 𝑡 𝐶 𝑗 𝑡 1 -𝜎 1 -𝜎 -𝜓 𝑁 𝑗 𝑡 1 + 𝜑 1 + 𝜑 ! , (6)
+
+for 𝑗 ∈ { 𝐻, 𝑆, 𝐾 } subject to their respective flow of resources. For capitalists, that is
+
+𝑃 𝑡 𝐶 𝐾 𝑡 + 𝑍 𝐾 𝑡 + 1 + 𝑃 𝑡 𝐼 𝐾 𝑡 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝐾 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝐾 𝑡 Π 𝐾 + 𝑅 𝑘 𝑡 𝑃 𝑡 𝐾 𝑆 𝑡 + 𝑃 𝑡 𝐷 𝑡 Π 𝐾 -𝑇 𝐾 𝑡 -𝜏 𝐾 , (7)
+
+and similar for the purely bond savers ('savers') is
+
+𝑃 𝑡 𝐶 𝑆 𝑡 + 𝑍 𝑆 𝑡 + 1 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝑆 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝑆 𝑡 Π 𝑆 -𝑇 𝑆 𝑡 -𝜏 𝑆 . (8)
+
+Finally, as hand-to-mouth agents will not be able to trade bonds, their budget constraint will define
+
+their consumption as follows
+
+𝑃 𝑡 𝐶 𝐻 𝑡 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝐻 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝐻 𝑡 Π 𝐻 -𝑇 𝐻 𝑡 -𝜏 𝐻 . (9)
+
+𝐶 𝑗 𝑡 is nominal consumption, 𝑁 𝑗 𝑡 hours of work, 𝐾 𝐾 𝑡 is capitalists capital stock, 𝐼 𝐾 𝑡 is investment in capital, 𝑊 𝑡 nominal wages, 𝑅 𝑏 𝑡 the risk free net nominal interest rate on bonds, 𝑅 𝐾 𝑡 the gross real rental rate of capital, 𝐷 𝑡 are economy-wide firms profits, 𝑇 𝑗 𝑡 are lump sum taxes, 𝜏 𝑗 are steady state transfers to equate agents consumption, 𝜎 the inverse of the intertermporal elasticity of substitution, 𝜑 the inverse of the Frish elasticity, 𝜓 the disutility weight of labor and 𝛿 is capital depreciation.
+
+We assume equal redistribution of the total tax revenue needed by the government. Note that although type-H agents cannot trade in bonds, there will be a certain stock of this asset on the island as agents can carry these with them across type switches.
+
+We also assume that capital investment is subject to a convex adjustment cost 𝜄 so that capital accumulation reads:
+
+𝐾 𝐾 𝑡 = 𝐼 𝐾 𝑡 ' › 1 -𝜄 𝐼 𝐾 𝑡 𝐼 𝐾 𝑡 -1 -1 ! 2 ' fi + 𝐾 𝐾 𝑡 -1 ( 1 -𝛿 ) . (10)
+
+«
+
+‹
+
+Since one of our focuses is fiscal policy, we introduce this adjustment cost to obtain fiscal multipliers in line with what is found in the literature, e.g., (Cantore and Freund, 2021; Hagedorn et al. , 2019), under the active monetary policy regime, thereby making our analysis more realistic.
+
+2.2 Firms
+
+Since our model enriches the household side of the economy, we model firms according to a standard New Keynesian model with Rotemberg (1982) adjustment costs. A continuum of monopolistically competitive firms indexed by 𝑖 ∈ [ 0 , 1 ] produce differentiated intermediate goods 𝑌 𝑡 ( 𝑖 ) using labor 𝑁 𝑡 ( 𝑖 ) and capital 𝐾 𝑡 ( 𝑖 ) according to the following production function:
+
+𝐹 ( 𝐴 𝑡 , 𝑁 𝑡 , 𝐾 𝑡 ) = ( 𝐴 𝑡 𝑁 𝑡 ( 𝑖 )) 1 -𝛼 𝐾 𝑡 ( 𝑖 ) 𝛼 , (11)
+
+where 𝐴 𝑡 is an AR(1) technology shock and 𝛼 is the capital share of income. Firms seek to maximize their profits by optimally choosing their prices 𝑃 𝑡 ( 𝑖 ) subject to the demand they face and price adjustment costs. The firm's problem is represented by the following dynamic optimization problem:
+
+max { 𝑃 𝑡 ( 𝑖 )} 𝐸 0 ∞ ∑︁ 𝑡 = 0 Ψ 𝐾 0 ,𝑡 GLYPH<2> 𝑃 𝑡 ( 𝑖 ) 𝑌 𝑡 ( 𝑖 ) -𝑊 𝑡 𝑁 𝑡 ( 𝑖 ) -𝑅 𝐾 𝑡 𝐾 𝑡 ( 𝑖 ) -𝐴𝐶 𝑡 GLYPH<3> s.t. 𝑌 𝑡 ( 𝑖 ) = GLYPH<18> 𝑃 𝑡 ( 𝑖 ) 𝑃 𝑡 GLYPH<19> -𝜖 𝑌 𝑡 , 𝑌 𝑡 ( 𝑖 ) = ( 𝐴 𝑡 𝑁 𝑡 ( 𝑖 )) 1 -𝛼 + 𝐾 𝑡 ( 𝑖 ) 𝛼 -𝐹,
+
+where Ψ 𝐾 0 ,𝑡 = 𝛽 𝑡 GLYPH<16> 𝐶 𝐾 𝑡 𝐶 𝐾 0 GLYPH<17> -𝜎 is the marginal rate of intertemporal substitution of capitalists, 𝜖 > 1 is the elasticity of substitution between different varieties of goods and 𝐹 are fixed costs in production to ensure 0 profits in steady state. We specify Rotemberg adjustment costs 𝐴𝐶 𝑡 according to the standard quadratic representation:
+
+𝐴𝐶 𝑡 = 𝜉 2 GLYPH<18> 𝑃 𝑡 ( 𝑖 ) 𝑃 𝑡 -1 ( 𝑖 ) -1 GLYPH<19> 2 𝑌 𝑡 ,
+
+where 𝜉 is a positive parameter that dictates the cost of adjusting prices.
+
+By optimizing this symmetric problem, the firms set the price to equate the real marginal cost ( 𝑀𝐶 𝑡 ) to a markup over price, subject to adjustment costs. The first-order conditions for this problem generate the New Keynesian Phillips curve, providing the connection between inflation and output:
+
+( 1 -𝜖 ) + 𝜖 𝑀𝐶 𝑡 -Π 𝑡 𝜉 ( Π 𝑡 -1 ) + 𝛽 Ψ 𝐾 𝑡,𝑡 + 1 Π 𝑡 + 1 𝜉 ( Π 𝑡 + 1 -1 ) 𝑌 𝑡 + 1 𝑌 𝑡 = 0 . (12)
+
+2.3 Aggregation
+
+Aggregation of consumption and labor supply between the three types of households gives:
+
+𝐶 𝑡 = Π 𝐾 𝐶 𝐾 𝑡 + Π 𝑆 𝐶 𝑆 𝑡 + Π 𝐻 𝐶 𝐻 𝑡 , (13)
+
+𝑁 𝑡 = Π 𝐾 𝑁 𝐾 𝑡 + Π 𝑆 𝑁 𝑆 𝑡 + Π 𝐻 𝑁 𝐻 𝑡 . (14)
+
+Aggregate capital and investment are given by:
+
+𝐾 𝑡 = Π 𝐾 𝐾 𝐾 𝑡 , (15)
+
+𝐼 𝑡 = Π 𝐾 𝐼 𝐾 𝑡 . (16)
+
+Total nominal government debt is:
+
+𝐵 𝑡 = Π 𝐾 𝑍 𝐾 𝑡 + Π 𝑆 𝑍 𝑆 𝑡 . (17)
+
+Finally the weighted sum of the three budget constraints (7), (8) and (9) gives the aggregate resource constraint.
+
+2.4 Policy block
+
+The Central Bank operates according to a standard Taylor rule of the form:
+
+1 + 𝑅 𝑏 𝑡 1 + 𝑅 ∗ 𝑏 = 1 + 𝑅 𝑏 𝑡 -1 1 + 𝑅 ∗ 𝑏 ! 𝜌 𝑅 𝑏 GLYPH<18> Π 𝑡 Π ∗ GLYPH<19> ( 1 -𝜌 𝑅 𝑏 ) 𝜙 𝜋 𝑀 𝑡 , (18)
+
+where 𝑀 𝑡 is an AR(1) monetary policy shock:
+
+𝑀 𝑡 𝑀 ∗ = GLYPH<18> 𝑀 𝑡 -1 𝑀 ∗ GLYPH<19> 𝜌 𝑚 𝜖 𝑚,𝑡 . (19)
+
+Variables with a ∗ denote steady-state values.
+
+The government is in charge of fiscal policy. In particular, it responds to a shock to nominal
+
+government expenditures, which follows a standard AR(1) process:
+
+𝐺 𝑡 𝐺 ∗ = GLYPH<18> 𝐺 𝑡 -1 𝐺 ∗ GLYPH<19> 𝜌 𝑔 𝜖 𝑔,𝑡 , (20)
+
+by raising nominal lump sum taxes following a fiscal rule of the form
+
+𝑇 𝑡 𝑇 ∗ = GLYPH<18> 𝑇 𝑡 -1 𝑇 ∗ GLYPH<19> 𝜌 𝑇 GLYPH<18> 𝐵 𝑡 -1 𝐵 ∗ GLYPH<19> ( 1 -𝜌 𝑇 ) 𝛾 𝑇 GLYPH<18> 𝐺 𝑡 𝐺 ∗ GLYPH<19> ( 1 -𝜌 𝑇 ) 𝛾 𝑇𝐺 𝜖 𝑡,𝑡 . (21)
+
+𝜖 𝑡,𝑡 represents a lump sum temporary tax/transfer shock. Government nominal debt is therefore a residual pinned down by the inter-temporal nominal government budget constraint:
+
+𝐺 𝑡 + 𝐵 𝑡 + 1 = ( 1 + 𝑅 𝐵 𝑡 -1 ) 𝐵 𝑡 + 𝑇 𝑡 . (22)
+
+2.5 Calibration
+
+Table 1 summarizes the calibration of the model. The value of the discount factor and capital depreciation are standard in quarterly models. We assume log-utility ( 𝜎 = 1) to highlight the precautionary savings coming purely from the liquidity channel and we set 𝜑 = 1. Investment adjustment costs are set to 2.5. Hours in steady state assume that each agent works 1/3 of their time. We calibrate the steady-state share of government spending in output (20%) and the annual debt-to-output ratio (57%) to match the average for the US economy from 1984 to 2018. Rotemberg price adjustment costs are calibrated to match a frequency of price adjustment of 3.5 quarters. For cleaner intuition of the impulse responses, we assume no smoothing in the interest rate and taxes. In all simulations, tax response to government spending will remain fixed to 𝛾 𝐺𝑇 = 0 . 1 as in Gal'ı et al. (2007). The rest of the parameters of the monetary and fiscal policy rules will vary across exercises. Passive fiscal policy will imply 𝛾 𝑇 = 1 while the less passive regime will have 𝛾 = 0 . 5, which is the lower variable that ensures stability under all the scenarios analyzed below. Active monetary policy uses 𝜓 𝜋 = 1 . 2 while passive 𝜓 𝜋 = 0 . 8. Reducing further the response to inflation will generate much larger effects of fiscal policy.
+
+Transition probabilities are calibrated such that capitalists remain in the 𝐾 island with probability 𝜆 𝐾,𝐾 = 0 . 8 or move the 𝐻 one with probability 𝜆 𝐾,𝐻 = 0 . 02. Hand-to-mouths instead have 𝜆 𝐻,𝐾 = 0 . 0541 probability to become capitalists and savers 𝜆 𝑆,𝑆 = 0 . 95 to stay savers. The rest of the transition probabilities are set accordingly to ensure that the population shares remain constant. This calibration follows Bilbiie et al. (2023) and Bilbiie (2024) by implying that non hand-to-mouth agents have in beween 2% ( 𝜆 𝐾,𝐻 = 0 . 02) and 4% probability of becoming hand-to-mouth ( 𝜆 𝑆,𝐻 = 0 . 0369). 5 In line with data from the Survey of Consumer Finance, we calibrate to 20% of the population living hand-to-mouth, 10% capitalists while the rest is made of savers. 6
+
+Stability Analysis As discussed in the introduction, Hagedorn (2021) set up with nominal fiscal policy permits us to extend the static exploration of policy interactions beyond the traditional set of parameters' space. On the other hand, from Bilbiie (2008), we know that the presence of hand-to-mouth households affects the area of determinacy. Therefore, in online Appendix C, we perform a stability analysis of the model under the case of real and nominal fiscal policy. To be able to isolate as well the implications of the introduction of a third type of agent, we also perform the same stability analysis of a two-agent version of the model by setting the share of savers in the economy equal to 0 (and, therefore, Π 𝐾 = 0 . 8). The results show that: i) the inverted Taylor principle ( inverted aggregate demand logic - Bilbiie (2008)) is not present either in the two agents model with nominal fiscal policy or in the three agents model with real fiscal policy; ii) with real fiscal policy both models present four regions as in Leeper (1991) while with nominal fiscal policy we end up with just two regions. As fiscal policy becomes less and less passive ( 𝛾 𝑇 approaching 0), we get instability, but otherwise, determinacy is attained independently of the monetary policy stance. Therefore, as in Hagedorn (2021), allowing the government to set fiscal policy in nominal terms induces price level determinacy in the model even with passive monetary policy.
+
+<missing-text>
+
+Table 1: Calibration
+
+2.6 The dynamics of the liquidity premium
+
+Before moving on to the model simulations in the following sections, we believe it is helpful to provide a characterization of the dynamics of the liquidity premium to understand better the determinants of the portfolio choice of the capitalists. The liquidity premium in this economy is given by the expected return premium to hold the less liquid asset (capital) relative to the more liquid one (public debt). Therefore we can write it as the ratio between the expected real gross return on capital and the expected real return on government bonds:
+
+𝐿𝑃 𝑡 = E 𝑡 ( 𝑅 𝐾 𝑡 + 1 + ( 1 -𝛿 ) 𝑄 𝑡 + 1 ) 1 𝑄 𝑡 ( 1 + 𝑅 𝐵 𝑡 ) 1 Π 𝑡 + 1 , (23)
+
+where, due to the presence of investment adjustment costs, 𝑄 𝑡 is the price of capital goods relative to consumption goods. For ease of exposition we call the real gross return of the two assets: R 𝐾 𝑡 + 1 = 𝑅 𝐾 𝑡 + 1 +( 1 -𝛿 ) 𝑄 𝑡 + 1 𝑄 𝑡 and R 𝐵 𝑡 + 1 = 1 + 𝑅 𝐵 𝑡 Π 𝑡 + 1 . As a result the liquidity premium can be written as 𝐿𝑃 𝑡 = E 𝑡 R 𝐾 𝑡 + 1 R 𝐵 𝑡 + 1 .
+
+Proposition 1. The dynamics of the liquidity premium can be characterized up to the first order as follows:
+
+ˆ 𝐿𝑃 𝑡 = 𝛽 E 𝑡 GLYPH<2> ˜ R 𝐾 𝑡 + 1 -˜ R 𝐵 𝑡 + 1 GLYPH<3> = -𝜎 E 𝑡 GLYPH<2> 𝜆 𝐾,𝑆 ( ˆ 𝐶 𝑆 𝑡 + 1 -ˆ 𝐶 𝐾 𝑡 + 1 ) + 𝜆 𝐾,𝐻 ( ˆ 𝐶 𝐻 𝑡 + 1 -ˆ 𝐶 𝐾 𝑡 + 1 ) GLYPH<3> . (24)
+
+In the above expression, ' ˜ (·) ' denotes that the variable has been linearized, as opposed to log-linearized (denoted by ' ˆ (·) '), in line with how the literature treats variables that are already expressed as percentages. The proof of this proposition, as well as further details on the analytics of the model, can be found in Appendix I.v.
+
+Equation (24) helps us underpin in higher analytical details the mechanism that generates variations in the liquidity premium as related to self-insurance. The main mechanism is driven by the difference between the consumption of the capitalists and that of the other two types. The intuition behind this is that what determines the liquidity premium is the poor insurance quality of the capital
+
+asset. If the change in the consumption of the three agents is identical in every period, then the liquidity premium is neutralized, as there is no need for self-insurance to begin with. This will make the two assets perfect substitutes. In fact, in this case, the change in consumption will always be the same, regardless of which type the current capitalist will be in the next period. By contrast, if we consider a shock that induces a stronger response of the consumption of the non-hand-to-mouth type vis-'a-vis those hand-to-mouth, we see that the last term in the equation above is likely to dominate. Assuming further that such deviation is positive, we see that it will generate a fall in the liquidity premium. Intuitively, such a shock makes the perspective of the risky hand-to-mouth state not as undesirable and, therefore, reduces the need for self-insurance. For this reason, the willingness to hold government bonds falls, and the real interest rate must increase for the market to clear. Through this mechanism, we see the importance of the interplay between monetary and fiscal policies in shaping the portfolio choice of agents with access to both capital and bond markets. Changes in the supply of government bonds, coupled with a change in their remuneration induced through monetary policy, will generate consumption inequality across the different categories, thereby affecting the need for insurance for the capitalist. This is what we will now study in the rest of the paper.
+
+3 The portfolio channel of monetary and fiscal policy interaction
+
+In this section, we report the dynamics of the model following a supply ( technology ) and a demand ( fiscal ) shock with a focus on different combinations of the monetary-fiscal policy mix.
+
+Following Leeper (1991), for each of these shocks, we consider two scenarios for monetary policy: passive ( 𝜙 𝜋 = 0 . 8) when the nominal interest rate responds less than one to one to inflation; active ( 𝜙 𝜋 = 1 . 2) when the Taylor principle is satisfied. For each of these cases, we consider two scenarios for fiscal policy: passive ( 𝛾 𝑇 = 1) when nominal taxes respond one to one to the increase in nominal debt; less passive ( 𝛾 𝑇 = 0 . 5) when the reaction in taxes is more muted (i.e. fiscal policy decides to reduce as much as possible the increase in taxes to stimulate the economy).
+
+3.1 Technology shock
+
+First, in Figure 1 and Figure 2, we analyze the consequences of the portfolio channel on the transmission of a standard supply shock analyzed in the literature, i.e., a temporary and persistent ( 𝜌 𝑎 = 0 . 75 ) technology shock 𝐴 𝑡 . In particular, each figure plots different fiscal regimes for the same monetary regime.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+The general transmission mechanism is the one established in the New Keynesian literature for this type of shock. A negative technology shock increases the real marginal costs, which determines an increase in inflation. Furthermore, it also generates a decrease in investments and a rise in labor hours. Importantly, we can see that a negative TFP shock relaxes the self-insurance mechanism we highlight in this paper. In particular, the rise in hours determines an increase in the consumption
+
+of hand-to-mouth, which decreases the desirability of liquid government bonds for self-insurance purposes (becoming hand-to-mouth becomes less undesirable). This can be seen from the portfolio choice of capitalists, who reduce their holdings of this type of asset. On the other hand, for savers who only have access to the bond markets, the standard interest rate channel is dominant, and they respond to the rise in interest rate by investing more and consuming less. Given the current calibration, we see that the bond holdings of hand-to-mouth follow a similar path as that of savers, which further improves the rise in consumption of the former. In line with the lower demand for self-insurance of the capitalists, the liquidity premium, which quantifies the insurance value of government bonds as pointed out in Proposition 1, decreases.
+
+By moving to a comparative analysis across regimes, we can see how different combinations affect the portfolio channel and, therefore, the aggregate dynamics in the economy. In particular, a comparison across Figures 1 and 2 shows how a more active monetary policy in response to an inflationary technology shock induces stronger and more persistent movements in output, and consequently, a smaller increase in hours. Importantly, this logic is not peculiar to technology shocks but will hold for all supply shocks that move inflation and output in opposite directions in the context of a monetary policymaker that does pure inflation targeting, such as a cost-push shock: a stronger monetary policy response to tame inflation is going to have a destabilizing effect on output which will limit the response of hours. This translates, in general, into a lower increase in hand-to-mouth consumption and a higher decline in capitalist consumption. As a consequence, the decline in the liquidity premium, on impact, is similar to the one of Figure 1. However, its persistence is much higher now when less passive fiscal policy is at play.
+
+This is because the interaction of monetary and fiscal policy brings a further mechanism at play, which was not evident in the case of passive monetary policy. After an initial decrease due to the shift in capitalists' portfolios and counterbalanced by a decrease in taxes for government budget constraint to hold, real government debt experiences a rise for two reasons, i.e., the increasing demand of capitalists and the increased interest payments on the existing stock. The strength of this rise is driven by the monetary reaction as well as how strongly the government tries to stabilize
+
+it through taxes. In particular, if the fiscal policy does not react strongly to the change in debt, the stock of government debt is going to follow a more strongly increasing path, coupled with an active monetary policymaker that changes rates aggressively and raises the interest payments on government debt. This is evident in Figure 2. This strong increase in the supply of real government debt has a feedback effect on the liquidity premium, which takes longer to recover.
+
+Furthermore, we can see how different fiscal policy stances affect the liquidity premium and, consequently, capital investment and, ultimately, output. When monetary policy is active, a passive fiscal policy delivers a lower decline in investment and output. This supply effect is largely non-present in Figure 1, where we see that with passive monetary policy, the fiscal stance does not affect the macroeconomic variables. Our simulations also show that, for a supply shock, the trade-off between self-insurance and 'insurance-through-investment' 7 is resolved in favor of the former. In fact, following a negative TFP shock, a decrease in investment increases the demand for labor and creates a substitution effect that improves the position of the hand-to-mouth. This might be overturned in the presence of a more general production function, e.g., of the CES form, which would allow for complementarity between capital and labor.
+
+Finally, we want to show the importance of the portfolio channel via the liquidity premium for the transmission of supply shocks, compared to the standard transmission mechanism. To do so, in online Appendix D, we provide simulations of the two-agent version of the model (by setting Π 𝑆 = 0, and 𝜆 𝐾,𝐾 = 0 . 98 as in Bilbiie et al. (2022) and Bilbiie et al. (2023)) where there are no savers and therefore there are no meaningful portfolio choices of capitalists affecting the demand for Government debt. Results show that in the two-agent economy, the dynamics are mainly driven by the monetary authority independently of the fiscal stance. This is because the self-insurance channel is not present in this economy, and therefore, the liquidity premium barely moves.
+
+3.2 Fiscal Shock
+
+How does fiscal policy transmit with different combinations of the monetary/fiscal policy mix? We answer this question by looking at the shock to government spending and focusing our attention on the effect on real public debt when different combinations of monetary and fiscal policy lead to different behaviors of inflation.
+
+Figure 3 shows the responses of key variables to a persistent ( 𝜌 𝑔 = 0 . 9) increase in G of 1% in terms of output for the case of active monetary policy. 8 The increase in government purchases raises the level of aggregate demand in the economy. Following the standard New Keynesian narrative, firms operating under monopolistic competition raise their prices, however, given nominal rigidities, this change is insufficient to fully restore the original equilibrium. The labor demand curve shifts outwards, hours worked and output rise; this implies an increase in the real wage (not shown). In contrast to the representative-agent paradigm, the presence of a high marginal propensity to consume agents ( 𝐻 ) means that they will see a boost in their disposable income and raise their consumption. In contrast, capitalists and savers who have access to financial markets will reduce their consumption. As a result, aggregate consumption is slightly crowded out on impact, but it quickly turns positive, and its magnitude depends on the fiscal policy stance. Capital investment, instead, is persistently crowed out in line with the standard transmission mechanism in the presence of investment adjustment costs.
+
+The effect on real debt can be decomposed into demand and supply-side effects. From the demand side, the strong income effect that pushes up consumption of the hand-to-mouth makes the 𝐻 state less undesirable and, therefore, lowers the liquidity premium, making bond and capital closer substitutes. This induces a shift of the capitalists out of the bond market and into the capital market as their demand for insurance via bonds is reduced ( 𝑍 𝐾 declines for the first three or four quarters, and the initial drop in investment is contained). However, there is a contrasting supply-side effect on capital vs bond investment. This is due to the increase in nominal debt issuance generated by the increase in government spending and by the increase in real debt due to the jump in inflation
+
+and the real interest rate. This standard 'interest rate' channel makes bonds more attractive with respect to capital.
+
+The relative strength of these two effects depends on the policy mix. When monetary policy is active, the supply side effect dominates (Figure 3). When fiscal policy is passive (solid blue line), the rise in tax revenues corresponds to a smaller increase in inflation, which translates to a smaller decline and faster recovery in the liquidity premium compared with the less passive fiscal policy case (dashed orange line). If the self-insurance motive of capitalists dominates, we would observe a smaller drop in investment in the less passive fiscal policy case, while our simulations show the opposite. This is evidence that the supply-side effect is driving the response of real debt to the fiscal shock.
+
+The different behavior of inflation and the liquidity premium also explain the different fiscal multipliers under the two fiscal policy scenarios. On impact, the fiscal multiplier is slightly larger under passive fiscal policy, but the difference widens when looking at the cumulative effect.
+
+Figure 4 shows the responses for the case of passive monetary policy. Compared to the case of active monetary, the impact of the shock is qualitatively similar for many variables, as the standard New-Keynesian narrative also applies in this case. Quantitatively, however, we observe a substantially larger fiscal multiplier, a larger increase in inflation, and a smaller rise in the real rate. When the central bank lets inflation increase by a larger amount, the demand effect of the fiscal shock is magnified. This induces a stronger income effect on the hand-to-mouth, which reduces even further the self-insurance motive of capitalists. Their shift away from the bond market is much more pronounced and persistent. Therefore, in this case, the demand effect now dominates over the supply of new public debt. Under both fiscal policy scenarios, capitalists substitute bonds for capital ( 𝑍 𝐾 is negative and persistent). When fiscal policy is less passive, we even observe a decline in real government debt for a few quarters. Finally, we also notice how, under the less passive fiscal policy, the increase in inflation is so large that it generates a substantial decline in real tax revenues, which frees up disposable income and generates an increase in consumption for both capitalists and savers.
+
+Another way to highlight the importance of the demand side effect coming from the reduced
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+insurance motive of capitalists is to look, as we did for the technology shock case, at the same impulse responses in the two-agent version of the model where only the supply side effect is at play (see online Appendix D). Simulations show once again that, given the monetary policy stance, fiscal policy does not have a visible impact on macroeconomic variables in the two-agent economy. Let's consider the passive monetary policy scenario in Figure D6 for example. In this model, capital and
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+bonds are perfect substitutes, and therefore, the capitalists do not substitute bonds for capital, as in the three-agent economy. This leads to a larger decline in investment in the two-agent model compared to the less passive fiscal policy case in the three-agent economy. Note also the standard decline in the consumption of capitalists, which further contributes to generating a smaller fiscal multiplier in the two-agent setup.
+
+<missing-text>
+
+Notes: This table summarizes the output effects of a government spending shock according to different models: the first two rows refer to the three agents model described in section 2, the bottom two rows refer to the two-agent version where we set Π 𝐾 = 0 . 8 and Π 𝑆 = 0.
+
+Another way to compare different policy mixes within and across models is indeed to look at the fiscal multipliers. Table 2 reports the impact and cumulative multipliers (over 15 quarters) for the three-agent model and the two-agent version. The comparison between the two models highlights once more the importance of the portfolio channel in the transmission of fiscal shocks. In the absence of the demand side 'self-insurance' channel, the supply side effect dominates, and the fiscal policy stance has no impact on the multipliers. Instead, in the three-agent model, the multipliers depend on the joint behavior of monetary and fiscal policy. In particular, the fiscal multiplier is larger when monetary policy is passive and fiscal policy is less passive. This is because the demand side effect of the fiscal shock is magnified by the reduced insurance motive of capitalists.
+
+In sum, as we saw for the technology shock, the comparison between our model and the two-agent version highlights the importance of the portfolio channel in the transmission of fiscal shocks. In the absence of the demand side 'self-insurance' channel, the supply side effect dominates, and the fiscal policy stance has a limited impact on the macroeconomic variables.
+
+3.3 Monetary Shock
+
+As a final exercise, we want to study how monetary policy transmission is affected by different combinations of the monetary/fiscal policy mix. Hence, we look at the effect of a monetary policy shock on the economy.
+
+Figure 5 shows the responses of key variables to a persistent ( 𝜌 𝑚 = 0 . 3) increase in 𝑀 for the case of active monetary policy. The standard NK transmission of monetary policy is at play. The decrease in the nominal interest rate induces an increase in the marginal cost and inflation as well as consumption of all agents, hours worked, output, and investment. Importantly, we note how this shock decreases the self-insurance motive because the consumption of capitalists increases less than the consumption of hand-to-mouth on impact. As a result, this induces capitalists to substitute investment in bonds with investment in physical capital, therefore pushing aggregate investment further up. The increase in the price level has a negative impact on real debt and spending. This means that the standard supply channel makes bonds even further less attractive than capital. This second channel, as well as the effect on real tax revenues and obviously on inflation, depends on the fiscal stance. With less passive fiscal policy, we observe a larger increase in investment, which translates into a larger and more persistent output above the trend.
+
+Turning to the case of passive monetary policy (Figure 6), we can see the standard NK transmission of monetary policy at play again. However, now the effect of the fiscal stance flips compared to the previous case. When monetary policy is passive, a less passive fiscal policy substantially reduces inflation after the first period. This, in turn, negatively affects the disposable income of hand-to-mouth via its effect on real taxes and pushes the liquidity premium up, resulting in aggregate investment and output being below the case with a more passive fiscal policy.
+
+As for the previous two shocks, we also show simulations for the two-agent version of the model in online Appendix D. The results, once more, confirm that the fiscal policy stance does not affect the macroeconomic variables in the two-agent economy. This is because of the absence of the self-insurance motive of the capitalists.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+4 Conclusions
+
+This paper studied how the reciprocal interplay of fiscal and monetary policy affects the liquidity properties of the portfolios of different types of households. In doing so, we built upon the burgeoning research agenda, focusing on the empirical differences in portfolios across the wealth distribution and its impact on policy effectiveness and macroeconomic dynamics.
+
+Utilizing a New-Keynesian model with limited household heterogeneity, we considered the transmission mechanism arising from the demand side of assets that we label the 'self-insurance' channel. Through this channel, monetary and fiscal policy interact with the portfolio choices of private agents. This analysis revealed that the 'self-insurance' channel operates opposite to the standard one coming from the 'supply' of public debt, driving the liquidity premium. The presence of these two competing forces determines the behavior of the liquidity premium under different monetary and fiscal policy regimes. It shapes the relationship between this premium and the portfolio choices of households.
+
+Our first experiment illustrated how these channels manifest and interact in response to a standard technology shock. We found that when there is a large change in government debt, the supply channel enhances the gap in the liquidity premium. On the contrary, in regimes where changes in government debt are more tempered, the 'self-insurance' mechanism dominates. Moreover, our model suggested that the 'insurance-through-investment' motive is weak due to the poor complementarity between the two productive assets, indicating that the building of more capital stock, via its general equilibrium effect on labor income, does not serve as a viable substitute for liquid savings for agents in the hand-to-mouth state.
+
+In our second experiment, we explored the effects of a fiscal stimulus within different combinations of the monetary/fiscal policy mix. The relative strength of the self-insurance and supply channels was found to be dependent on the policy mix. Under an active monetary policy, the supply effect dominated, while under a passive monetary policy, a larger income effect on hand-to-mouth agents made the 'self-insurance' channel stronger.
+
+In our third and final experiment, we looked at the propagation of a monetary policy shock
+
+under different policy mixes. We found that the fiscal stance could affect the liquidity premium and, consequently, the investment and output dynamics. In the case of an active monetary policy, a reduction in the policy rate that stimulates the economy reduces the self-insurance motive of capitalists, leading to a substitution of bonds for capital. The resulting increase in the price level reduces real debt and spending, and, as a result, the supply channel makes bonds even less attractive than capital. This effect is magnified when fiscal policy is less passive. In the case of a passive monetary policy, instead, the effect of the fiscal stance on the propagation of monetary policy shocks flips.
+
+We also showed how comparing the simulations of the three-agent economy with those implied by a standard two-agent one demonstrates the quantitative importance of the transmission channel studied in this paper. In a two-agent economy, the absence of the 'self-insurance' channel makes monetary policy the main driver of aggregate dynamics, independently of the fiscal policy stance.
+
+This study provides interesting insights into the complex dynamics between fiscal and monetary policy via their influence on the portfolio choices of different types of agents. It also suggests that the challenges for the conduct of monetary policy in the presence of substantial fiscal policy interventions, like in the last few years, are more complex than previously thought. Central Banks should also consider the impact of the 'self-insurance' motive on the dynamics of the liquidity premium when setting the monetary policy stance.
+
+Future work could extend the analysis presented here along several dimensions. For example, the model economy could be modified to allow for a CES production function with complementarity between capital and labor to check if the relative strength of the 'insurance-through-investment' channel changes. Further extensions of the model should also consider the presence of distortionary taxes and targeted transfers. Finally, it would also be interesting to allow for endogenous regime switching in the fiscal policy mix.
+
+References
+
+Auclert, A., Rognlie, M., and Straub, L. (2024). The Intertemporal Keynesian Cross. Technical report, Journal of Political Economy, forthcoming.
+
+Bayer, C., Born, B., and Luetticke, R. (2023). The Liquidity Channel of Fiscal Policy. Journal of Monetary Economics , 134 , 86-117.
+
+Bianchi, F. and Melosi, L. (2019). Escaping the Great Recession. American Economic Review , 109 (4), 1030-1058.
+
+Bianchi, F., Ilut, C., and Schneider, M. (2020). Uncertainty Shocks, Asset Supply and Pricing Over the Business Cycle. The Review of Economic Studies , 87 (3), 1132-1178.
+
+Bilbiie, F. O. (2008). Limited asset markets participation, monetary policy and (inverted) aggregate demand logic. Journal of Economic Theory , 140 (1), 162-196.
+
+Bilbiie, F. O. (2024). Monetary Policy and Heterogeneity: An Analytical Framework. Technical report, Review of Economics Studies, forthcoming.
+
+Bilbiie, F. O., Kanzig, D. R., and Surico, P. (2022). Capital and Income Inequality: An AggregateDemand Complementarity. Journal of Monetary Economics , 126 (C), 154-169.
+
+Bilbiie, F. O., Primiceri, G., and Tambalotti, A. (2023). Inequality and business cycles. Working Paper 31729, National Bureau of Economic Research.
+
+Cantore, C. and Dhamija, V. (2024). The Perils of a Dual Mandate. Economics Series Working Papers 1059, University of Oxford, Department of Economics.
+
+Cantore, C. and Freund, L. B. (2021). Workers, Capitalists, and the Government: Fiscal Policy and Income (Re)distribution. Journal of Monetary Economics , 119 , 58-74.
+
+Davig, T. and Leeper (2006). Fluctuating Macro Policies and the Fiscal Theory of the Price Level. NBER Macroeconomics Annual , 21 , 247-315.
+
+Davig, T. and Leeper (2011). Monetary-Fiscal Policy Interactions and Fiscal Stimulus. European Economic Review , 55 (2), 211-227.
+
+Gal'ı, J. (2015). Monetary Policy, Inflation, and the Business Cycle: an Introduction to the New Keynesian Framework and its Applications . Princeton University Press.
+
+Gal'ı, J., L'opez-Salido, J. D., and Vall'es, J. (2007). Understanding the Effects of Government Spending on Consumption. Journal of the European Economic Association , 5 (1), 227-270.
+
+Hagedorn, M. (2021). A Demand Theory of the Price Level. Technical report, Mimeo.
+
+Hagedorn, M., Manovskii, I., and Mitman, K. (2019). The Fiscal Multiplier. NBER Working Papers 25571, National Bureau of Economic Research, Inc.
+
+Kaplan, G., Moll, B., and Violante, G. L. (2018). Monetary Policy According to HANK. American Economic Review , 108 (3), 697-743.
+
+Leeper, E. M. (1991). Equilibria Under 'Active' and 'Passive' Monetary and Fiscal Policies. Journal of Monetary Economics , 27 , 129-147.
+
+Luetticke, R. (2020). Transmission of Monetary Policy with Heterogeneity in Household Portfolios. American Economic Journal: Macroeconomics .
+
+Orchard, J., Ramey, V. A., and Wieland, J. F. (2023). Micro mpcs and macro counterfactuals: The case of the 2008 rebates. Working Paper 31584, National Bureau of Economic Research.
+
+Rotemberg, J. J. (1982). Sticky Prices in the United States. Journal of political economy , 90 (6), 1187-1211.
+
+Sargent, T. and Wallace, N. (1981). Some Unpleasant Monetarist Arithmetic. Federal Reserve Bank of Minneapolis Quarterly Review , 5 (3), 1-17.
+
+Sargent, T. J. (1984). Rational Expectations and Inflation . Harper & Row.
+
+Woodford, M. (1990). Public Debt as Private Liquidity. The American Economic Review , 80 (2), 382-388.
+
+Appendix
+
+I Model details
+
+I.i Solution
+
+The solution of the model is obtained by writing down the Bellman equations for capitalists and savers
+
+𝑉
+
+𝐾 ( B 𝐾 𝑡 , 𝐾 𝐾 𝑡 ) = max { 𝑁 𝐾 𝑡 ,𝑍 𝑡 + 1 ,𝐾 𝐾 𝑡 + 1 } ∞ 𝑡 = 0 ( 𝐶 𝐾 𝑡 1 -𝜎 1 -𝜎 -𝜓 𝑁 𝐾 𝑡 1 + 𝜑 1 + 𝜑 + 𝛽 E 𝑡 GLYPH<20> 𝑉 𝐾 ( B 𝐾 𝑡 + 1 , 𝐾 𝐾 𝑡 + 1 ) + Π 𝑆 Π 𝐾 𝑉 𝑆 ( B 𝑆 𝑡 + 1 ) + Π 𝐻 Π 𝐾 𝑉 GLYPH<16> B 𝐻 𝑡 + 1 GLYPH<17> GLYPH<21>
+
+s.t. (7) , (9) , (10) , (3) , (4) , (5)
+
+and similarly,
+
+𝑉 𝑆 ( B 𝑆 𝑡 ) = max { 𝑁 𝑆 𝑡 ,𝑍 𝑡 + 1 , } ∞ 𝑡 = 0 ( 𝐶 𝑆 𝑡 1 -𝜎 1 -𝜎 -𝜓 𝑁 𝑆 𝑡 1 + 𝜑 1 + 𝜑 + 𝛽 E 𝑡 GLYPH<20> Π 𝐾 Π 𝑆 𝑉 𝐾 ( B 𝐾 𝑡 + 1 , 𝐾 𝐾 𝑡 + 1 ) + 𝑉 𝑆 ( B 𝑆 𝑡 + 1 ) + Π 𝐻 Π 𝑆 𝑉 GLYPH<16> B 𝐻 𝑡 + 1 GLYPH<17> GLYPH<21> GLYPH<27>
+
+s.t. (8) , (9) , (3) , (4) , (5) .
+
+Moreover, hand-to-mouth agents will not consume on their Euler equation, but will choose the amount of labor hours optimally, giving rise to a standard intra-temporal condition detailed below.
+
+Using dynamic programming techniques, we can show that the optimality conditions to these
+
+GLYPH<27>
+
+programs can be expressed in terms of three Euler equations,
+
+𝐶 𝐾 𝑡 -𝜎 = 𝛽 E 𝑡 " GLYPH<0> 𝑅 𝐾 𝑡 + 1 + ( 1 -𝛿 ) 𝑄 𝑡 + 1 GLYPH<1> 𝐶 𝐾 𝑡 + 1 -𝜎 𝑄 𝑡 # (A1)
+
+𝐶 𝐾 𝑡 -𝜎 = 𝛽 E 𝑡 GLYPH<20> 1 + 𝑅 𝐵 𝑡 Π 𝑡 + 1 GLYPH<16> 𝜆 𝐾,𝐾 𝐶 𝐾 𝑡 + 1 -𝜎 + 𝜆 𝐾,𝑆 𝐶 𝑆 𝑡 + 1 -𝜎 + 𝜆 𝐾,𝐻 𝐶 𝐻 𝑡 + 1 -𝜎 GLYPH<17> GLYPH<21> (A2)
+
+𝐶 𝑆 𝑡 -𝜎 = 𝛽 E 𝑡 GLYPH<20> 1 + 𝑅 𝐵 𝑡 Π 𝑡 + 1 GLYPH<16> 𝜆 𝑆,𝐾 𝐶 𝐾 𝑡 + 1 -𝜎 + 𝜆 𝑆,𝑆 𝐶 𝑆 𝑡 + 1 -𝜎 + 𝜆 𝑆,𝐻 𝐶 𝐻 𝑡 + 1 -𝜎 GLYPH<17> GLYPH<21> , (A3)
+
+and three intra-temporal conditions
+
+𝜓 𝑁 𝐾 𝑡 𝜑 𝐶 𝐾 𝑡 -𝜎 = 𝑊 𝑡 (A4)
+
+𝜓 𝑁 𝑆 𝑡 𝜑 𝐶 𝑆 𝑡 -𝜎 = 𝑊 𝑡 (A5)
+
+𝜓 𝑁 𝐻 𝑡 𝜑 𝐶 𝐻 𝑡 -𝜎 = 𝑊 𝑡 . (A6)
+
+I.ii labor union
+
+Following much of the literature on models with limited heterogeneity, we assume the existence of a labor union that pools the labor supplies of the different types, sets the wage and redistributes labor hours equally among agents ( 𝑁 𝐾 𝑡 = 𝑁 𝑆 𝑡 = 𝑁 𝐻 𝑡 ). Hence the total labor supply in the economy is given by
+
+𝜓𝑁 𝜑 𝑡 = 𝑊 𝑡 𝐶 𝑡 -𝜎 , (A7)
+
+where 𝜓 can be calibrated in order to ensure that the number of aggregate hours worked in steady state is 0 . 33.
+
+I.iii Full list of equilibrium conditions
+
+𝑈 ' ( 𝐶 𝐾 𝑡 ) = 𝐶 𝐾 𝑡 -𝜎 (A8)
+
+𝑈 ' ( 𝐶 𝐾 𝑡 ) = 𝛽 𝑅 𝑡 GLYPH<16> 𝜆 𝐾,𝐾 𝑈 ' ( 𝐶 𝐾 𝑡 + 1 ) + 𝜆 𝐾,𝑆 𝑈 ' ( 𝐶 𝑆 𝑡 + 1 ) + 𝜆 𝐾,𝐻 𝑈 ' ( 𝐶 𝐻 𝑡 + 1 ) GLYPH<17> (A9)
+
+𝑈 ' ( 𝑁 𝐾 𝑡 ) = -𝜓 𝑁 𝐾 𝑡 𝜑 (A10)
+
+𝑊 𝑡 = 𝜓 𝑁 𝜑 𝑡 𝐶 𝜎 𝑡 (A11)
+
+𝑁 𝐾 𝑡 = 𝑁 𝑡 (A12)
+
+B 𝐾 𝑡 = 𝜆 𝐾,𝐾 Π 𝐾 𝑍 𝐾 𝑡 + Π 𝑆 𝜆 𝑆,𝐾 𝑍 𝑆 𝑡 (A13)
+
+𝑈 ' ( 𝐶 𝑆 𝑡 ) = 𝐶 𝑆 𝑡 -𝜎 (A14)
+
+𝑈 ' ( 𝐶 𝑆 𝑡 ) = 𝛽 𝑅 𝑡 GLYPH<16> 𝑈 ' ( 𝐶 𝑆 𝑡 + 1 ) 𝜆 𝑆,𝑆 + 𝑈 ' ( 𝐶 𝐾 𝑡 + 1 ) 𝜆 𝑆,𝐾 + 𝑈 ' ( 𝐶 𝐻 𝑡 + 1 ) 𝜆 𝑆,𝐻 GLYPH<17> (A15)
+
+𝑈 ' ( 𝑁 𝑆 𝑡 ) = -𝜓 𝑁 𝑆 𝑡 𝜑 (A16)
+
+𝑁 𝑆 𝑡 = 𝑁 𝑡 (A17)
+
+𝐶 𝑆 𝑡 + 𝑍 𝑆 𝑡 + 1 𝑃 𝑡 = 𝑊 𝑡 𝑁 𝑆 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝑆 𝑡 Π 𝑆 𝑃 𝑡 -𝜏 𝑆 -𝑇 𝑆 𝑡 𝑃 𝑡 (A18)
+
+B 𝑆 𝑡 = 𝑍 𝑆 𝑡 Π 𝑆 𝜆 𝑆,𝑆 + 𝑍 𝐾 𝑡 𝜆 𝐾,𝑆 Π 𝐾 (A19)
+
+𝑈 ' ( 𝐶 𝐻 𝑡 ) = 𝐶 𝐻 𝑡 -𝜎 (A20)
+
+𝑈 ' ( 𝐶 𝐻 𝑡 ) = -𝜓 𝑁 𝐻 𝑡 𝜑 (A21)
+
+𝑁 𝐻 𝑡 = 𝑁 𝑡 (A22)
+
+𝑍 𝐻 𝑡 = 0 (A23)
+
+B 𝐻 𝑡 = 𝑍 𝐾 𝑡 𝜆 𝐾,𝐻 Π 𝐾 + 𝑍 𝑆 𝑡 Π 𝑆 𝜆 𝑆,𝐻 (A24)
+
+𝐶 𝐻 𝑡 = 𝑊 𝑡 𝑁 𝐻 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝐻 𝑡 Π 𝐻 𝑃 𝑡 -𝑇 𝐻 𝑡 𝑃 𝑡 + 𝜏 𝐻 (A25)
+
+𝑌 𝑡 = ( 𝑁 𝑡 𝐴 𝑡 ) 1 -𝛼 𝐾 𝛼 𝑡 -1 -𝐹 (A26)
+
+𝑀𝑃𝐿 𝑡 = ( 1 -𝛼 ) 𝐴 1 -𝛼 𝑡 GLYPH<18> 𝑁 𝑡 𝐾 𝑡 -1 GLYPH<19> -𝛼 (A27)
+
+𝑊 𝑡 = 𝑀𝑃𝐿 𝑡 𝑀𝐶 𝑡 (A28)
+
+𝑌 𝑡 = 𝐷 𝑡 + 𝑁 𝑡 𝑊 𝑡 + 𝑅 𝐾 𝑡 𝐾 𝑡 -1 (A29)
+
+𝑀𝑃𝐾 𝑡 = 𝛼 GLYPH<18> 𝐾 𝑡 -1 𝑁 𝑡 𝐴 𝑡 GLYPH<19> 𝛼 -1 (A30)
+
+𝑅 𝐾 𝑡 = 𝑀𝐶 𝑡 𝑀𝑃𝐾 𝑡 (A31)
+
+𝐾 𝐾 𝑡 = 𝐼 𝐾 𝑡 ( 1 -𝑆 𝑡 ) + 𝐾 𝐾 𝑡 -1 ( 1 -𝛿 ) (A32)
+
+𝑋 𝑡 = 𝐼 𝐾 𝑡 𝐼 𝐾 𝑡 -1 (A33)
+
+𝑆 𝑡 = 𝜄 ( 𝑋 𝑡 -1 ) 2 (A34)
+
+𝑆 ' 𝑡 = ( 𝑋 𝑡 -1 ) 2 𝜄 (A35)
+
+𝑈 ' ( 𝐶 𝐾 𝑡 ) = 𝑈 ' ( 𝐶 𝐾 𝑡 + 1 ) 𝛽 GLYPH<0> 𝑅 𝐾 𝑡 + 1 + ( 1 -𝛿 ) 𝑄 𝑡 + 1 GLYPH<1> 𝑄 𝑡 (A36)
+
+𝐿𝑃 𝑡 = 1 𝑅 𝑡 𝑅 𝐾 𝑡 + 1 + ( 1 -𝛿 ) 𝑄 𝑡 + 1 𝑄 𝑡 (A37)
+
+𝑄 𝑡 GLYPH<0> 1 -𝑆 𝑡 -𝑋 𝑡 𝑆 ' 𝑡 GLYPH<1> + 𝑄 𝑡 + 1 𝑈 ' ( 𝐶 𝐾 𝑡 + 1 ) 𝛽 𝑈 ' ( 𝐶 𝐾 𝑡 ) 𝑆 ' 𝑡 + 1 𝑋 2 𝑡 + 1 = 1 (A38)
+
+𝐼 𝑡 = Π 𝐾 𝐼 𝐾 𝑡 (A39)
+
+𝐾 𝑡 = Π 𝐾 𝐾 𝐾 𝑡 (A40)
+
+𝑌 𝑡 = 𝐼 𝑡 + 𝐶 𝑡 + 𝐺 𝑡 𝑃 𝑡 (A41)
+
+𝑅 𝑡 = ( 1 + 𝑅 𝑏 𝑡 ) Π 𝑡 + 1 (A42)
+
+𝐶 𝑡 = Π 𝐻 𝐶 𝐻 𝑡 + 𝐶 𝐾 𝑡 Π 𝐾 + Π 𝑆 𝐶 𝑆 𝑡 (A43)
+
+1 -𝜖 + 𝑀𝐶 𝑡 𝜖 𝑀𝑆 𝑡 -Π 𝑡 𝜉 ( Π 𝑡 -1 ) + 𝛽 𝜉 Π 𝑡 + 1 𝑈 ' ( 𝐶 𝐾 𝑡 + 1 ) 𝑈 ' ( 𝐶 𝐾 𝑡 ) ( Π 𝑡 + 1 -1 ) 𝑌 𝑡 + 1 𝑌 𝑡 = 0 (A44)
+
+1 + 𝑅 𝑏 𝑡 1 + 𝑅 ∗ 𝑏 = 1 + 𝑅 𝑏 𝑡 -1 1 + 𝑅 ∗ 𝑏 ! 𝜌 𝑅 𝑏 GLYPH<18> Π 𝑡 Π ∗ GLYPH<19> ( 1 -𝜌 𝑅 𝑏 ) 𝜙 𝜋 𝑀 𝑡 , (A45)
+
+𝑀 𝑡 𝑀 ∗ = GLYPH<18> 𝑀 𝑡 -1 𝑀 ∗ GLYPH<19> 𝜌 𝑚 𝜖 𝑚,𝑡 , (A46)
+
+log ( 𝐴 𝑡 ) -log (( 𝐴 ∗ )) = 𝜌 𝑎 ( log ( 𝐴 𝑡 -1 ) -log (( 𝐴 ∗ ))) + 𝜖 𝐴 𝑡 (A47)
+
+𝐵 𝑡 + 1 = 𝐺 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) 𝐵 𝑡 -𝑇 𝑡 (A48)
+
+𝐵 𝑡 = Π 𝐾 𝑍 𝐾 𝑡 + Π 𝑆 𝑍 𝑆 𝑡 (A49)
+
+Π 𝑡 = 𝑃 𝑡 𝑃 𝑡 -1 (A50)
+
+𝑆 𝑏 𝑡 = 𝐵 𝑡 𝑃 𝑡 𝑌 𝑡 (A51)
+
+𝐺 𝑡 𝐺 ∗ = GLYPH<18> 𝐺 𝑡 -1 𝐺 ∗ GLYPH<19> 𝜌 𝑔 𝜖 𝑔,𝑡 (A52)
+
+𝑇 𝑡 𝑇 ∗ = GLYPH<18> 𝑇 𝑡 -1 𝑇 ∗ GLYPH<19> 𝜌 𝑇 GLYPH<18> 𝐵 𝑡 -1 𝐵 ∗ GLYPH<19> ( 1 -𝜌 𝑇 ) 𝛾 𝑇 GLYPH<18> 𝐺 𝑡 𝐺 ∗ GLYPH<19> ( 1 -𝜌 𝑇 ) 𝛾 𝑇𝐺 𝜖 𝑡,𝑡 (A53)
+
+𝑇 𝐾 𝑡 = 𝑇 𝐻 𝑡 = 𝑇 𝑆 𝑡 = 𝑇 𝑡 (A54)
+
+I.iv Steady State
+
+𝐹
+
+𝑃 ∗ = Π ∗ 𝑅 ∗ = 𝑅 𝑏 ∗ = 1 𝛽 -1 𝑀𝐶 ∗ = 𝜖 𝜖 -1 𝑅 𝐾 ∗ = ( 𝑅 ∗ -1 + 𝛿 ) 𝑁 𝐾 ∗ = 𝑁 𝑆 ∗ = 𝑁 𝐻 ∗ = 𝑁 ∗ 𝐾 ∗ = GLYPH<18> 𝑅 𝐾 ∗ ( 𝑀𝐶 ∗ 𝛼 ) GLYPH<19> 1 𝛼 -1 𝑁 ∗ 𝑊 ∗ = 𝑀𝐶 ∗ ( 1 -𝛼 ) GLYPH<18> 𝑁 ∗ 𝐾 ∗ GLYPH<19> -𝛼 = 𝑁 ∗ GLYPH<18> GLYPH<18> 𝑁 ∗ 𝐾 ∗ GLYPH<19> -𝛼 -GLYPH<18> 𝑊 ∗ + 𝑅 𝐾 ∗ 𝐾 ∗ 𝑁 ∗ GLYPH<19> GLYPH<19> 𝑌 = 𝑁 ∗( 1 -𝛼 ) 𝐾 ∗ 𝛼 -𝐹 𝐵 ∗ = 0 . 57 𝑌 ∗ 4 𝐼 ∗ = 𝛿𝐾 ∗ 𝐺 ∗ = 0 . 2 𝑌 ∗ 𝐶 ∗ = 𝑌 ∗ -𝐼 ∗ -𝐺 ∗ 𝐶 𝐾 ∗ = 𝐶 𝑆 ∗ = 𝐶 𝐻 ∗ = 𝐶 ∗ 𝑇 ∗ = 𝑅 ∗ 𝐵 ∗ + 𝐺 ∗ -𝐵 ∗ 𝑇 𝐾 ∗ = 𝑇 𝐻 ∗ = 𝑇 𝑆 ∗ = 𝑇 ∗ 𝑍 𝐻 ∗ = 𝑍 𝑆 ∗ = 0 𝑍 𝐾 ∗ = 𝐵 ∗
+
+Π 𝐾
+
+I.v Proofs
+
+Proof of Proposition 1
+
+Proof. Consider the two Euler equations for the capitalist type,
+
+𝐶 𝐾 𝑡 -𝜎 = 𝛽 E 𝑡 GLYPH<2> R 𝐾 𝑡 + 1 𝐶 𝐾 𝑡 + 1 -𝜎 GLYPH<3> (A55)
+
+𝐶 𝐾 𝑡 -𝜎 = 𝛽 E 𝑡 h R 𝐵 𝑡 + 1 GLYPH<16> 𝜆 𝐾𝐾 𝐶 𝐾 𝑡 + 1 -𝜎 + 𝜆 𝐾𝑆 𝐶 𝑆 𝑡 + 1 -𝜎 + 𝜆 𝐾𝐻 𝐶 𝐻 𝑡 + 1 -𝜎 GLYPH<17> i (A56)
+
+where we have now used the definitions of the gross real return on capital GLYPH<16> R 𝐾 𝑡 + 1 = ( 𝑅 𝐾 𝑡 + 1 +( 1 -𝛿 ) 𝑄 𝑡 + 1 ) 𝑄 𝑡 GLYPH<17> and of the gross real return on bonds GLYPH<16> R 𝐵 𝑡 + 1 = 1 + 𝑅 𝐵 𝑡 Π 𝑡 + 1 GLYPH<17> respectively.
+
+Then, by taking a first-order approximation of the two around the deterministic steady state and combining them we obtain
+
+𝛽 E 𝑡 GLYPH<2> ˜ R 𝐾 𝑡 + 1 -˜ R 𝐵 𝑡 + 1 GLYPH<3> = -𝜎 E 𝑡 GLYPH<2> 𝜆 𝐾𝑆 ( ˆ 𝐶 𝑆 𝑡 + 1 -ˆ 𝐶 𝐾 𝑡 + 1 ) + 𝜆 𝐾𝐻 ( ˆ 𝐶 𝐻 𝑡 + 1 -ˆ 𝐶 𝐾 𝑡 + 1 ) GLYPH<3> (A57)
+
+where ' ˜ (·) ' denotes that the variable has been linearized, as opposed to log-linearized (denoted by ' ˆ (·) '), in line with how the literature treats variables that are already expressed as percentages.
+
+Finally, we conclude the proof by recognizing that the left-hand side of equation (A57) is the approximation to the first order of the liquidity premium as defined in the main text. □
+
+Online Appendix - Not for Publication
+
+A Lump sum transfer shock
+
+In this section we show results to a temporary decline in 𝜖 𝑡,𝑡 in the fiscal rule for lump sum taxes. This corresponds to a temporary increase in lump sum transfers. Results are in line with the analysis in the manuscript.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+B Robustness
+
+In this section, we show the sensitivity of our results to the calibration of the transition probabilities. As equation (24) shows, the key probabilities driving the liquidity premium are 𝜆 𝐾,𝑆 and 𝜆 𝐾,𝐻 . Hence, we focus on the calibration of the probabilities related to the flows out of the capitalists island. Precisely we compare the baseline calibration ( 𝜆 𝐾,𝐾 = 0 . 8, 𝜆 𝐾,𝐻 = 0 . 4) against a higher and lower probability of remaining capitalists (0.9 and 0.7 respectively) and a higher probability of becoming hand-to-mouth (0.05). We show results for the fiscal shock 9 and present the possible combinations between fiscal and monetary policies separately in this case for ease of exposition. The next four figures show that, while there are obvious quantitative differences in the impulse
+
+response functions, the overall qualitative picture is not affected by the transition probabilities.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+-0.01
+
+-0.02
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+2.
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's). Here the orange dotted line is produced for a value of 𝜆 𝐾,𝐻 = 0 . 03 instead. Higher values would lead to multiple equilibria.
+
+C Stability analysis
+
+<missing-text>
+
+(a) Real FP
+
+<missing-text>
+
+(b) Nominal FP
+
+Notes: Real FP is the standard model where fiscal policy is specified in real terms. Nominal FP is the model with nominal fiscal policy.
+
+<missing-text>
+
+(a) Real FP
+
+<missing-text>
+
+(b) Nominal FP
+
+Notes: Real FP is the standard model where fiscal policy is specified in real terms. Nominal FP is the model with nominal fiscal policy.
+
+<missing-text>
+
+(a) Real FP
+
+<missing-text>
+
+(b) Nominal FP
+
+Notes: Real FP is the standard model where fiscal policy is specified in real terms. Nominal FP is the model with nominal fiscal policy.
+
+<missing-text>
+
+(a) Real FP
+
+<missing-text>
+
+(b) Nominal FP
+
+Notes: Real FP is the standard model where fiscal policy is specified in real terms. Nominal FP is the model with nominal fiscal policy.
+
+D Comparison with the two-agent model
+
+In this section, we report the responses to each business cycle shock considered in the main text when we shut down the self-insurance mechanism by assuming only two agents as in Bilbiie (2024) and Bilbiie et al. (2022). This means that we remove the savers island Π 𝑆 = 0 and we set Π 𝐾 = 0 . 8 and 𝜆 𝐾,𝐾 = 0 . 98.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+E Capital portability
+
+He we relax the assumption that when moving across types, households can only carry bonds with them and we allow for capital portability. As both savers and hand-to-mouth are not able to invest further in physical capital they will have to consume it all in the period they arrive to the new island. As a result the modified budget constraints of the agents are as follows:
+
+𝑃 𝑡 𝐶 𝐾 𝑡 + 𝑍 𝐾 𝑡 + 1 + 𝑃 𝑡 𝐼 𝐾 𝑡 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝐾 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝐾 𝑡 Π 𝐾 + 𝜆 𝐾,𝐾 𝑅 𝑘 𝑡 𝑃 𝑡 𝐾 𝑆 𝑡 + 𝑃 𝑡 𝐷 𝑡 Π 𝐾 -𝑇 𝐾 𝑡 -𝜏 𝐾 , (E1)
+
+𝑃 𝑡 𝐶 𝑆 𝑡 + 𝑍 𝑆 𝑡 + 1 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝑆 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝑆 𝑡 Π 𝑆 + 𝜆 𝐾,𝑆 𝑅 𝑘 𝑡 𝑃 𝑡 𝐾 𝑆 𝑡 -𝑇 𝑆 𝑡 -𝜏 𝑆 . (E2)
+
+𝑃 𝑡 𝐶 𝐻 𝑡 = 𝑃 𝑡 𝑊 𝑡 𝑁 𝐻 𝑡 + ( 1 + 𝑅 𝑏 𝑡 -1 ) B 𝐻 𝑡 Π 𝐻 + 𝜆 𝐾,𝐻 𝑅 𝑘 𝑡 𝑃 𝑡 𝐾 𝑆 𝑡 -𝑇 𝐻 𝑡 -𝜏 𝐻 . (E3)
+
+The rest of the model is the same. The results are presented in the figures below. We find that the impulse response functions are barely affected by this assumption. The reason is clear by inspecting the way capital returns enter the budget constraints of savers and hand-to-mouth consumers. The capital returns are multiplied by the transition probabilities ( 𝜆 𝐾,𝑆 and 𝜆 𝐾,𝐻 ), which are very small in our calibration. Therefore, while we observe some wealth effect in comparing Figures in the main text with the Figures below, we note that these appear to be of second-order importance.
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+-0.01
+
+-0.02
+
+-0.03
+
+-0.04
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).
+
+<missing-text>
+
+Note: All variables are expressed in real terms except for Hours, Inflation, and Nominal interest rate. All variables related to fiscal policy are in % deviation from the steady state of output. The remaining variables are in % deviations from their steady state. We plot the next period realized rental rate of capital ( 𝑅 𝐾 𝑡 + 1 ). Consumption, Z's, and B's are island-wide figures (multiplied by the population sizes Π 's).

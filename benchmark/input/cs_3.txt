@@ -1,0 +1,205 @@
+Flaming-hot Initiation with Regular Execution Sampling for Large Language Models
+
+Weizhe Chen
+
+University of Southern California weizhech@usc.edu
+
+Zhicheng Zhang
+
+Carnegie Mellon University
+
+zhichen3@cs.cmu.edu
+
+Guanlin Liu, Renjie Zheng, Wenlei Shi, Chen Dun, Zheng Wu, Xing Jin, Lin Yan ByteDance
+
+{guanlin.liu, renjie.zheng, wenlei.shi}@bytedance.com {chen.dun, zheng.wu1, jinxing.9, neil}@bytedance.com
+
+Abstract
+
+Since the release of ChatGPT, large language models (LLMs) have demonstrated remarkable capabilities across various domains. A key challenge in developing these general capabilities is efficiently sourcing diverse, high-quality data. This becomes especially critical in reasoningrelated tasks with sandbox checkers, such as math or code, where the goal is to generate correct solutions to specific problems with higher probability. In this work, we introduce Flaminghot Initiation with Regular Execution (FIRE) sampling, a simple yet highly effective method to efficiently find good responses. Our empirical findings show that FIRE sampling enhances inference-time generation quality and also benefits training in the alignment stage. Furthermore, we explore how FIRE sampling improves performance by promoting diversity and analyze the impact of employing FIRE at different positions within a response.
+
+1 Introduction
+
+Large language models (LLMs) have achieved remarkable success in a wide range of tasks since the release of ChatGPT (OpenAI, 2022). In addition to traditional natural language processing tasks such as summarization and sentiment analysis, LLMs have demonstrated effectiveness in many new domains, including code generation (Chen et al., 2023; Roziere et al., 2023), human-computer interaction (Li et al., 2023), and math problemsolving (Wei et al., 2022; Yu et al., 2024). Although standalone LLMs have limited reasoning capabilities (Sun et al., 2023; Valmeekam et al., 2023; Chen et al., 2024b), researchers have tried to enhance them by incorporating tool-use and developing integrated systems known as LLM agents (Xi et al., 2023; Wang et al., 2024), which expands the applications of LLMs to more general domains like robot control (Wang et al., 2023a) and autonomous driving (Mao* et al., 2023).
+
+To develop general capabilities, LLMs are typically trained through a three-stage process: pretraining, supervised fine-tuning (SFT), and alignment (Bai et al., 2022; Ouyang et al., 2022). During pretraining, the model learns from a vast array of data gathered from publicly available sources. Then, in the SFT and alignment stages, the model's abilities are further refined, allowing it to increase reasoning abilities and better follow users' instructions. In order to enhance reasoning tasks, a sandbox checker - a tool used to verify the correctness of solutions - is often used during training (Liu et al., 2023b). Therefore, one of the key challenges in achieving effective and efficient training is determining how to obtain more successful samples within a fixed number of trials, particularly when addressing complex problems.
+
+In this paper, we introduce Flaming-hot Initiation with Regular Execution (FIRE), a simple yet effective sampling method for training large language models. Inspired by recent findings on attention sink (Xiao et al., 2023), our approach begins by sampling the initial token at a very high temperature and proceeds with the regular sampling process for the remaining sequence. Our algorithm can be viewed as a simplified and more general version of CoT-decoding (Wang and Zhou, 2024), especially with a focus on training in math and coding domains where a sandbox checker is available at a relatively cheap cost.
+
+We first show that our method, at inference time, can improve the pass rate within N trials (pass@n), also known as the best-of-N (BoN) when only the correctness of the final answer is considered. To demonstrate its effectiveness in training, we show that it can be directly integrated into the reinforcement learning process of large language models. Our approach proves to be effective across multiple open-source models and various LLM capabilities, including mathematical reasoning and coding. We highlight how our method promotes diversity in
+
+generated samples, a key factor linked to performance improvements in pass rate. Importantly, this diversity is maintained even after training with our sampling method, indicating room for further enhancement. We also discuss the effects of simple variations of our method, where the temperature change occurs mid-process rather than at the start, on performance outcomes.
+
+2 Related Works
+
+Researchers have been exploring two primary directions to efficiently improve response quality under a frozen pre-trained LLM. The first direction focuses on prompting techniques such as Chain-of-Thought (Wei et al., 2022) and Tree-of-Thought (Yao et al., 2023a). The second direction involves letting LLMs fix their own mistakes (Wang et al., 2023b; Yao et al., 2023b; Shinn et al., 2023; Madaan et al., 2023; Chen et al., 2024a). In line with these two directions, there has been increasing focus on controlled decoding in LLMs to enhance reasoning capabilities during inference, ranging from searchbased approaches applied to policy models (Mudgal et al., 2023; Huang et al., 2024) to utilizing value models trained in the alignment phase (Liu et al., 2023a; Feng et al., 2023).
+
+In this paper, we also focus on inference time; however, our approach extends to the sampling processes used during the training of large language models, as commonly practiced in InstructGPT (Ouyang et al., 2022). This process consists of three key stages: pretraining, supervised finetuning (SFT), and alignment, also known as reinforcement learning with human feedback (RLHF). For large language models trained in this paradigm, there could be some helpful properties that, without strong theoretical guarantees, are empirically true and thus helpful for LLMs. Our work is related to attention sink (Xiao et al., 2023). An attention sink refers to a token or set of tokens that disproportionately receive attention from other tokens during the attention mechanism within transformer architectures. In their study, they found that one of the most identifiable tokens was shown to be the initial token. While there are no theoretical guarantees, they propose an intuition that initial tokens are visible and used in all later token generations, making them more readily trained to be attention sinks.
+
+Our work is closely related to CoTdecoding (Wang and Zhou, 2024), which uncovers the CoT-paths by enumerating over
+
+the top-k alternative tokens and aggregating the responses by scoring the decoded responses with confidence on the final answer. However, our approach differs in three key aspects: (1) we introduce a differentiable sampling method that can be directly integrated with existing inference and training frameworks, (2) we focus on improving model performance in scenarios with a sandbox checker, where aggregating responses is less data-efficient, and (3) our method operates without assumptions about the prompts, even when a chain of thought (CoT) is included, extending beyond the scope of CoT-decoding.
+
+3 Flaming-hot Initiation Regular Execution
+
+3.1 Method
+
+In this work, we propose a sampling method, Flaming-hot Initiation with Regular Execution (FIRE), inspired by the attention sink phenomenon (Xiao et al., 2023) that demonstrates the importance of initial tokens.
+
+FIRE first samples the initial token at a very high temperature p ≫ 1 , combined with topk filtering to make the candidate tokens more controllable. At higher temperatures, the candidate tokens are sampled from a probability distribution that approaches uniform sampling. After the initial token is sampled, FIRE proceeds with the decoding stage using a regular temperature setting.
+
+Our approach FIRE is similar to CoTdecoding (Wang and Zhou, 2024) that enumerates the topk candidates of the initial token. However, while CoT-decoding focuses more on the decoding stage and extracting Chain-of-Thought without prompt, our approach FIRE serves as a general differentiable sampling method, which can be combined with existing sampling frameworks and can be more efficient in the training stage where a sandbox checker that judges whether a specific answer is correct or not is available with a cheap cost.
+
+While FIRE can be applied to any token in the decoding stage, we restrict its application to the initial token to prevent the generation of random tokens that are wrong in the context. For example, if we apply FIRE after the prefix "1+2=", it would sample, in addition to the token "3", other tokens like "4" or "5", which are very likely to be wrong. In contrast, since FIRE is only applied to the initial token, it would unlikely lead to broken sentences or code with syntax errors. In our empirical exper-
+
+<missing-text>
+
+<missing-text>
+
+iments, we found that the initial token frequently consists of words like "Let's", "Sure", "So", and "The", which do not directly convey any information. But what these initial tokens affect is the reasoning steps afterward, with the same intuition as StreamingLLM (Xiao et al., 2023).
+
+3.2 Experiments
+
+In this section, we evaluate our algorithm, FIRE, by addressing several key research questions that guide our experiments.
+
+How effective is FIRE during inference? We first showcase the effectiveness of FIRE sampling in inference-only scenarios. We tested four opensource models: Qwen2-7B-Instruct (Qwen2) (Yang et al., 2024), Qwen2.5-72B-Instruct (Qwen2.572B) (Yang et al., 2024), DeepSeek-coder-v2Instruct (DeepSeek)(Zhu et al., 2024), and Gemma2-2b-it (Gemma-2)(Team et al., 2024), on a diverse set of datasets, including GSM8K (Cobbe et al., 2021), MATH (Hendrycks et al., 2021), and MBPP(+) (Austin et al., 2021; Liu et al., 2023c). In GSM8K and MATH, we extend the prompts with phrase "Please reason step-by-step" to ensure CoT reasoning in models' responses, a setting where the original motivation of CoT-decoding becomes less meaningful as CoT paths would naturally occur. For the regular sampling settings, we use a combination of nucleus sampling and top-k sampling.
+
+<missing-text>
+
+To ensure a fair comparison, we conducted a thorough enumeration over hyperparameters, including p , k , and min-p (Huggingface, 2023). Table 1 and Table 2 present the aggregated results, where the reported numbers represent the best outcomes from the enumeration. We observe that FIRE consistently improves the pass rate compared to regular settings across all models on different benchmarks. To further demonstrate the consistent improvement over different hyperparameters, we provide an example result of Qwen2-7B-Instruct on the MATH dataset in Table 3. Full results for all models and datasets are provided in the appendix. Table 3 reveals that although FIRE may alter the hyperparameter combination that yields optimal performance, it consistently outperforms regular sampling across all hyperparameter combinations.
+
+Why is FIRE effective? FIRE introduces more diversity to the initial token that is generated at a high temperature, and due to the strong attention scores towards initial tokens (Xiao et al., 2023), this diversity benefits the entire subsequent generation. To measure diversity quantitatively, we use the number of unique answers (effective answers) within a set of responses as our metric. We choose not to use some popular metrics like n-grams since we only control the initial token, and in tasks with long reasoning paths, such as math and coding, similar n-grams will likely always appear, making it unsuitable for measuring diversity. As shown in Figure 1, Table 1 (#EA), FIRE demonstrates increased diversity across various models and datasets, which contributes to enhanced pass@n performance. As anticipated, FIRE
+
+<missing-text>
+
+<missing-text>
+
+<missing-text>
+
+<missing-text>
+
+does not improve Pass@1 performance due to its focus on promoting diversity. However, it consistently delivers improvements when more samples are considered.
+
+Is FIRE helpful when integrated into train-
+
+ing? Having established that our method improves pass@n by improving diversity, we directly apply FIRE to boost language model training. To test this, we use Proximal Policy Optimization (PPO) (Schulman et al., 2017) to finetune several models using the GSM8K and MATH datasets, and assess their performance through the final pass rate for single samples (Pass@1). As shown in Table 4, integrating FIRE into the training process leads to an improvement in Pass@1. Notably, even though each data point is sampled only once during PPO training following common practice (Ouyang et al., 2022; Sheng et al., 2024), our method still yields improvements. The results also show that the improvements are consistent for different mod-
+
+els. Furthermore, after our RL training, the model still exhibits diversity and continues to benefit from inference-time pass rate improvements, as evidenced by Qwen2-RL in Table 1. Consequently, FIRE can be applied iteratively to refine the model, leading to an even bigger improvement margin.
+
+Can FIRE sampling work in mid-sequence? Finally, we explore the effect of applying FIRE sampling midway through a response. We first construct a dataset that ensures the correctness of the initial sentences, by utilizing a Process Reward Model (PRM) to identify the first sentences at which the response becomes incorrect. We then evaluate the effect of applying FIRE sampling at the beginning of different sentences (1st, 2nd, and 3rd-line) or at the first token deemed incorrect by the PRM ("PRM-line"). We refer the reader to the appendix for a more detailed description of the construction of this dataset. As shown in Table 5, while FIRE sampling offers benefits throughout different settings, its advantages diminish for tokens beyond the initial ones, despite an overall increase in accuracy due to the prefix guaranteed to be correct.
+
+4 Conclusion
+
+In this paper, we introduced a novel sampling method called Flaming-hot Initiation with Regular Execution (FIRE). Through empirical analysis, we demonstrated that FIRE enhances both inferencetime performance and reinforcement learning, particularly when a chain of thought is integrated into the prompt. We showed that FIRE improves generation diversity, and we believe that this diversity contributes to its overall effectiveness. Additionally, we explored several variants of FIRE that modify the sampling process not only immediately after the question but also during the middle of the generation, further showcasing its versatility.
+
+5 Limitations
+
+While this work focuses on improving the efficiency of LLM training through better sampling methods, there are two limitations. First, our approach lacks a strong theoretical guarantee, meaning that there is a possibility that future models, especially ones that are with different model architectures, may not benefit from it. Second, although our method is designed for training LLMs, the inference-time algorithm could potentially bypass safety measures by sampling out-of-distribution data. However, we argue that this concern can be inherently mitigated in models trained with our proposed sampling technique.
+
+References
+
+Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, et al. 2021. Program synthesis with large language models. arXiv preprint arXiv:2108.07732 .
+
+Yuntao Bai, Andy Jones, Kamal Ndousse, Amanda Askell, Anna Chen, Nova DasSarma, Dawn Drain, Stanislav Fort, Deep Ganguli, Tom Henighan, et al. 2022. Training a helpful and harmless assistant with reinforcement learning from human feedback. arXiv preprint arXiv:2204.05862 .
+
+Weizhe Chen, Sven Koenig, and Bistra Dilkina. 2024a. Reprompt: Planning by automatic prompt engineering for large language models agents. arXiv preprint arXiv:2406.11132 .
+
+Weizhe Chen, Sven Koenig, and Bistra Dilkina. 2024b. Why solving multi-agent path finding with large language model has not succeeded yet. arXiv preprint arXiv:2401.03630 .
+
+Xinyun Chen, Maxwell Lin, Nathanael Schärli, and Denny Zhou. 2023. Teaching large language models to self-debug. arXiv preprint arXiv:2304.05128 .
+
+Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, and John Schulman. 2021. Training verifiers to solve math word problems. arXiv preprint arXiv:2110.14168 .
+
+Xidong Feng, Ziyu Wan, Muning Wen, Ying Wen, Weinan Zhang, and Jun Wang. 2023. Alphazero-like tree-search can guide large language model decoding and training. arXiv preprint arXiv:2309.17179 .
+
+Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul Arora, Steven Basart, Eric Tang, Dawn Song, and Jacob Steinhardt. 2021. Measuring mathematical problem solving with the math dataset. NeurIPS .
+
+James Y Huang, Sailik Sengupta, Daniele Bonadiman, Yi-an Lai, Arshit Gupta, Nikolaos Pappas, Saab Mansour, Katrin Kirchoff, and Dan Roth. 2024. Deal: Decoding-time alignment for large language models. arXiv preprint arXiv:2402.06147 .
+
+Huggingface. 2023. New sampling strategy dropped in transformers -min p sampling. https://huggingface.co/posts/joaogante/ 319451541682734 . Accessed: 2024-10-15.
+
+Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph E. Gonzalez, Hao Zhang, and Ion Stoica. 2023. Efficient memory management for large language model serving with pagedattention. In Proceedings of the ACMSIGOPS29th Symposium on Operating Systems Principles .
+
+Guohao Li, Hasan Hammoud, Hani Itani, Dmitrii Khizbullin, and Bernard Ghanem. 2023. CAMEL: communicative agents for "mind" exploration of large language model society. In Advances in Neural Information Processing Systems (NeurIPS) .
+
+Jiacheng Liu, Andrew Cohen, Ramakanth Pasunuru, Yejin Choi, Hannaneh Hajishirzi, and Asli Celikyilmaz. 2023a. Making ppo even better: Value-guided monte-carlo tree search decoding. arXiv preprint arXiv:2309.15028 .
+
+Jiate Liu, Yiqin Zhu, Kaiwen Xiao, Qiang Fu, Xiao Han, Wei Yang, and Deheng Ye. 2023b. Rltf: Reinforcement learning from unit test feedback. arXiv preprint arXiv:2307.04349 .
+
+Jiawei Liu, Chunqiu Steven Xia, Yuyao Wang, and Lingming Zhang. 2023c. Is your code generated by chatGPT really correct? rigorous evaluation of large language models for code generation. In Thirty-seventh Conference on Neural Information Processing Systems .
+
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, et al. 2023. Self-refine: Iterative refinement with self-feedback. In Advances in Neural Information Processing Systems (NeurIPS) .
+
+Jiageng Mao*, Junjie Ye*, Yuxi Qian, Marco Pavone, and Yue Wang. 2023. A language agent for autonomous driving. arXiv preprint arXiv:2311.10813 .
+
+Sidharth Mudgal, Jong Lee, Harish Ganapathy, YaGuang Li, Tao Wang, Yanping Huang, Zhifeng Chen, Heng-Tze Cheng, Michael Collins, Trevor Strohman, et al. 2023. Controlled decoding from language models. arXiv preprint arXiv:2310.17022 .
+
+OpenAI. 2022. Introducing chatgpt.
+
+Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al.
+
+2022. Training language models to follow instructions with human feedback. Advances in neural information processing systems , 35:27730-27744.
+
+Baptiste Roziere, Jonas Gehring, Fabian Gloeckle, Sten Sootla, Itai Gat, Xiaoqing Ellen Tan, Yossi Adi, Jingyu Liu, Tal Remez, Jérémy Rapin, et al. 2023. Code llama: Open foundation models for code. arXiv preprint arXiv:2308.12950 .
+
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. 2017. Proximal policy optimization algorithms. arXiv preprint arXiv:1707.06347 .
+
+Guangming Sheng, Chi Zhang, Zilingfeng Ye, Xibin Wu, Wang Zhang, Ru Zhang, Yanghua Peng, Haibin Lin, and Chuan Wu. 2024. Hybridflow: A flexible and efficient rlhf framework. arXiv preprint arXiv:2409.19256 .
+
+Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao. 2023. Reflexion: language agents with verbal reinforcement learning. In Advances in Neural Information Processing Systems (NeurIPS) .
+
+Jiankai Sun, Chuanyang Zheng, Enze Xie, Zhengying Liu, Ruihang Chu, Jianing Qiu, Jiaqi Xu, Mingyu Ding, Hongyang Li, Mengzhe Geng, et al. 2023. A survey of reasoning with foundation models. arXiv preprint arXiv:2312.11562 .
+
+Gemma Team, Morgane Riviere, Shreya Pathak, Pier Giuseppe Sessa, Cassidy Hardin, Surya Bhupatiraju, Léonard Hussenot, Thomas Mesnard, Bobak Shahriari, Alexandre Ramé, et al. 2024. Gemma 2: Improving open language models at a practical size. arXiv preprint arXiv:2408.00118 .
+
+Karthik Valmeekam, Matthew Marquez, Alberto Olmo, Sarath Sreedharan, and Subbarao Kambhampati. 2023. Planbench: An extensible benchmark for evaluating large language models on planning and reasoning about change. Advances in Neural Information Processing Systems (NeurIPS) .
+
+Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen, Jiakai Tang, Xu Chen, Yankai Lin, et al. 2024. A survey on large language model based autonomous agents. Frontiers of Computer Science , 18(6):186345.
+
+Xuezhi Wang and Denny Zhou. 2024. Chain-ofthought reasoning without prompting. arXiv preprint arXiv:2402.10200 .
+
+Yen-Jen Wang, Bike Zhang, Jianyu Chen, and Koushil Sreenath. 2023a. Prompt a robot to walk with large language models. arXiv preprint arXiv:2309.09969 .
+
+Yizhong Wang, Yeganeh Kordi, Swaroop Mishra, Alisa Liu, Noah A. Smith, Daniel Khashabi, and Hannaneh Hajishirzi. 2023b. Self-instruct: Aligning language models with self-generated instructions. In Annual
+
+Meeting of the Association for Computational Linguistics (ACL) , pages 13484-13508. Association for Computational Linguistics.
+
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed H. Chi, Quoc V. Le, and Denny Zhou. 2022. Chain-of-thought prompting elicits reasoning in large language models. In NeurIPS .
+
+Zhiheng Xi, Wenxiang Chen, Xin Guo, Wei He, Yiwen Ding, Boyang Hong, Ming Zhang, Junzhe Wang, Senjie Jin, Enyu Zhou, et al. 2023. The rise and potential of large language model based agents: A survey. arXiv preprint arXiv:2309.07864 .
+
+Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis. 2023. Efficient streaming language models with attention sinks. arXiv preprint arXiv:2309.17453 .
+
+An Yang, Baosong Yang, Binyuan Hui, Bo Zheng, Bowen Yu, Chang Zhou, Chengpeng Li, Chengyuan Li, Dayiheng Liu, Fei Huang, et al. 2024. Qwen2 technical report. arXiv preprint arXiv:2407.10671 .
+
+Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Tom Griffiths, Yuan Cao, and Karthik Narasimhan. 2023a. Tree of thoughts: Deliberate problem solving with large language models. Advances in Neural Information Processing Systems .
+
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik R. Narasimhan, and Yuan Cao. 2023b. ReAct: Synergizing reasoning and acting in language models. In International Conference on Learning Representations (ICLR) .
+
+Longhui Yu, Weisen Jiang, Han Shi, Jincheng Yu, Zhengying Liu, Yu Zhang, James T Kwok, Zhenguo Li, Adrian Weller, and Weiyang Liu. 2024. Metamath: Bootstrap your own mathematical questions for large language models. In International Conference on Learning Representations, (ICLR) .
+
+Qihao Zhu, Daya Guo, Zhihong Shao, Dejian Yang, Peiyi Wang, Runxin Xu, Y Wu, Yukun Li, Huazuo Gao, Shirong Ma, et al. 2024. Deepseek-coder-v2: Breaking the barrier of closed-source models in code intelligence. arXiv preprint arXiv:2406.11931 .
+
+A Implementation Details
+
+In the paper, we proposed FIRE sampling, which is similar to CoT-decoding, and removed the need to calculate the confidence score. One of the biggest benefits of simplifying the method is getting an extremely easy implementation. For inference, we use vLLM (Kwon et al., 2023) and do a twostage sampling, with the first stage sampling only one token with high temperature and the second stage continuing the sampling with regular sampling. For training, we implement based on HybridFlow(Sheng et al., 2024), a newly released RLHF
+
+code base, which supports sampling with vLLM. Thus, we only changed the sampling part of the code in the RLHF framework. As shared in all experiments, the temperature used for the initial token is set at 30.
+
+In our experiment, we enumerate the parameters of top-p sampling, top-k sampling, and minp sampling. We list all the parameters we have tried in the next section. Due to computation costs, some of the models are not enumerated in the same number as others. However, our conclusion that FIRE outperforms regular sampling is consistent, as we will show later. Specifically for MBPP(+), and for Qwen-RL, the model after our fine-tuning, we test on a single hyperparameter combination of top -p = 0 . 9 , top -k = 16 , which follows the best configuration from previous trials. For Qwen2.5-72b-Instruct, we follow the recommended hyperparameters of top -p = 0 . 8 , top -k = 16 . For reinforcement learning problems, we use the default parameters in HybridFlow, specifically, top -k = 16 , top -p = 1 . 0 . For training with FIRE sampling, to enable PPO to accept the relatively out-of-distribution samples, we change the clipping ratio for PPO from 0.2 to 0.5. We observe that for PPO+FIRE to use the original clip rate, it will generally match the original performance, while pure PPO with a higher clip ratio will lead the training to a failure and converge to a pass rate close to 0.
+
+In the paper, we use three different datasets: GSM8K, MATH, and MBPP(+). GSM8K is a dataset with 8.5K total instances of math problem, of which 7.5K is in the training set and 1.3K is in the test set. MATH is a math dataset that is slightly more difficult and more comprehensive than GSM8K, with 7.5K training data and 5K test data. MBPP is a benchmark consisting of around 1,000 crowd-sourced Python programming problems, and MBPP+ is a benchmark that enlarges MBPP with some harder problems, reaching around 35K total test problems. While MBPP+ is still under regular update, we use version 0.1.0 in our paper.
+
+For the final part of the experiment about generation in the middle sequence, we use a dataset that guarantees a certain number of sentences of prefixes to be correct. Here, the sentences are defined based on '.' in the answer. This dataset is generated on the training set of the MATH dataset, for which we first use Qwen2-7b-Instruct to sample 10 responses for each question. Then, for each re-
+
+sponse, we enumerate the sentences and sample 20 times using different numbers of sentences as the prefix. Thus, we obtained an approximation of the point at which the original samples became wrong. Specifically, if one response is wrong before the number of lines we enumerate in Table 5, we use all the prefix up to the point that is still correct for that response, i.e., if for a specific sample, the correct sentences are less than 2, 3rd-line pass rate will be calculated in the same way as PRM-line.
+
+B Extra Experiment Results
+
+We provide our full inference experiment table in Table 6, Table 7, and Table 8. We observe that among all hyperparameter combinations, FIRE stably outperforms regular sampling, starting at Pass@10 to Pass@20 and Pass@40. In most settings, FIRE is superior to regular sampling at Pass@5, and for certain settings in the MATH dataset, FIRE could even show an advantage in Pass@1.
+
+<missing-text>
+
+<missing-text>
+
+<missing-text>

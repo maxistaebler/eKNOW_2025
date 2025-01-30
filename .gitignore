@@ -8,6 +8,9 @@ ragtest/settings.yaml
 ragtest/output/lancedb
 notebooks/.flashrank_cache
 
+benchmark/cache
+benchmark/settings.yaml
+benchmark/output/lancedb
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
