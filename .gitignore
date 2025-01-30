@@ -1,6 +1,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+chroma_db/
+media/
+ragtest/cache/
+ragtest/settings.yaml
+ragtest/output/lancedb
+notebooks/.flashrank_cache
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
