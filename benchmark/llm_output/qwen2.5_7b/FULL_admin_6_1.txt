@@ -1,0 +1,32 @@
+Iterative Rejection Sampling (IRS) is an advanced technique used to generate more accurate synthetic data for training models, especially in complex tasks like multihop question answering. However, its performance can vary across different datasets due to the nature of the task and the characteristics of the dataset itself.
+
+### Why IRS Improves 2WikiMultihopQA but Degrades Other Datasets
+
+1. **Complexity and Structure**:
+   - **2WikiMultihopQA**: This dataset involves questions that require multiple hops (i.e., multiple steps) to answer, often involving complex logical reasoning. IRS can help in generating more diverse and accurate synthetic data that captures these complex interactions.
+   - **Other Datasets**: Some datasets may not have such complex structure or may be simpler, where IRS might introduce noise or overfitting.
+
+2. **Data Quality**:
+   - For 2WikiMultihopQA, the task is inherently challenging, and the generated synthetic data can help improve model generalization by providing more varied examples.
+   - In other datasets, if the original data quality is already high, IRS might add unnecessary complexity or noise that doesn't benefit the model.
+
+3. **Model Capacity**:
+   - Models with higher capacity might benefit more from more diverse and accurate training data generated through IRS.
+   - Lower-capacity models may struggle to generalize well when given too much synthetic data, leading to performance degradation.
+
+4. **Data Distribution**:
+   - The success of IRS depends on how well it can mimic the underlying distribution of the original dataset. If the original 2WikiMultihopQA dataset has a more diverse and complex distribution, IRS might better capture these nuances.
+   - Other datasets with simpler or less varied distributions might not benefit as much from the additional complexity introduced by IRS.
+
+### Diminishing Returns in Chain Quality
+
+The observed performance degradation in some datasets can indeed indicate diminishing returns in chain quality. This suggests that while IRS is effective for generating complex and accurate synthetic data, beyond a certain point, it may start introducing noise or overfitting, especially if the original data is already of high quality.
+
+### Recommendations
+
+1. **Data Analysis**: Carefully analyze the structure and complexity of different datasets to understand their requirements.
+2. **Model Evaluation**: Continuously evaluate model performance on validation sets to detect any signs of overfitting or degradation.
+3. **Thresholds for IRS**: Experiment with different thresholds for IRS to balance between synthetic data quality and avoiding noise introduction.
+4. **Hybrid Approaches**: Consider hybrid approaches that combine IRS with other data augmentation techniques to achieve the best results across different datasets.
+
+In summary, while iterative rejection sampling can significantly improve performance on complex tasks like multihop question answering, its effectiveness varies based on dataset characteristics and model requirements. Careful experimentation is key to leveraging its benefits effectively without introducing diminishing returns or degradation in performance.

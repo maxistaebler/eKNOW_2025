@@ -1,0 +1,31 @@
+<think>
+Okay, so I'm trying to figure out why CoRAG underperforms on the FEVER dataset compared to Atlas-11B, even though CoRAG does better elsewhere. First, I need to understand what these models are. From what I know, CoRAG is a combination of RAG (Retrieval-Augmented Generation) with large language models and knowledge graphs. It uses background knowledge from sources like Wikipedia to help answer questions more accurately. On the other hand, Atlas-11B is specifically designed for fact verification, so it's probably optimized for tasks where you have to check if a statement is true or false.
+
+Now, looking at FEVER, which stands for Fact Extraction and VERification, this dataset evaluates how well models can verify claims by finding evidence in text. So it's about whether the model can correctly identify if a given statement is supported, refuted, or neutral based on the provided context.
+
+I think one reason CoRAG might be struggling here is that FEVER requires very precise fact-checking. Since CoRAG relies on external knowledge graphs, maybe those aren't comprehensive enough for all the specific facts in FEVER. If the knowledge graph doesn't have certain details, CoRAG can't access them to verify claims accurately.
+
+Another angle could be how each model handles evidence extraction. Atlas-11B is built for this task, so it might better identify and use relevant pieces of text as evidence. CoRAG's approach, while good in other areas, might not be as efficient at pinpointing the exact information needed for fact verification. This could lead to instances where CoRAG misses important details or doesn't extract them correctly.
+
+Also, models can have strengths in different types of reasoning. If FEVER requires a lot of common-sense knowledge that's not explicitly stated, CoRAG might rely more on explicit facts from its sources. Atlas-11B could handle implicit information better because it's trained specifically to recognize such patterns in fact-checking.
+
+Bias towards evidence-based answers could play a role too. Since FEVER emphasizes finding clear evidence, models that are too focused on generating text without strong retrieval capabilities might not perform as well. CoRAG might be more geared towards generation, while Atlas-11B is better at retrieving and using the right evidence.
+
+Training data differences might also matter. If CoRAG wasn't trained specifically on FEVER-like tasks or similar datasets, it wouldn't have learned to adapt its retrieval methods for such precise fact checks. Atlas-11B, being tailored for this, would have been optimized during training to handle these scenarios effectively.
+
+So, putting it all together, the underperformance of CoRAG on FEVER suggests that while it's great in other areas where background knowledge and generation are key, tasks requiring precise fact verification with specific evidence extraction might be a limitation. This doesn't mean CoRAG isn't good overall, but each model has its strengths and weaknesses depending on the task at hand.
+</think>
+
+The underperformance of CoRAG on the FEVER dataset compared to Atlas-11B can be attributed to several key factors:
+
+1. **Knowledge Source Limitations**: CoRAG relies on external knowledge graphs like Wikipedia, which may not cover all specific facts required for precise fact-checking in FEVER.
+
+2. **Evidence Extraction Efficiency**: Atlas-11B is optimized for identifying and using relevant evidence efficiently, whereas CoRAG's approach might not be as effective in pinpointing exact information needed for verification.
+
+3. **Reasoning Strengths**: FEVER may require implicit knowledge handling, an area where Atlas-11B, tailored for fact-checking, excels more than CoRAG, which relies on explicit facts.
+
+4. **Bias Towards Evidence-Based Answers**: CoRAG might prioritize text generation over retrieval, whereas Atlas-11B is better at extracting and using evidence effectively.
+
+5. **Training Data Differences**: CoRAG may not have been trained on FEVER-like tasks, unlike Atlas-11B, which was optimized for such scenarios during training.
+
+This suggests that while CoRAG excels in areas requiring background knowledge and generation, tasks like fact verification benefit from models specifically designed for precise evidence extraction and handling implicit information.

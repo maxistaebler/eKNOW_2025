@@ -1,0 +1,20 @@
+CoRAG (Conversational Retrieval-Augmented Generation) fundamentally differs from traditional Read-Ask-Generate (RAG) architectures primarily by addressing the challenges of multi-hop reasoning within a conversational setting. In contrast to traditional RAG architectures that often rely on batched retrieval and generation, CoRAG is designed to handle real-time, continuous conversations more efficiently.
+
+### Multi-Hop Reasoning in Traditional RAG:
+Traditional Read-Ask-Generate (RAG) architectures are optimized for generating responses based on a fixed set of queries. The core challenge in multi-hop reasoning within these architectures lies in the ability to retrieve and synthesize information that spans multiple data sources or knowledge bases. The limitations include:
+
+1. **Batch Retrieval**: Traditional RAG requires batch processing, where all the relevant passages are retrieved together at once. This can be inefficient for real-time conversations due to the latency associated with retrieving and processing large volumes of data.
+2. **Query Generation**: In multi-hop scenarios, it's essential to generate intermediate queries or references that link different pieces of information across multiple layers of reasoning. However, generating such queries can be challenging and may not always align perfectly with user intent.
+
+### CoRAG: Addressing Multi-Hop Reasoning in Conversations:
+CoRAG addresses these challenges by incorporating more dynamic and context-aware mechanisms:
+
+1. **Continuous Retrieval**: CoRAG enables continuous retrieval of relevant information from various sources, adapting to the evolving conversation context in real-time. This allows it to maintain relevance without significant latency.
+2. **Adaptive Query Generation**: CoRAG uses adaptive query generation that is more flexible and context-dependent. The system can adjust queries based on recent interactions, ensuring they align better with user intents while also being efficient.
+
+### Specific Retrieval Limitations Addressed:
+1. **Dynamic Information Need**: Traditional RAG architectures struggle to dynamically identify new information needs during a conversation without significant overheads in retrieval and query generation. CoRAG mitigates this by continuously monitoring the conversation for updates, enabling timely and relevant data retrieval.
+2. **Complex Contextual Inferences**: Multi-hop reasoning often involves inferring complex relationships across different pieces of information. Traditional RAG may struggle to achieve these connections efficiently or accurately due to its batch processing nature. CoRAG’s continuous approach allows it to continuously update context models and inference mechanisms, making it more adept at handling such complexities.
+3. **Resource Efficiency**: Continuous retrieval in CoRAG ensures that only necessary resources are allocated for information retrieval, reducing overall computational and storage costs compared to the batch-based approaches of traditional RAG.
+
+In summary, while traditional Read-Ask-Generate architectures excel in structured scenarios or batch processing tasks, CoRAG is specifically designed to tackle real-time conversations by continuously adapting its query generation and retrieval strategies. This makes it more effective at handling multi-hop reasoning tasks within a conversational framework.

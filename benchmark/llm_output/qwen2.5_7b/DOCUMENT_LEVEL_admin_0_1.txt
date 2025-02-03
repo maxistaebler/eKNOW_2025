@@ -1,0 +1,21 @@
+CoRAG (Contextualized Retrieval-Augmented Generation) is an advanced model that aims to enhance the capabilities of traditional Retrieval-Augmented Generation (RAG) systems by addressing specific limitations related to multi-hop reasoning. Here’s a detailed explanation of how CoRAG fundamentally differs from traditional RAG architectures and what retrieval limitations it addresses:
+
+### Traditional RAG Architectures
+1. **Basic Structure**: In traditional RAG, the system first retrieves relevant documents or passages from a knowledge base (KB) using a retrieval model based on query embeddings. It then uses these retrieved passages as input to a generative model that synthesizes answers or responses.
+2. **Single-Hop Reasoning**: The process typically involves querying and retrieving information in one step, meaning it can only handle single-hop reasoning tasks where the necessary information is directly available within the retrieved documents.
+
+### CoRAG (Contextualized Retrieval-Augmented Generation)
+1. **Multi-Hop Reasoning Capability**: CoRAG extends this model to enable multi-hop reasoning by allowing multiple retrieval and generation steps. This means that after generating a response, if more context or additional information is needed, it can retrieve new documents and incorporate those into the next step of the generative process.
+2. **Contextualization in Retrieval**: Unlike traditional RAG where the retrieval model might use simple keyword matching, CoRAG leverages contextualized embeddings to better understand the query’s semantics, leading to more relevant retrievals.
+
+### Key Differences
+1. **Hierarchical Structure**: CoRAG introduces a hierarchical structure that allows for multiple rounds of retrieval and generation. This is in contrast to traditional RAG which typically follows a single round of retrieval followed by generative response.
+2. **Iterative Process**: In CoRAG, the process can iteratively retrieve more context and use it as input for further reasoning, making it suitable for tasks that require deeper understanding or multiple layers of information.
+
+### Addressed Retrieval Limitations
+1. **Complex Query Handling**: Traditional RAG systems might struggle with complex queries that need to be broken down into multiple retrieval steps. CoRAG’s multi-hop capability ensures that such complex queries can be addressed effectively.
+2. **Relevance and Contextual Accuracy**: By using contextualized embeddings, CoRAG enhances the relevance of retrieved documents, which is crucial for accurate reasoning in tasks involving subtle or context-dependent information.
+3. **Dynamic Retrieval**: The ability to dynamically retrieve new relevant content based on generated responses enables a more robust handling of scenarios where initial retrievals might not contain all necessary information.
+
+### Conclusion
+CoRAG fundamentally differs from traditional RAG by introducing multi-hop reasoning capabilities and leveraging contextualized embeddings for retrieval, which addresses limitations in handling complex queries and ensuring the relevance and accuracy of retrieved documents. This makes CoRAG better suited for tasks that require deeper understanding or iterative reasoning processes.

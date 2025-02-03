@@ -1,0 +1,33 @@
+### Iterative Rejection Sampling in 2WikiMultihopQA
+
+Iterative rejection sampling is a technique used to enhance the quality of data samples by iteratively refining and rejecting less relevant or lower-quality samples. In the context of 2WikiMultihopQA, this method has been observed to improve performance. However, its effects can vary significantly across different datasets.
+
+### Improvement in 2WikiMultihopQA
+
+The improvement seen in 2WikiMultihopQA can be attributed to several factors:
+
+1. **Complex Query Structure**: 2WikiMultihopQA involves complex queries that require multi-hop reasoning, meaning the model needs to navigate through multiple pieces of information to answer a question accurately. Iterative rejection sampling helps by ensuring that each step in the chain is highly relevant and accurate, thereby improving the overall quality of the answers.
+
+2. **Data Quality**: The iterative process allows for the refinement of data samples, leading to higher-quality training data. This is particularly beneficial for datasets like 2WikiMultihopQA, where the accuracy of each step in the reasoning chain is crucial.
+
+3. **Reduction of Noise**: By rejecting less relevant or noisy data points, the model can focus on more pertinent information, reducing errors and improving performance.
+
+### Degradation in Other Datasets
+
+Conversely, iterative rejection sampling may degrade performance in other datasets for several reasons:
+
+1. **Simpler Query Structures**: For datasets with simpler query structures, the benefits of iterative refinement might not be as pronounced. In such cases, the additional computational cost of iterative rejection sampling may outweigh its benefits.
+
+2. **Data Sparsity**: Some datasets may have sparse or less structured data, making it difficult to apply iterative rejection sampling effectively. This can lead to a loss of valuable information and degrade performance.
+
+3. **Overfitting Risk**: There is a risk of overfitting when using iterative rejection sampling, especially if the dataset is not large enough. The model might become too specialized in handling the refined data samples, leading to poor generalization on new, unseen data.
+
+### Diminishing Returns in Chain Quality
+
+The varying effects of iterative rejection sampling across different datasets suggest that there may be diminishing returns in chain quality. This means that beyond a certain point, further refinement through iterative rejection sampling might not yield significant improvements and could even lead to degradation. The optimal level of refinement depends on the complexity and structure of the dataset.
+
+### Conclusion
+
+Iterative rejection sampling is a powerful technique for improving the performance of models on complex datasets like 2WikiMultihopQA. However, its effectiveness can vary widely depending on the nature of the data and the query structures involved. Understanding these nuances is crucial for applying such techniques effectively and avoiding potential pitfalls.
+
+Unfortunately, I don't have specific information about ByteDance Research and the PaSa Project [Data: Reports (3)] to provide more detailed insights into how iterative rejection sampling might be applied in their context.

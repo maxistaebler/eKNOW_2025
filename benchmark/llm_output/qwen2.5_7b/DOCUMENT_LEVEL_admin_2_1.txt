@@ -1,0 +1,29 @@
+The inconsistency in model performance across different datasets can be attributed to several factors. Let's break down some potential reasons for the observed behavior:
+
+### 1. **Dataset Characteristics:**
+   - **HotpotQA and 2WikiMultihopQA**: These datasets are designed to test reasoning abilities, especially multi-hop reasoning, which involves understanding relationships between entities across multiple sentences or documents. The models show significant improvements here due to their ability to handle complex logical reasoning tasks.
+   - **Bamboogle**: This dataset might have different characteristics that the model is better at handling. For example, it could be more focused on specific types of information retrieval or simpler question answering.
+
+### 2. **Model Architectures and Tuning:**
+   - **Search-o1-32B vs CoRAG**: Different models are likely optimized for different tasks based on their architectures and training paradigms.
+     - **CoRAG** might have been fine-tuned specifically for the HotpotQA and 2WikiMultihopQA datasets, leveraging its strengths in multi-hop reasoning.
+     - **Search-o1-32B**, despite showing better performance on Bamboogle, could be more specialized or optimized differently. It's possible that it was not as heavily tuned for the specific types of questions present in HotpotQA and 2WikiMultihopQA.
+
+### 3. **Evaluation Metrics:**
+   - Different datasets may use different metrics to evaluate model performance. For instance, accuracy might be the primary metric on one dataset while another could focus more on recall or precision.
+   - The evaluation framework used for Bamboogle might align better with what Search-o1-32B was optimized for.
+
+### 4. **Data Distribution and Noise:**
+   - The distribution of data in different datasets can vary significantly, leading to models performing differently based on the type of noise, variability, or specific patterns present.
+   - Bamboogle might have less noisy data or more consistent question-formulation which could benefit a model that is good at straightforward retrieval tasks.
+
+### 5. **Training and Fine-tuning:**
+   - Different models might have been fine-tuned differently for the datasets they were tested on. This includes different hyperparameters, training strategies, and even the types of data used during fine-tuning.
+   - Search-o1-32B may have had a better training regime or more relevant data for Bamboogle that CoRAG did not receive.
+
+### 6. **Model Size and Complexity:**
+   - Larger models like Search-o1-32B might be overfitting to the specific patterns in Bamboogle, which could lead to better performance on this dataset but lower generalizability.
+   - Smaller or more generalized models might have been better suited for tasks that required a broader understanding of language and reasoning.
+
+### Conclusion:
+The inconsistent performance across different datasets highlights the complexity of transfer learning and fine-tuning. Each model's strengths lie in specific types of problems, and careful consideration must be given to how well a model is adapted to the characteristics of each dataset. Understanding these nuances can help tailor models more effectively for diverse applications.

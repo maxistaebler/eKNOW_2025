@@ -1,0 +1,23 @@
+CoRAG (Collaborative Retrieval and Generation) fundamentally differs from traditional Retrieval-Augmented Generation (RAG) architectures primarily by addressing the limitations of relying solely on external pre-trained models for retrieving documents. Traditional RAG architectures typically use a pre-trained language model, such as a transformer-based model like BERT or GPT, to generate responses to user queries. This approach relies heavily on the model's understanding and ability to accurately retrieve and understand text from a database.
+
+However, traditional RAGs often struggle with multi-hop reasoning tasks where information is not directly present in the initial query or documents but needs to be retrieved through several intermediate steps. These limitations include:
+
+1. **Direct Query Limitations**: If the key pieces of information are not explicitly mentioned in the prompt (initial query), and these pieces need to be fetched from documents, the model might fail due to its inability to directly access this external data.
+   
+2. **Efficiency and Speed**: Retrieving multiple intermediate steps could slow down the response time, especially if there is a significant amount of data or complex logic involved.
+
+3. **Cost and Data Volume**: The cost associated with retrieving documents from external databases can be substantial and might not scale well for large-scale applications where frequent queries are made.
+
+In contrast, CoRAG addresses these limitations by integrating collaborative retrieval techniques into the architecture. This involves two main steps:
+- **Document Retrieval through Collaborative Filtering**: CoRAG uses a more sophisticated method of document retrieval that leverages collaborative filtering to find relevant documents or pieces of information that address specific aspects of user queries.
+  
+- **Retrieval and Generation in Parallel**: Unlike traditional RAG where retrieval happens before generation, CoRAG retrieves the necessary intermediate information alongside generating responses. This ensures relevance is maintained throughout the process.
+
+CoRAG also addresses some specific retrieval limitations:
+1. **Handling Incomplete or Unstructured Information**: It can better handle scenarios where information required for reasoning might be scattered across multiple documents in an unstructured manner.
+   
+2. **Reduced Dependency on External Pre-Trained Models**: By directly integrating retrieval mechanisms, CoRAG mitigates the need to rely heavily on pre-trained models that may not always capture all nuances or specific domain knowledge necessary for multi-hop reasoning tasks.
+
+3. **Enhanced Flexibility and Adaptability**: The collaborative filtering approach allows the system to dynamically adapt based on the specific context of each query, making it more flexible in dealing with complex multi-hop reasoning scenarios.
+
+In summary, CoRAG's use of collaborative retrieval techniques provides a more robust framework for handling multi-hop reasoning tasks by improving efficiency, cost-effectiveness, and flexibility compared to traditional RAG architectures.

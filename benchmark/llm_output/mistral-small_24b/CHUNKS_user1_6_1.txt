@@ -1,0 +1,20 @@
+Iterative rejection sampling can have different effects on various datasets, including 2WikiMultihopQA and others, due to the specific characteristics of these datasets. Here are some potential reasons why iterative rejection sampling might improve performance on 2WikiMultihopQA but degrade it on other datasets:
+
+### Improvement on 2WikiMultihopQA:
+1. **Complexity of Questions**: 2WikiMultihopQA involves multi-hop questions, which require answering a series of interconnected queries to arrive at the final answer. Iterative rejection sampling can help in refining the intermediate steps, ensuring that each hop is accurate before proceeding to the next.
+2. **Reduction of Noise**: By iteratively rejecting incorrect or low-confidence answers, the method can reduce noise and improve the overall accuracy of the chain of reasoning.
+3. **Structured Data**: If 2WikiMultihopQA has a more structured format or clear intermediate steps, iterative rejection sampling can be particularly effective in maintaining high-quality chains.
+
+### Degradation on Other Datasets:
+1. **Simpler Questions**: For datasets with simpler questions that do not require multi-hop reasoning, iterative rejection sampling might introduce unnecessary complexity and overhead.
+2. **Overfitting to Noise**: In some cases, iterative rejection sampling could lead to overfitting to noise or minor errors in the data, especially if the dataset has a lot of variability or less structured information.
+3. **Diminishing Returns**: As you mentioned, this could indicate diminishing returns in chain quality. If the initial steps are already high-quality, further iterations might not add significant value and could even introduce new errors.
+
+### Diminishing Returns:
+- **Initial Quality**: If the initial answers or chains of reasoning are already of high quality, additional iterations may not provide substantial improvements.
+- **Error Propagation**: In some cases, iterative rejection sampling can propagate errors from one step to another, especially if the criteria for rejection are too stringent or not well-defined.
+
+### Conclusion:
+The effectiveness of iterative rejection sampling depends on the nature of the dataset and the complexity of the questions. For datasets like 2WikiMultihopQA, where multi-hop reasoning is crucial, it can be beneficial. However, for simpler datasets or those with less structured information, it might degrade performance due to overfitting or diminishing returns.
+
+To better understand these effects, it would be helpful to analyze the specific characteristics of each dataset and the impact of iterative rejection sampling on different types of questions within those datasets.

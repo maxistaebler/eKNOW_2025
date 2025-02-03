@@ -1,0 +1,31 @@
+Iterative rejection sampling can have different effects on various datasets, including improving performance on some while degrading it on others. To understand why this might be the case for 2WikiMultihopQA and other datasets, let's break down the potential reasons:
+
+### Improvements on 2WikiMultihopQA
+
+1. **Complexity of Queries**: 2WikiMultihopQA involves multi-hop questions that require chaining multiple pieces of information across different documents or knowledge sources. Iterative rejection sampling can help in refining the intermediate steps, ensuring that each hop is more accurate and relevant to the final answer.
+
+2. **Reduction of Noise**: By iteratively rejecting less relevant or incorrect samples, the method can reduce noise in the data, leading to better performance on complex queries where precision is crucial.
+
+3. **Enhanced Chain Quality**: For multi-hop questions, the quality of each intermediate step (or "hop") is critical. Iterative rejection sampling can improve the overall chain quality by ensuring that each step is more likely to be correct and relevant to the next.
+
+### Degradation on Other Datasets
+
+1. **Simpler Queries**: For datasets with simpler queries, iterative rejection sampling might introduce unnecessary complexity. If the questions do not require multi-hop reasoning, the additional steps of rejection sampling could add overhead without significant benefits.
+
+2. **Overfitting**: In some cases, iterative rejection sampling might lead to overfitting on certain patterns in the training data, which can degrade performance on more diverse or general datasets where such patterns are less prevalent.
+
+3. **Diminishing Returns**: As you mentioned, this could indicate diminishing returns in chain quality. For simpler tasks or datasets with straightforward questions, the benefits of iterative rejection sampling might be marginal or even negative. The additional computational cost and complexity do not justify the improvements, leading to degraded performance.
+
+### Diminishing Returns in Chain Quality
+
+Diminishing returns in chain quality suggest that beyond a certain point, further iterations of rejection sampling do not significantly improve the accuracy or relevance of the chains. This can happen for several reasons:
+
+1. **Saturation Point**: There might be a saturation point where additional iterations do not yield better results because the most relevant and accurate samples have already been selected.
+
+2. **Increased Overhead**: The computational cost of iterative rejection sampling increases with each iteration, which might outweigh the benefits in terms of improved chain quality.
+
+3. **Data Characteristics**: The characteristics of the dataset play a crucial role. For datasets where the questions are straightforward or the data is less noisy, the gains from iterative rejection sampling are minimal compared to the computational cost.
+
+### Conclusion
+
+The impact of iterative rejection sampling on different datasets highlights the importance of understanding the specific requirements and characteristics of each task. While it can significantly improve performance on complex multi-hop questions like those in 2WikiMultihopQA, it might degrade performance on simpler or less noisy datasets due to diminishing returns and increased overhead. Therefore, the choice to use iterative rejection sampling should be guided by a careful analysis of the dataset and the nature of the queries involved.

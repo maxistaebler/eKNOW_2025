@@ -1,0 +1,30 @@
+The differences in performance across different datasets like HotpotQA, 2WikiMulti-hopQA, and Bamboogle can be attributed to several factors. Here are some potential explanations for why you might see inconsistent performance:
+
+1. **Task Characteristics**:
+   - **HotpotQA/2WikiMulti-hopQA**: These datasets involve complex reasoning tasks that require understanding multiple hops of information to form a coherent answer. The model's ability to handle such complex logical reasoning is crucial.
+   - **Bamboogle**: This dataset might have different characteristics in terms of the type of questions, the context provided, and how the answers are structured. It could be more focused on factual retrieval or simpler reasoning tasks.
+
+2. **Model Architecture**:
+   - **Search-o1-32B**: This model likely has a specific architecture optimized for search-related tasks, possibly with mechanisms that excel in handling large-scale information retrieval.
+   - **CoRAG (Code Retrieval and Answer Generation)**: CoRAG might be better suited to the specific requirements of the Bamboogle dataset. It could have optimizations or structures that make it more effective for certain types of queries.
+
+3. **Training Data**:
+   - The models might have been trained on different datasets with varying distributions. If Search-o1-32B was extensively trained on search-related tasks, it may perform better on Bamboogle where such skills are valuable.
+   - CoRAG's training data and task setup could align more closely with the types of questions in Bamboogle.
+
+4. **Evaluation Metrics**:
+   - Different datasets might use different evaluation metrics that favor certain model behaviors. For example, some evaluations focus more heavily on retrieval accuracy versus reasoning accuracy.
+
+5. **Data Size and Quality**:
+   - The size and quality of the training data can significantly impact performance. If Bamboogle has a larger or higher-quality dataset for search-related queries, Search-o1-32B might outperform CoRAG in those specific cases.
+
+6. **Fine-tuning Strategies**:
+   - Both models might have been fine-tuned differently. Fine-tuning on the specific task can significantly affect performance. If Bamboogle required more specialized fine-tuning to get optimal results, that could explain why Search-o1-32B performs better there.
+
+7. **Inference Mechanisms**:
+   - Different models might employ different inference mechanisms or strategies. For instance, one model might be better at leveraging external knowledge sources in a way that benefits the Bamboogle dataset more than the others.
+
+8. **Hyperparameter Tuning**:
+   - Hyperparameters can significantly impact model performance. If Search-o1-32B was tuned specifically for the types of tasks found in Bamboogle, it might perform better on those tasks compared to CoRAG with its default settings or vice versa.
+
+To summarize, the inconsistent performance across different datasets is likely due to a combination of these factors, particularly differences in task characteristics and model optimization. Understanding the specific details of each dataset and model setup would provide more insight into why one model outperforms another on certain tasks.

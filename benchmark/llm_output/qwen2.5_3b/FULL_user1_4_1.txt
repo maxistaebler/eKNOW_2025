@@ -1,0 +1,25 @@
+When a model assumes or claims a log-linear relationship between the token consumption and its performance, it implies that the cost of additional computation (measured by tokens) grows at a slower rate as more resources are consumed. This assumption is common in large language models to estimate compute costs efficiently.
+
+However, even with such an efficient cost estimation, there are several safeguards and practices that can help prevent exponential increases in compute costs in real-world deployments:
+
+1. **Token Efficiency**: Ensure the model's design incorporates token efficiency measures. Models should be optimized for minimal token usage while maintaining or improving performance metrics like perplexity or other quality scores.
+
+2. **Usage Limits**: Implement strict limits on the maximum amount of tokens that can be processed per unit time to prevent arbitrary increases in compute costs due to excessive data input or unintended use cases.
+
+3. **Rate Limiting and Rate Controllers**: Use tools such as rate limiting or rate controllers to control how quickly tokens are consumed, especially if token usage is being monitored for cost management purposes.
+
+4. **Optimized Scenarios**: Preprocess inputs efficiently and optimize the dataset used by the model. This can involve techniques like sub-sampling, caching results of computations that do not change based on the input (e.g., vocabulary distributions), or using pre-trained models as starting points to reduce overall token consumption.
+
+5. **Model Pruning and Quantization**: These are techniques where a model is pruned to remove unnecessary parameters and/or quantized to lower precision types. This can significantly reduce the number of tokens required without compromising performance.
+
+6. **Fine-tuning and Custom Training**: Instead of starting with an extremely large, pre-trained model, fine-tuning or custom training on specific datasets can often achieve similar or better results while reducing token usage.
+
+7. **Model Sizing**: Consider downsizing the model architecture to a more suitable size based on the application requirements and available resources without sacrificing too much performance.
+
+8. **Monitoring and Alerts**: Set up monitoring systems that track token consumption against predefined thresholds or budgets. This can help in early detection of potential overspending and take immediate action such as throttling inputs.
+
+9. **Cost-Aware Design Decisions**: Make design decisions based on cost and resource availability considerations, not just performance metrics alone.
+
+10. **Model Selection**: Choose the right model for the specific use case rather than always opting for larger models to avoid unnecessary costs.
+
+By implementing these safeguards, one can effectively manage compute costs even when a log-linear relationship holds true between token consumption and performance.

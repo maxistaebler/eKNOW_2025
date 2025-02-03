@@ -1,0 +1,37 @@
+<think>
+Okay, so I'm trying to figure out why Search-o1-32B is performing better than CoRAG in Bamboogle. From what I know, there are these HotpotQA/2WikiMultihopQA datasets that have improvements of 10+ points on both models. That means they handle those specific tasks pretty well.
+
+But why aren't they doing the same thing in Bambogle? Maybe because Bambogle is a different domain or requires more specific features that Search-o1-32B isn't handling yet. I should think about what makes certain models better than others. Perhaps it's something to do with their architecture or how they process data.
+
+Wait, maybe the model uses fewer parameters or is simpler. If it's less complex, maybe it can find patterns more easily but misses nuances in Bambogle. Or perhaps there are other factors like task complexity affecting performance across different datasets.
+
+I remember that some models specialize in specific tasks by default, so maybe Search-o1-32B isn't being trained on Bamboogle because of dataset formatting or specific tags it needs to handle differently. I should check if Bambogle uses the same labels or data structures as other EM datasets to ensure consistency.
+
+Also, could there be something about how the models are evaluated? Maybe Bambogle has a different scoring system that Search-o1-32B isn't up against. Or perhaps there's a technical issue with the datasets themselves in Bamboogle that affects their performance compared to CoRAG.
+
+Another thought: maybe there are cross-lingual factors at play here. If other EM models perform well on one dataset, they might rely on certain domain-specific features that aren't present in Bambogle, leading Search-o1-32B to not match as well.
+
+I should also consider if the tasks themselves are more complex or specific within Bambogle compared to CoRAG. If there's a particular subtask or aspect of Bambogle that isn't covered by Search-o1-32B, it might explain why it doesn't outperform CoRAG in that area.
+
+Wait, maybe the model's training process is different. Perhaps it's using a larger dataset or more resources for Bambogle, which improves its performance there after some time. Or maybe Bamboogle has specific optimizations during evaluation that Search-o1-32B isn't doing yet.
+
+I'm also thinking about how other models handle edge cases. Maybe in Bambogle, there are certain patterns or exceptions that Search-o1-32B doesn't recognize because of its current settings or training data.
+
+Finally, maybe it's a matter of versioning or updates. Perhaps Search-o1-32B has undergone changes since it was trained on one EM dataset, and those changes affected how it performed when evaluated against Bambogle.
+
+So, to sum up, there could be several reasons: architectural differences, data format issues, task complexity variations between datasets, cross-lingual factors, training optimizations, or version-specific adjustments. I need to dig deeper into these possibilities and maybe look at the specific details of how each model processes data in Bambogle compared to CoRAG.
+</think>
+
+The inconsistent performance of Search-o1-32B on Bamboogle compared to CoRAG can be attributed to several potential factors:
+
+1. **Dataset Formatting**: Ensure that Bambogle uses consistent labels and formatting with respect to other EM datasets, as Search-o1-32B may not be processing data as required.
+
+2. **Task Complexity**: The task within Bambogle may involve more complex or specific subtasks compared to CoRAG, which could explain why Search-o1-32B doesn't match performance there.
+
+3. **Cross-Linguistic Factors**: The model's domain-specific features and knowledge extraction might vary depending on the language used in Bambogle, affecting its ability to perform well in this context.
+
+4. **Training Optimizations**: More resources or datasets for Bamboogle may have improved performance of Search-o1-32B after being trained on a larger or more comprehensive dataset.
+
+5. **Versioning Differences**: Changes made during the version update of Search-o1-32B might have affected its performance when evaluated against Bambogle, potentially due to updates in architecture or training processes.
+
+To address this issue, it's recommended to check data formatting, task complexity within Bambogle, and explore potential optimizations in the model's training process.

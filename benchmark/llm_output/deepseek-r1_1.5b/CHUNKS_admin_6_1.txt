@@ -1,0 +1,29 @@
+<think>
+Okay, I need to figure out why iterative rejection sampling improves 2WikiMultihopQA but affects other datasets like GPT-4 and others. From the tables provided, let's see what each dataset has.
+
+Looking at Table 16, it seems like the "in_context" column is True for all records except one. Wait, no—it says most are true? No, actually, in the "in_context" row for record 0, it's true. So maybe only a few are false. Let me check: records 18 is false because HAI-LLM isn't used there. The rest are probably true.
+
+In Table 4 (if I'm missing some), perhaps the 'sources' have some false positives. But since in_context is mostly True, it might not directly impact in that case.
+
+The key difference seems to be in the "source" column's truth value. In 2WikiMultihopQA, all sources are true except for record 0 which is true as well. So maybe the sources were correctly flagged, or perhaps they're more reliable here. But other datasets like GPT-4 might have issues where some source references aren't actually relevant.
+
+This could mean that iterative rejection sampling isn't flagging those false sources in other contexts. It's focusing too much on correct sources and missing others. Maybe this leads to poor performance because the model doesn't find enough valid information from reliable sources, which is important for multi-hop questions with multiple steps.
+</think>
+
+To address why iterative rejection sampling improves 2WikiMultihopQA but degrades other datasets, let us first understand what each dataset represents:
+
+1. **2WikiMultihopQA**: This appears to be a specific question-answering task that focuses on hierarchical queries across Wikipedia pages. The improvements in this dataset likely stem from the model being able to handle multiple hops (queries) and better identify relevant sources for answering questions.
+
+2. **GPT-4**: This is a general-purpose language model that has been widely deployed in various tasks, including QA with references. Its performance on other datasets may be affected by its ability to generate coherent answers without relying on reliable sources or having consistent reference handling across different contexts.
+
+3. **Other Datasets (e.g., HAI-LLM)**: These likely represent other QA tasks that use the HAI-LLM platform, which is a large language model specifically designed for question-answering with references. Their performance may be impacted by the lack of consistent reference handling or the difficulty in identifying relevant sources.
+
+The reason iterative rejection sampling works better on 2WikiMultihopQA but not other datasets could stem from differences in how source references are flagged and managed across these contexts:
+
+- **Consistent Source Handling**: In 2WikiMultihopQA, the model may have access to more reliable source information or a different reference management system that supports multiple hops and hierarchical queries. This allows it to better identify relevant sources for answering questions.
+
+- **Task-Specific Reference Requirements**: QA tasks with specific requirements (e.g., multi-hop queries or answer-based QA) may rely heavily on having answers supported by references, which is naturally handled by the model when it uses iterative rejection sampling.
+
+- **Model-specific Limitations**: Other datasets may have limitations in their reference management systems or lack of consistent source handling across different tasks. This can result in the model struggling to find valid sources for answering questions, particularly when relying on false positives from incorrect source references.
+
+In summary, while iterative rejection sampling improves performance on 2WikiMultihopQA due to its ability to handle multiple hops and reference-specific requirements, it may struggle with other datasets where the model's reference management systems are less consistent or reliable. This could lead to diminishing returns in chain quality for other QA tasks that rely heavily on source references.

@@ -1,0 +1,11 @@
+Corrag (RankRag) differs significantly from traditional Retrieval-Augmented Generation (RAG) architectures by introducing a method aimed at enhancing the ability to perform complex multi-hop reasoning. Traditional RAG systems rely on pre-retrieved data that is fed into a downstream model for tasks such as summarization, question answering, or text generation. These systems often face limitations in handling more intricate and multi-hop reasoning problems where the context spans across multiple retrievals.
+
+Corrag aims to address these issues by unifying the processes of context ranking and retrieval within the same framework. This method allows Corrag to consider both the relevance of documents for retrieval and their potential contributions to subsequent processing, potentially improving the quality of downstream outputs such as summaries or generated texts that require multi-hop reasoning. By integrating these aspects into a single algorithmic approach, Corrag can more effectively bridge gaps between relevant data points across different retrieval steps.
+
+Corrag’s specific contributions in addressing retrieval limitations stem from its integration of context ranking and retrieval within its core architecture. This allows it to dynamically select the most informative documents for each step of reasoning without necessitating multiple separate retrievals or manual intervention. Consequently, Corrag can handle complex multi-hop scenarios more robustly compared to traditional RAG systems.
+
+It's important to note that Corrag is only supported by a single data reference, which indicates its novelty and focus on this specific aspect of multi-hop reasoning within retrieval architectures:
+
+"This addresses the differences in handling multi-hop reasoning specifically for retrieval architectures [Data: RankRag (14), +more; Traditional RAG (15-20)]." Here, 14 represents the record for Corrag, while records 15 through 20 refer to traditional RAG systems. 
+
+Corrag’s approach of integrating context ranking and retrieval directly into its algorithm is a significant departure from existing RAG models but requires further validation across various real-world applications and datasets to determine its efficacy compared to more established approaches like traditional RAG.

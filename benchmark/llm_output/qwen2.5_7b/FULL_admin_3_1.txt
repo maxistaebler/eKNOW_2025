@@ -1,0 +1,30 @@
+The performance discrepancy between CoRAG and Atlas-11B on the FEVER (Finding Evidence: Evaluating Veracity of Claims) dataset can be attributed to several factors, including model architecture, training data, and specific task requirements. Here are some potential reasons for this underperformance:
+
+1. **Task-Specific Fine-Tuning**: 
+   - CoRAG may have been trained primarily on a broader range of tasks that do not specifically emphasize the nuances required in fact verification as seen in FEVER.
+   - Atlas-11B, being a model fine-tuned more extensively for various NLP tasks, might better capture the specific language and reasoning patterns necessary for fact-checking.
+
+2. **Training Data Differences**:
+   - The training datasets for CoRAG and Atlas-11B may differ in their focus or quality, affecting how well each model generalizes to the FEVER task.
+   - FEVER involves complex logical reasoning and understanding of context, which might require more fine-tuning on relevant data compared to other tasks.
+
+3. **Model Complexity**:
+   - The complexity of CoRAG versus Atlas-11B could play a role in how effectively each model handles the intricate nature of fact verification.
+   - Sometimes simpler models can be more robust and generalizable for specific tasks, even if they are not as complex or large.
+
+4. **Evaluation Metrics**:
+   - FEVER uses multiple evaluation metrics (e.g., binary classification, span-level evidence extraction) which might favor different model characteristics than those on which CoRAG was originally optimized.
+   - The task of fact verification involves understanding and reasoning over a wide range of claims, which could be more challenging for a larger model like Atlas-11B if it's not fine-tuned specifically for this domain.
+
+5. **Domain-Specific Knowledge**:
+   - Fact verification often requires deep domain-specific knowledge that might not have been fully captured in CoRAG’s training data or architecture.
+   - Models optimized on more varied and general datasets may lack the specialized knowledge needed to perform well on highly specific tasks like fact-checking.
+
+6. **Training Strategy and Fine-Tuning**:
+   - The fine-tuning strategies used for CoRAG versus Atlas-11B could differ, affecting how well each model adapts to the FEVER task.
+   - Different training techniques or hyperparameters might be more effective on this specific task.
+
+7. **Resource Allocation**:
+   - If CoRAG was not given as much fine-tuning effort specifically for FEVER compared to Atlas-11B, it might underperform due to insufficient adaptation to the task requirements.
+
+These factors suggest that while CoRAG may excel in other tasks, its performance on fact verification like FEVER could be limited by the specific nature of the task and the need for targeted fine-tuning. This highlights the importance of task-specific training and fine-tuning when deploying large language models on specialized NLP tasks.

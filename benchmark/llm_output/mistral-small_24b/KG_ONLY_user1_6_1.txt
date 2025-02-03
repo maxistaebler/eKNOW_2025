@@ -1,0 +1,29 @@
+Iterative rejection sampling can have varying effects on different datasets, and its impact on performance can depend on several factors. Let's break down why it might improve performance on the 2WikiMultihopQA dataset while degrading others:
+
+### Improvement on 2WikiMultihopQA
+
+1. **Complexity of Queries**: The 2WikiMultihopQA dataset involves multi-hop questions, which require chaining multiple pieces of information to answer a query. Iterative rejection sampling can help in refining the intermediate steps by iteratively rejecting less relevant or incorrect steps, leading to better overall performance.
+
+2. **Error Propagation**: In multi-hop QA tasks, errors in early steps can propagate and amplify in later steps. Rejection sampling can mitigate this by ensuring that only high-quality intermediate results are used for subsequent steps, thus improving the final answer quality.
+
+3. **Data Characteristics**: The specific characteristics of 2WikiMultihopQA might make it more amenable to iterative rejection sampling. For example, if the dataset has a clear structure or if the questions have a predictable pattern, rejection sampling can be particularly effective.
+
+### Degradation on Other Datasets
+
+1. **Simpler Tasks**: For datasets with simpler, single-hop questions, iterative rejection sampling might not offer significant benefits and could even introduce overhead without commensurate gains. The additional computational cost of rejection sampling might outweigh the benefits in these cases.
+
+2. **Data Quality**: If other datasets have high-quality annotations or if the model is already performing well on them, iterative rejection sampling might not provide additional improvements. In some cases, it could even degrade performance by introducing noise or removing relevant information that was initially correct but rejected due to strict criteria.
+
+3. **Overfitting**: Iterative rejection sampling can sometimes lead to overfitting, where the model becomes too specialized in rejecting certain types of answers based on training data patterns. This can be detrimental if the test data has different characteristics than the training data.
+
+### Diminishing Returns in Chain Quality
+
+The observation that iterative rejection sampling improves 2WikiMultihopQA but degrades other datasets could indicate diminishing returns in chain quality:
+
+1. **Complexity Threshold**: For complex, multi-hop tasks like those in 2WikiMultihopQA, the benefits of iterative refinement are more pronounced because each step is critical and errors can compound quickly. In simpler tasks, the gains from additional iterations might be minimal.
+
+2. **Diminishing Marginal Utility**: As the chain quality improves with initial iterations, the marginal utility of further iterations diminishes. This means that while early iterations significantly improve performance, later iterations provide less benefit and could even start to degrade performance due to over-rejection or overfitting.
+
+3. **Resource Allocation**: Iterative rejection sampling is computationally expensive. For simpler tasks where the gains are minimal, this additional cost might not be justified, leading to a net degradation in performance when considering both accuracy and computational efficiency.
+
+In summary, iterative rejection sampling can be highly effective for complex multi-hop QA tasks but may not offer similar benefits for simpler tasks or datasets with high-quality annotations. The diminishing returns in chain quality suggest that while initial iterations provide significant improvements, further iterations might yield marginal gains at the cost of increased complexity and potential overfitting.

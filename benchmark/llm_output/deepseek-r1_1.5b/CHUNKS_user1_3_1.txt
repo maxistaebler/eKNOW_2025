@@ -1,0 +1,58 @@
+<think>
+Alright, I need to figure out why CoRAG underperformed on FEVER compared to Atlas-11B. From the tables provided, it looks like CoRAG has a higher inference score for certain tasks but not as well on others.
+
+Looking at CoRAG's sources, there are several papers mentioned in 'sources.' I see that 80 and 33 have high in_context values, indicating they're relevant. These papers discuss prompt engineering for FEVER, which suggests that CoRAG is better at crafting effective prompts for certain tasks.
+
+However, the top 5 sources (16) are about generating reports with specific structures like bullet points. This might be where CoRAG's limitations show up because its prompt engineering isn't as strong in those structured contexts.
+
+Other papers like 84 and 35 focus on query-based search, which doesn't directly address FEVER, another task that requires factual verification. These tasks are inherently more context-dependent and specific, making it harder for CoRAG to handle effectively without a robust prompt engineering approach.
+
+In conclusion, the superior performance of Atlas-11B across various domains might be due to its comprehensive prompt engineering. On the other hand, FEVER specifically benefits from CoRAG's strong structure handling, highlighting task-specific limitations in fact verification.
+</think>
+
+To compare the performance of different AI models on specific tasks, it is important to analyze their ability to generate or infer relevant information and their context understanding. In this case, comparing **CoRAG** and **Atlas-11B** on the FEVER (Fact Evaluation Exercise) task can provide insights into how these models handle factual verification.
+
+---
+
+### CoRAG's Performance on FEVER
+
+Looking at the data provided, we see that **CoRAG** has an inference score of 0.357 for CoRAG and 0.421 for Atlas-11B on FEVER. This indicates that CoRAG performs slightly better than Atlas-11B on this task. However, both models have lower performance compared to other datasets like **80** (189) or **33** (56), which suggests that F EVER is particularly challenging for these models.
+
+---
+
+### Top Sources and Evidence
+
+The top 5 sources with high in\_context values (Data: <dataset name> (record ids)) are as follows:
+
+1. **80**: "Flaming-hot Initiation with Regular Execution..."  
+   - This source discusses prompt engineering for F EVER, where CoRAG has shown higher performance compared to Atlas-11B.
+
+2. **33**: "search task: 1) sparse reward: The papers in..."  
+   - These papers focus on query-based search and are not directly related to F EVER but highlight the need for contextually appropriate prompts.
+
+3. **16**: "Generative Fact Generation via Query Answering"  
+   - This source highlights that CoRAG performs well when structured as a fact generation task, which is inherently different from F EVER where raw factual data is often required.
+
+4. **84**: "Fever: A Fact-Verification Task for Large Language Models"  
+   - While not directly related to the top sources of interest, this source highlights that F EVER requires highly specific and contextually sensitive reasoning.
+
+5. **35**: "Query-Based Generation of Fact Verification Tasks"  
+   - These papers focus on query-based approaches but do not address F EVER specifically, suggesting limitations in handling more complex factual tasks without structured guidance.
+
+---
+
+### Task-Specific Limitations
+
+The fact that CoRAG underperforms on F EVER compared to Atlas-11B can be attributed to the task's specific requirements. While both models excel at query-based reasoning and report generation (as seen in Data 84), they struggle with raw factual verification without structured guidance.
+
+---
+
+### Conclusion
+
+CoRAG excels in handling tasks that require contextually relevant prompts, such as fact generation, but it falls short on more challenging factual verification tasks like F EVER. This suggests that while CoRAG is strong in structure-aware reasoning, its performance on truly contextual and factual verification requires additional improvements in prompt engineering and task-specific understanding.
+
+--- 
+
+** commentary:**
+
+The analysis reveals that different models have varying strengths in handling specific types of context and reasoning tasks. While this provides valuable insights into model capabilities, it also underscores the importance of developing more sophisticated prompting strategies for complex factual verification tasks.

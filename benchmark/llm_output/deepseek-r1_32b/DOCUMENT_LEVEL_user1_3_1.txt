@@ -1,0 +1,37 @@
+<think>
+Alright, so I'm trying to figure out why CoRAG underperforms on FEVER compared to Atlas-11B even though it does better elsewhere. Hmm, let me start by understanding what CoRAG and Atlas-11B are.
+
+CoRAG sounds like a model designed for fact verification, maybe something that verifies claims against a set of documents or sources. On the other hand, Atlas-11B is another model, perhaps more general-purpose but still capable in this area. The FEVER dataset is about claim verification, right? It's a common benchmark for evaluating how well models can verify factual information.
+
+So why would CoRAG not do as well on FEVER as Atlas-11B despite better results elsewhere? Maybe it's something specific to the FEVER setup. Let me think about possible reasons.
+
+First, perhaps the training data or the way these models were trained differs. If CoRAG was trained on a different dataset that doesn't perfectly align with FEVER's characteristics, it might struggle. For instance, if FEVER uses shorter claims or has a different distribution of topics, CoRAG might not adapt as well.
+
+Another thought: maybe the architecture of Atlas-11B is better suited for FEVER. It could have components that help in handling certain types of reasoning required by FEVER, which CoRAG lacks. Or perhaps it's more efficient in processing the information needed for fact verification tasks.
+
+I also wonder about the evaluation metrics used. If FEVER evaluates based on specific criteria that favor Atlas-11B’s strengths, like precision or recall, while CoRAG might excel in areas not as emphasized in FEVER, that could explain the difference.
+
+It's possible that there are task-specific limitations with CoRAG when it comes to fact verification. Maybe it struggles with certain types of claims, such as those requiring multi-step reasoning or handling ambiguous information, which are prominent in FEVER.
+
+I should check if there's any information on how each model processes evidence. Perhaps Atlas-11B is better at sourcing the right evidence from multiple documents, while CoRAG might not aggregate information as effectively.
+
+Another angle: perhaps the way these models handle context or background knowledge differs. If FEVER relies heavily on external knowledge beyond what’s in the provided text, and CoRAG isn't as strong in that area, it could underperform.
+
+I also need to consider if there are any known limitations of CoRAG mentioned in the data. Looking back at the datasets, I see some tables but not much detail on specific models or their performances. Without more information from 'Sources' or 'Reports', it's hard to pinpoint exact reasons.
+
+In summary, possible factors include differences in training data and methods, model architecture suited for FEVER's requirements, evaluation metrics, task-specific capabilities like evidence aggregation, and handling of external knowledge.
+</think>
+
+The underperformance of CoRAG on the FEVER benchmark compared to Atlas-11B despite its superior results elsewhere could be attributed to several factors:
+
+1. **Training Data Alignment**: CoRAG might have been trained on datasets that do not perfectly align with FEVER's characteristics, such as shorter claims or different topic distributions, leading to adaptation challenges.
+
+2. **Model Architecture**: Atlas-11B may possess architectural components better suited for FEVER's requirements, possibly including more efficient processing of information needed for fact verification tasks.
+
+3. **Evaluation Metrics**: The specific evaluation criteria in FEVER might favor Atlas-11B’s strengths, such as precision or recall, while CoRAG excels in areas less emphasized in FEVER.
+
+4. **Task-Specific Limitations**: CoRAG could struggle with certain aspects of fact verification, like multi-step reasoning or handling ambiguous information, which are prominent in FEVER.
+
+5. **Evidence Handling and Contextual Knowledge**: Atlas-11B might be more effective at sourcing evidence from multiple documents or leveraging external knowledge beyond provided text, areas where CoRAG may lag.
+
+Without additional data on model specifics or performance details, these remain speculative but plausible explanations for CoRAG's underperformance on FEVER.

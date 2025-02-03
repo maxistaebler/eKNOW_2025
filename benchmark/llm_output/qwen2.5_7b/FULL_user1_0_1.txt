@@ -1,0 +1,29 @@
+CoRAG (Contextualized Retrieval-Augmented Generation) is an innovative approach that addresses some of the limitations found in traditional Retrieval-Augmented Generation (RAG) architectures when dealing with complex tasks like multi-hop reasoning. Here’s a breakdown of how CoRAG fundamentally differs from traditional RAG and what specific retrieval limitations it addresses:
+
+### 1. **Contextualized Embeddings for Enhanced Understanding**
+   - **Traditional RAG**: Typically, these systems rely on pre-defined vectors or embeddings that are often static and do not capture the contextual nuances of the input text effectively.
+   - **CoRAG**: It leverages contextualized embeddings from models like BERT, RoBERTa, etc., which provide a richer understanding of the context. This allows CoRAG to better grasp the meaning and interdependencies within the query or document during retrieval.
+
+### 2. **Hierarchical Retrieval Strategy**
+   - **Traditional RAG**: Often uses a single-level retrieval strategy where documents are retrieved based on the initial input, with little consideration for intermediate reasoning steps.
+   - **CoRAG**: Employs a hierarchical approach to retrieval, which means it iteratively refines the search process by leveraging previous retrieval outcomes. This multi-hop nature helps in capturing deeper and more complex relationships within the data.
+
+### 3. **Dynamic Query Expansion**
+   - **Traditional RAG**: Queries are usually expanded using simple keyword-based techniques or predefined rules.
+   - **CoRAG**: It dynamically expands queries based on contextual information from previous retrievals, ensuring that the search scope is continuously adjusted to align with the evolving understanding of the task.
+
+### 4. **Integration of External Knowledge Sources**
+   - **Traditional RAG**: May struggle with integrating external knowledge sources effectively due to static embeddings and limited reasoning capabilities.
+   - **CoRAG**: Can integrate diverse and dynamic external knowledge bases more seamlessly, thanks to its contextualized embedding approach and iterative retrieval strategy.
+
+### 5. **Handling Ambiguity and Inconsistencies**
+   - **Traditional RAG**: Often faces challenges in resolving ambiguities or inconsistencies within the data.
+   - **CoRAG**: Its ability to dynamically refine queries and integrate contextual information helps in better handling of such issues, leading to more accurate results.
+
+### 6. **Specific Retrieval Limitations Addressed by CoRAG**
+- **Limited Scope of Predefined Queries**: Traditional RAG systems might be limited by the scope of predefined retrieval queries, which may not cover all possible variations or nuances.
+- **Static Embeddings and Contextual Insensitivity**: Static embeddings often fail to capture the full context of a query, leading to misinterpretations.
+- **Inefficient Iterative Reasoning**: Single-level retrieval can miss out on intermediate steps required for complex reasoning tasks.
+
+### Conclusion
+CoRAG fundamentally differs from traditional RAG architectures by enhancing contextual understanding, employing hierarchical and dynamic retrieval strategies, integrating external knowledge more effectively, and handling ambiguities better. These improvements help in addressing specific retrieval limitations such as limited query scope, static embeddings, and inefficient iterative reasoning, making it particularly well-suited for tasks requiring multi-hop reasoning.

@@ -1,0 +1,21 @@
+Iterative Rejection Sampling (IRS) is an algorithm used to generate samples from complex probability distributions, often applied in machine learning and statistical inference. It works by iteratively accepting or rejecting candidate samples based on how well they match the target distribution until a sufficient number of accepted samples are generated.
+
+When applying IRS to 2WikiMultihopQA specifically, it appears that the approach is effective because this dataset likely exhibits certain characteristics that make IRS more suitable and efficient compared to other datasets. This effectiveness might be due to:
+
+1. **Complexity of Queries**: If the queries in 2WikiMultihopQA are particularly complex or have high ambiguity, IRS can help in efficiently pruning over-inclusive samples early in the process, leading to a higher quality final set.
+
+2. **Data Sparsity**: The presence of data sparsity (where certain paths or nodes are underrepresented) might make it easier for IRS to identify and eliminate such candidates faster, without needing many iterations.
+
+3. **Specific Patterns**: 2WikiMultihopQA might contain specific patterns that align well with the iterative nature of rejection sampling. This could result in a more effective initial filtering phase which reduces the number of samples needed in later stages.
+
+On other datasets, IRS may perform less optimally because:
+
+1. **Different Query Structures**: Other datasets' queries may be simpler or not as complex as those in 2WikiMultihopQA. This makes early-stage elimination less necessary and thus limits the benefits of iterative rejection sampling.
+
+2. **Data Distribution Characteristics**: The data distribution characteristics (e.g., skewness, density) might differ significantly from 2WikiMultihopQA. IRS is effective when samples are uniformly distributed or exhibit similar structures; otherwise, it may not be as advantageous.
+
+3. **Computationally Intensive**: If the computational cost of running multiple iterations of IRS exceeds its benefits on other datasets (e.g., due to higher complexity of queries), this could degrade performance compared to 2WikiMultihopQA.
+
+Regarding whether this indicates diminishing returns in chain quality, we need a deeper analysis of why IRS is more effective for 2WikiMultihopQA. Diminishing returns typically suggest that additional iterations or effort yield progressively smaller improvements and eventually become counterproductive. If IRS continues to improve performance on subsequent runs with each iteration, it might not indicate diminishing returns but rather an optimal balance that suits the specific characteristics of 2WikiMultihopQA.
+
+In summary, while the effectiveness of iterative rejection sampling in improving 2WikiMultihopQA suggests potential beneficial characteristics for the dataset (like complex queries or data sparsity), we cannot definitively conclude that it indicates diminishing returns based solely on this observation. Further investigation would be required to determine if there are indeed diminishing returns and why they might apply differently across various datasets.

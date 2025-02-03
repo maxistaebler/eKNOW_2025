@@ -1,0 +1,37 @@
+There is insufficient data directly addressing whether CoraG underperforms on FEVER or whether this could indicate a limitation specific to fact verification tasks. However, we can consider the given information and context provided.
+
+Firstly, it's noted that LLMs like CoraG have shown success in various contexts such as generating code [Data: Relationships (5); Entities (180)]; however, their performance on FEVER is not detailed here. 
+
+The fact verification domain seems to be characterized by specialized models and tasks designed specifically for evaluating the truthfulness of statements across diverse domains like news articles and public policy documents. Models trained on extensive text corpora may struggle with understanding complex language nuances or specific logical structures prevalent in these contexts.
+
+Given this context, a plausible explanation is that CoraG's strengths lie elsewhere; perhaps it excels at generating coherent narratives or abstract reasoning tasks where its capabilities have been demonstrated. On the other hand, FEVER evaluation involves a more intricate interplay between the model’s text generation and an external truth verification system which may highlight task-specific limitations in models like CoraG.
+
+This could suggest that models must be carefully fine-tuned for fact verification domains to perform optimally there. Without more specific details comparing CoraG to other FEVER-oriented models, this remains speculative.
+
+In conclusion, while the given information does not conclusively answer why CoraG performs poorly on FEVER, it points toward potential task-specific limitations related to model design and the nature of fact verification tasks.
+```python
+# Code snippet for further exploration or demonstration purposes
+import pandas as pd
+
+def compare_models_on_fever(df):
+    """
+    Compares models' performance on FEVER dataset by filtering rows based 
+    on a specific condition within the dataframe df.
+    
+    Args:
+    df (pd.DataFrame): DataFrame containing model and task information.
+
+    Returns:
+    pd.DataFrame: Filtered DataFrame showing only the relevant data for FEVER analysis.
+    """
+
+    # Assuming 'task' is one of the columns to filter by
+    filtered_df = df[df['task'] == 'FEVER']
+    
+    return filtered_df
+
+# Example usage
+model_data = pd.read_csv('path/to/model_data.csv')
+fever_models = compare_models_on_fever(model_data)
+print(feather.write_dataframe(fever_models, 'filtered_fever_models.feather'))
+```

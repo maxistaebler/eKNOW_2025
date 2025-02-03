@@ -1,0 +1,29 @@
+The performance differences observed with iterative rejection sampling (IRS) across different datasets like 2WikiMultihopQA and others can indeed be indicative of various factors. Let's break down the potential reasons for such observations:
+
+1. **Complexity of the Task**:
+   - The nature of the question answering task within 2WikiMultihopQA might involve more complex reasoning that iteratively rejecting samples could help in refining the sampling process to better capture the correct paths or entailments.
+   - Other datasets might have simpler or less varied structures where iterative refinement doesn't offer significant advantages.
+
+2. **Quality and Relevance of Training Data**:
+   - The training data for 2WikiMultihopQA might be more challenging, containing a wider variety of hop patterns and entailed knowledge that iterative rejection helps to refine better.
+   - For other datasets, the training data might already provide sufficient coverage or simpler structures that don't benefit as much from iterative refinement.
+
+3. **Dimensionality and Structure**:
+   - 2WikiMultihopQA may involve tasks with more complex, multi-dimensional paths through information networks where iterative rejection can help to navigate these complexities more effectively.
+   - Other datasets might have less intricate or structured relationships between entities that don't require such sophisticated handling.
+
+4. **Generalizability and Transferability**:
+   - The improvements observed in 2WikiMultihopQA may reflect better generalization capabilities of the model when using iterative rejection, suggesting it can adapt more effectively to unseen patterns.
+   - For other datasets, this mechanism might not generalize well due to differences in their underlying structures or complexities.
+
+5. **Diminishing Returns**:
+   - The idea that iterative rejection sampling could have diminishing returns indicates that after a certain point of refinement, additional iterations might not yield as significant improvements in accuracy or efficiency.
+   - 2WikiMultihopQA might still benefit from further iterative refinement even if the gains are smaller compared to earlier stages.
+
+6. **Model and Algorithm Capabilities**:
+   - The model architecture and algorithm used for these tasks might be better suited to handle iterative refinement, leading to higher performance benefits in those specific use cases.
+   - Other datasets or different approaches might not show similar improvements due to limitations of the underlying methods or data characteristics.
+
+In summary, while 2WikiMultihopQA benefits from iterative rejection sampling potentially due to its complex task and training data structure, other datasets may not see such significant gains. This suggests that the effectiveness of iterative refinement depends on several factors specific to each dataset's complexity and nature. However, it also indicates that there might be diminishing returns in applying this method beyond a certain point of initial refinement.
+
+This observation is consistent with the idea of "diminishing returns," suggesting that after reaching an optimal level of refinement, additional iterations do not significantly improve performance or could even lead to overfitting and decreased reliability.

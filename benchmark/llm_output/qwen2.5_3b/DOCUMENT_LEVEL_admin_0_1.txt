@@ -1,0 +1,17 @@
+CoRAG (Context-aware Retrieval-Augmented Composition) fundamentally differs from traditional Retrieval-Augmented Generation (RAG) architectures by addressing some of the key challenges associated with supporting multi-hop reasoning. Traditional RAG systems often rely on a fixed set of precomputed embeddings or representations for retrieving context information, which can limit their ability to handle complex and dynamic multi-hop reasoning tasks effectively.
+
+In contrast, CoRAG incorporates more sophisticated mechanisms that enable it to better adapt to different types of reasoning patterns required in various scenarios. This includes leveraging contextualized word embeddings from models like BERT or RoBERTa at each hop to capture the nuanced meaning of words within their full context. 
+
+Some specific ways CoRAG differs and how it addresses limitations include:
+
+1. **Context-aware Embedding Composition**: In traditional RAG, retrieval often relies on generic representations for a given query term or concept. CoRAG uses contextualized embeddings that are tuned to capture the specific meanings of words based on their broader context within documents, making multi-hop reasoning more effective.
+
+2. **Incremental Multi-hop Reasoning**: Traditional RAG systems might not efficiently manage multiple retrieval steps without significant pre-processing overheads. CoRAG is designed to handle these complex reasoning tasks incrementally, where each hop uses the results of previous hops as input and context for its next set of queries. This incremental approach reduces complexity and computational demands while maintaining accuracy.
+
+3. **Adaptive Context Selection**: Instead of relying on a static selection of contexts, CoRAG dynamically selects relevant documents or sentences based on how they contribute to solving the current reasoning step rather than pre-assigning them. This adaptability allows for more flexible and contextually driven search processes, which is crucial in multi-hop scenarios.
+
+4. **Inter-document Inference**: Traditional RAG systems might struggle with bridging gaps between different documents that are necessary for complex reasoning tasks. CoRAG employs techniques such as sentence-to-sentence connections or document summarization to facilitate inter-document reasoning, ensuring a seamless and coherent reasoning flow across multiple hops.
+
+5. **Query Expansion and Filtering**: To improve multi-hop reasoning efficiency, traditional RAG systems often struggle with the complexity of query expansions needed for more sophisticated queries. CoRAG incorporates mechanisms like relevance feedback or hybrid retrieval methods that refine search strategies based on intermediate results, allowing it to adaptively expand and filter its query as necessary.
+
+By addressing these specific limitations through its design principles, CoRAG enhances the ability to perform robust multi-hop reasoning tasks within information retrieval systems, making it more versatile for various applications where complex context understanding is crucial.

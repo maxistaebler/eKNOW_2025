@@ -1,0 +1,21 @@
+CoRAG (Context-Optimized Retrieval-Augmented Generation) is a method designed to enhance multi-hop reasoning within retrieval-augmented generation (RAG) systems. Unlike traditional RAG architectures that rely heavily on document-level context for inference or prediction, CoRAG aims to optimize the process by reducing the number of hops required to retrieve relevant information and making more efficient use of retrieved documents.
+
+The primary difference lies in how it addresses the limitations associated with multi-hop reasoning in conventional RAG systems. These traditional approaches often struggle when dealing with complex queries that require multiple steps of reasoning, leading to a decrease in retrieval effectiveness as the depth of reasoning increases.
+
+CoRAG specifically tackles these issues by optimizing the retrieval process:
+
+1. **Context Optimization**: CoRAG leverages contextual information more effectively across different hops. By doing so, it can provide better context for subsequent hops, ensuring that each step in reasoning is informed and relevant to the task at hand.
+   
+2. **Efficient Document Retrieval**: The method employs advanced retrieval strategies such as query refinement and adaptive search techniques that help identify highly informative documents early on in the multi-hop process. This reduces redundancy and avoids retrieving irrelevant or redundant information, making the overall process more efficient.
+
+3. **Document Relevance Augmentation**: CoRAG enhances the relevance of retrieved documents by integrating document-level context directly into each step’s reasoning pipeline. This ensures that even if some hops involve fewer retrievals, they are as effective as possible given limited contextual knowledge at those points.
+
+4. **Improved Multi-Hop Integration**: Rather than simply concatenating multiple pieces of information from different retrieval steps, CoRAG integrates retrieved documents in a manner that supports coherent and meaningful multi-hop reasoning. This integration allows for more sophisticated and accurate predictions or completions based on the context provided by each hop.
+
+CoRAG addresses specific limitations associated with traditional RAG architectures through these optimization strategies:
+
+- **Reduced Retrieval Overhead**: Traditional RAG systems might require multiple hops to gather all necessary information, leading to increased retrieval overhead. CoRAG mitigates this by optimizing document retrieval and context handling at each step.
+  
+- **Enhanced Contextual Understanding**: The multi-hop nature of reasoning tasks necessitates a deep contextual understanding for subsequent steps. CoRAG leverages optimized retrieval and integration to maintain or even improve the quality of context across different hops.
+
+In summary, CoRAG fundamentally improves upon traditional RAG architectures by optimizing the retrieval process and document relevance at each hop, thereby addressing key limitations in multi-hop reasoning tasks. This ensures more effective and efficient generation outcomes while maintaining a coherent and informative reasoning path throughout the task execution.

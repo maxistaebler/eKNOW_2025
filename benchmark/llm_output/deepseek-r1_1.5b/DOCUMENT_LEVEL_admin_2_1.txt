@@ -1,0 +1,33 @@
+<think>
+Okay, so I'm trying to figure out why Search-o1-32B is performing better than CoRAG in Bamboogle. From what I understand, both are hotpotQA/2Wiki multihop questions, and Search-o1-32B had a 10+ point improvement with EM scores on HotpotQA and WikiMultihop. But here, it's not so good compared to CoRAG.
+
+First, I need to make sure I understand the context correctly. Both systems are trained on different datasets:HotpotQA probably has more word-level data, while WikiMultihop is a multistep question answering task that involves both word and sentence-level understanding. So maybe Search-o1-32B excels at extracting specific phrases or keywords but struggles with integrating the entire context.
+
+CoRAG, on the other hand, might use a more comprehensive dataset for different parts of speech or include more complex answers. Maybe CoRAG uses multiple datasets to train its models, making it better at handling varying aspects of the question.
+
+I should think about how these systems are trained. Search-o1-32B is probably being fine-tuned on Bamboogle's questions, which might be less common than other datasets. So maybe it doesn't get as much exposure or has different types of data that aren't present in CoRAG's training set.
+
+Another angle is the model architecture. Search-o1-32 might have a simpler structure, while CoRAG uses more advanced architectures like Transformers with larger models. But that's just speculation about how their architectures perform on specific datasets.
+
+I also wonder about the data distribution. Bamboogle's questions might not cover all the topics as well as CoRAG's training set does. Maybe there are certain types of answers in Bamboogle that Search-o1-32 is more comfortable with, even if they're less varied or require different reasoning steps.
+
+Furthermore, the scoring mechanism could play a role. Both systems use their own evaluation metrics based on EM scores. Maybe CoRAG's evaluation criteria is more lenient or focuses on broader aspects, which allows it to outperform in Bamboogle where precision is key.
+
+Lastly, I should consider implementation details. Perhaps Search-o1-32 has better hyperparameters or training techniques that optimize for Bamboogle's specific characteristics. Or maybe CoRAG leverages some advanced features or optimizations that enhance its performance on this particular question set.
+
+So putting it all together, I think the main reasons could be differences in datasets, architecture, data distribution, evaluation criteria, and implementation specifics. These factors might explain why Search-o1-32 does better than CoRAG in Bamboogle despite having a 10+ point improvement on other metrics.
+</think>
+
+The inconsistent performance of Search-o1-32B compared to CoRAG in Bamboogle can be attributed to several key factors:
+
+1. **Dataset Distribution**: While both systems are trained on word-level data for WordQA, Search-o1-32 is fine-tuned directly on Bamboogle questions, whereas CoRAG may use a more comprehensive dataset that includes variations not present in Bamboogle's training set.
+
+2. **Model Architecture**: Search-o1-32 might rely on simpler architectures or structures compared to CoRAG's advanced models, which could make it more efficient but less robust for specific datasets like Bamboogle.
+
+3. **Data Distribution**: Bamboogle's questions may not cover all the topics as comprehensively as CoRAG's training data, leading to variations in how different parts of speech or complex answers are handled.
+
+4. **Evaluation Criteria**: While both systems use their own EM-based scoring mechanisms, CoRAG's evaluation might focus on broader aspects, allowing it to outperform in Bamboogle where precision is crucial.
+
+5. **Implementation Details**: Search-o1-32 could have better hyperparameters or training techniques optimized for Bamboogle's characteristics, or CoRAG may leverage advanced features that enhance its performance on this question set.
+
+In conclusion, while Search-o1-32 shows strengths in certain metrics like EM scores, its performance on Bamboogle is likely due to differences in datasets, architecture, data distribution, evaluation criteria, and implementation specifics.

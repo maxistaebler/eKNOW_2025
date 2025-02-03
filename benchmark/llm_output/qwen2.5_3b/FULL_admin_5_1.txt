@@ -1,0 +1,7 @@
+To understand whether CoRAG's gains persist across different retriever qualities, we need to consider how the system interacts with various components. The gain in performance could be due to the effectiveness of the summarization or question generation process, independent of the strength of the underlying retrievers.
+
+If CoRAG’s gains are consistent regardless of whether it uses a smaller (E5-base) or larger (E5-large) retriever, this might suggest that CoRAG compensates for weaknesses in its retrieval capabilities. This implies that even if the retrievers themselves have different strengths and weaknesses, CoRAG is able to handle these differences gracefully without significant performance degradation.
+
+However, it could also be interpreted as a sign of synergy where CoRAG effectively works with both types of retrievers but does not necessarily rely on or amplify their strengths. This means that the gains might be attributed more to how well CoRAG can process and summarize information rather than whether the underlying retrieval systems are strong or weak.
+
+To conclude, if the gains persist irrespective of the type of retriever used, it leans towards compensatory behavior by potentially mitigating weaknesses in retrieval, but it could also indicate that CoRAG is robust enough to work with both types of retrievers without significant performance differences.

@@ -1,0 +1,10 @@
+CoRAg (Context-Ranked Augmented Retrieval) is a method that unifies context ranking within its multi-hop retrieval architecture. It leverages contextual information to enhance the relevance of retrieved documents for downstream tasks such as question answering or knowledge base completion. This approach differs from traditional RAG architectures, which often rely solely on the document-level representations without incorporating any external context.
+
+In CoRAg, context is used not only to retrieve relevant documents but also to improve their rankings and thereby enhance the quality of information retrieved. The key difference lies in how it handles multi-hop reasoning: rather than treating each hop independently, CoRAg takes into account the context across all hops, which allows for more comprehensive understanding of the query context and improved retrieval efficiency.
+
+The specific limitations that CoRAg addresses include:
+- **Limited Context Inclusion:** Traditional RAG architectures often neglect to incorporate extensive contextual information from external sources. This can lead to irrelevant or incomplete results when dealing with complex queries.
+- **Inconsistent Document Rankings:** Without proper context integration, the ranking of retrieved documents might not accurately reflect their relevance to the query, leading to suboptimal performance in downstream tasks.
+- **Multi-Hop Reasoning Limitations:** Traditional methods struggle with multi-hop retrieval due to a lack of effective mechanisms to combine information from different hops. CoRAg overcomes this by leveraging context across multiple steps.
+
+By addressing these limitations, CoRAg provides a more coherent and accurate approach for handling complex queries that require multi-hop reasoning. It demonstrates how incorporating contextual information can significantly improve the performance of retrieval-based architectures in various applications where understanding the broader context is crucial.

@@ -1,0 +1,21 @@
+The performance of different models like CoRAG (Contextual Retrieval-Augmented Generation) and Atlas-11B can vary significantly across different tasks, including fact verification tasks like FEVER. Several factors could contribute to why CoRAG underperforms on FEVER compared to Atlas-11B despite showing superior results elsewhere:
+
+1. **Task-Specific Limitations**:
+   - **Complexity of Fact Verification**: Fact verification tasks often require a deep understanding of context, the ability to retrieve relevant information from large datasets, and the capability to reason over that information. CoRAG might struggle with these aspects if its retrieval mechanisms or generation capabilities are not well-suited to the specific nuances of fact verification.
+   - **Data Characteristics**: The FEVER dataset has unique characteristics, such as the need for precise evidence retrieval and the ability to handle complex claims. If CoRAG's training data or architecture does not align well with these characteristics, it could underperform.
+
+2. **Model Architecture**:
+   - **Retrieval-Augmented Generation**: CoRAG relies on a retrieval mechanism to augment its generation capabilities. If this retrieval component is not optimized for the FEVER dataset, it might fail to retrieve relevant evidence efficiently, leading to poor performance.
+   - **Atlas-11B Design**: Atlas-11B might have architectural features or training strategies that are better suited for fact verification tasks. For example, it could have a more robust mechanism for handling long-range dependencies or a better understanding of the structure of factual claims.
+
+3. **Training and Fine-Tuning**:
+   - **Fine-Tuning**: The performance of models often depends on how well they are fine-tuned on specific datasets. If CoRAG has not been adequately fine-tuned on FEVER-like data, it might underperform.
+   - **Pre-Training Data**: The pre-training data used for Atlas-11B could include more examples relevant to fact verification, giving it an edge in tasks like FEVER.
+
+4. **Evaluation Metrics**:
+   - **Metric Sensitivity**: Different models might perform differently based on the evaluation metrics used. If FEVER's evaluation criteria are particularly stringent or if they emphasize certain aspects of performance that CoRAG is not optimized for, this could lead to underperformance.
+
+5. **Contextual Understanding**:
+   - **Context Handling**: Fact verification often requires understanding the context in which a claim is made. If CoRAG struggles with contextual understanding or fails to integrate retrieved information effectively into its generation process, it might perform poorly on FEVER.
+
+In summary, while CoRAG's superior performance elsewhere suggests it has strong general capabilities, its underperformance on FEVER indicates task-specific limitations that could be related to the complexity of fact verification, model architecture, training data, and evaluation metrics. This highlights the importance of tailoring models and their training strategies to the specific requirements of different tasks.

@@ -1,0 +1,34 @@
+CoRAG (Contrastive Retrieval-Augmented Generation) is an innovative approach that aims to enhance the capabilities of traditional Retrieval-Augmented Generation (RAG) models. Traditional RAG systems use a retrieval step followed by a generative model, but CoRAG specifically addresses limitations related to multi-hop reasoning and certain retrieval challenges.
+
+### Multi-Hop Reasoning
+
+**Traditional RAG:**
+- Traditional RAG methods often rely on single-hop reasoning where the retrieval component fetches documents or passages relevant to the initial query. The generation phase then processes this information directly.
+- While these models can be effective for tasks with straightforward information needs, they struggle with complex questions that require chaining multiple pieces of knowledge.
+
+**CoRAG:**
+- CoRAG introduces a contrastive learning mechanism during the retrieval step. This allows it to retrieve not just documents relevant to the immediate query but also documents related to intermediate reasoning steps.
+- By supporting multi-hop reasoning, CoRAG can generate more contextually rich and coherent responses by incorporating knowledge from multiple sources iteratively.
+
+### Retrieval Limitations Addressed
+
+**Traditional RAG:**
+- **Local Context Focus:** Traditional RAG systems are generally limited to retrieving local or single-hop contexts. This can result in suboptimal performance when dealing with questions that require broader contextual understanding.
+- **Noise and Redundancy:** The retrieval process might include noisy or redundant documents, leading to the inclusion of irrelevant information in the generation phase.
+
+**CoRAG:**
+- **Contrastive Retrieval:** CoRAG uses contrastive learning to retrieve relevant documents while filtering out noise. This is achieved by comparing different retrieved passages and selecting those that align best with the query.
+- **Hierarchical Reasoning:** By supporting multi-hop reasoning, CoRAG can better capture hierarchical or complex relationships in knowledge, leading to more accurate and contextually rich responses.
+
+### Specific Retrieval Limitations Addressed
+
+1. **Noisy Data Handling:**
+   - Traditional RAG systems might struggle with documents containing irrelevant information or noise. CoRAG mitigates this by using a contrastive approach that emphasizes the most relevant passages.
+
+2. **Scope of Knowledge Retrieval:**
+   - Traditional methods often have a limited scope, focusing on direct relevance to the query. CoRAG can retrieve and integrate broader context, which is crucial for tasks requiring deeper reasoning or multi-step inference.
+
+3. **Hierarchical Knowledge Integration:**
+   - For questions involving complex chains of thought, traditional RAG might not fully integrate intermediate steps effectively. CoRAG addresses this by supporting iterative retrieval and generation phases that build upon each other to form a coherent response.
+
+In summary, CoRAG fundamentally differs from traditional RAG by incorporating contrastive learning into the retrieval process and supporting multi-hop reasoning. These enhancements help address limitations related to handling noise, scope of knowledge, and hierarchical integration of information, making it better suited for complex tasks that require deeper contextual understanding.

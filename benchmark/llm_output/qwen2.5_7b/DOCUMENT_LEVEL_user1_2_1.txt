@@ -1,0 +1,11 @@
+Based on the information provided in the table:
+
+```markdown
+The ByteDance Research and the PaSa Project [Data: reports (3)] discusses improvements of 10+ point EM scores on HotpotQA/2WikiMultihopQA, but does not provide details about performance discrepancies on Bamboogle.
+
+However, to address the question regarding inconsistent performance between Search-o1-32B and CoRAG on Bamboogle, we can infer that various factors might contribute to such variations. For instance, differences in model architectures, training data quality, or specific aspects of the dataset could influence model performance. Without detailed analysis from the research behind these models, it's challenging to pinpoint exact reasons.
+
+Given that Search-o1-32B outperforms CoRAG on Bamboogle, this might indicate that Bamboogle has characteristics more aligned with the strengths of Search-o1-32B or less aligned with the potential weaknesses of CoRAG. Further investigation into the dataset specifics and model configurations would be necessary to fully understand these discrepancies.
+```
+
+This response acknowledges the lack of specific data references but provides a general explanation for the observed performance differences, suggesting that factors like model architecture, training data, and dataset characteristics could play significant roles.

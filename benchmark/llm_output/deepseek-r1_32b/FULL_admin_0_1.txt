@@ -1,0 +1,29 @@
+<think>
+Okay, so I'm trying to understand how CoRAG is different from traditional RAG when it comes to multi-hop reasoning. First, let me recall what RAG stands for. It's Retrieval-Augmented Generation, right? So, in a typical RAG setup, the model uses some documents or knowledge sources to help generate answers by retrieving relevant information and then using that to create a response.
+
+Now, traditional RAG models usually retrieve information once before generating the answer. That makes sense because you get all the necessary info upfront. But what about when the question requires multiple steps? Like if I ask something that needs connecting different pieces of information from various sources. For example, asking for the capital of France and then using that to find out how far it is from another city.
+
+I think traditional RAG might struggle here because it only retrieves once. So maybe it can't handle follow-up questions or deeper reasoning since all the info isn't available in one go. That's probably where CoRAG comes in, as I remember hearing it stands for Contextualized Retrieval-Augmented Generation. 
+
+So CoRAG must be different in how it retrieves information. Instead of a single retrieval step, maybe it does multiple retrievals. Like, after the first part is generated, it goes back and gets more info if needed. That makes sense because multi-hop reasoning requires connecting several pieces across different documents or steps.
+
+Another thing about traditional RAG is that it relies on the initial context being comprehensive enough. If the question needs information from a source not in the initial retrieval, the model can't get it later. CoRAG probably addresses this by allowing dynamic or incremental retrieval, so it can fetch new info as needed during generation. That would make it better at handling more complex or multi-step queries.
+
+Also, I think traditional RAG might have issues with context size limits. If you retrieve a lot of information upfront, you hit the token limit for the model's input, which could cause some relevant info to be excluded. CoRAG might handle this by being more selective in retrieval steps, only getting what's needed at each stage and reusing previous knowledge as necessary. This way, it avoids overwhelming the model with too much information upfront.
+
+CoRAG also probably uses a more interactive approach between retrieval and generation. Instead of separate steps, they work together iteratively. So after generating a part of the answer, CoRAG can check if more info is needed and retrieve that before proceeding further. This back-and-forth would help in building a more accurate and comprehensive answer, especially for complex questions.
+
+In summary, the key differences are multi-step retrieval instead of one-shot, dynamic adaptation based on generation progress, efficient handling of context limits by incremental retrieval, and better support for tasks needing multiple reasoning steps.
+</think>
+
+CoRAG (Contextualized Retrieval-Augmented Generation) stands out from traditional RAG models in its approach to multi-hop reasoning through several key differences:
+
+1. **Multi-step Retrieval**: Unlike traditional RAG, which performs a single retrieval step before generation, CoRAG employs multiple retrievals dynamically as needed during the generation process. This allows it to handle complex queries that require connecting information from various sources across different steps.
+
+2. **Dynamic Adaptation**: CoRAG adapts its retrieval strategy based on the progress of generation. After generating an initial part of the answer, it can reassess and retrieve additional information if necessary, making it more effective for follow-up questions or deeper reasoning tasks.
+
+3. **Efficient Context Handling**: Traditional RAG may struggle with context size limits due to upfront retrieval of large amounts of information. CoRAG mitigates this by using incremental retrieval, fetching only the required information at each stage and reusing prior knowledge as needed, thus avoiding token limit issues.
+
+4. **Interactive Approach**: CoRAG integrates retrieval and generation in an iterative manner, enabling a back-and-forth process where each retrieval step informs the next part of the answer. This interaction enhances accuracy and comprehensiveness, particularly for complex or multi-step queries.
+
+In essence, CoRAG's ability to dynamically retrieve information during generation makes it superior in handling tasks that require multi-hop reasoning, offering a more flexible and adaptive approach compared to traditional RAG models.

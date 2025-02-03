@@ -1,0 +1,35 @@
+<think>
+Okay, so I need to understand how CoRAG fundamentally differs from traditional RAG architectures in terms of multi-hop reasoning. Hmm, let me start by recalling what I know about both models.
+
+I remember that RAGs are used for knowledge graph querying, especially since graphs can be large and complex. They typically use a bipartite graph with facts and entities connected by relationships. Traditional RAGs usually involve either forward chaining or backward chaining to reason from known facts to find answers. These methods often focus on the immediate next level of reasoning, maybe just one step ahead.
+
+On the other hand, CoRAG introduces some form of distributed multi-hop reasoning. I think it's inspired by how people make judgments—like considering multiple steps before making a decision. So perhaps CoRAG aggregates evidence across different levels or nodes in the graph to make more accurate conclusions than traditional RAGs.
+
+But wait, what exactly is the difference? Traditional RAGs might process each fact one after another, maybe looking at the immediate next level of relationships. They could be limited by their inability to consider multiple levels or even indirect connections, which might miss some truths that require stepping back a bit.
+
+I remember reading about something called "bipartition," which separates entities and relations in the graph. So CoRAG might use this bipartition more effectively than traditional RAGs, allowing for a more nuanced reasoning process where multiple levels can contribute to the conclusion.
+
+Also, I think CoRAG handles larger graphs better because it's designed to scale without getting bogged down by complexity. Traditional models might struggle with very large datasets if they rely on one-step reasoning or are too rigid in their structure.
+
+But how does this affect the retrieval limitations? Well, maybe traditional RAGs are too focused on immediate results and don't consider multiple possible paths forward, which could lead to missing more accurate answers that require looking beyond what's directly connected. They might not handle ambiguous information well either, where a fact could fit multiple interpretations.
+
+Wait, but if CoRAG aggregates evidence across multiple levels, it can provide better coverage of possible truths without being limited by the step-by-step reasoning. That would address some of the retrieval limitations mentioned earlier—like not considering multiple steps or indirect connections.
+
+I'm also curious about how this affects scalability. If traditional RAGs have issues with large datasets due to complexity, CoRAG might handle that better because it's structured to process distributed reasoning more efficiently. It could provide scalable solutions for handling big knowledge graphs without hitting performance limits.
+
+In summary, CoRAG fundamentally differs by aggregating evidence across multiple levels or nodes in the graph, allowing for a more comprehensive and indirect reasoning approach. This addresses limitations in traditional RAGs that might prevent them from considering multiple steps or missing larger truths through such an aggregate approach.
+</think>
+
+CoRAG fundamentally differs from traditional RAG architectures by employing distributed multi-hop reasoning, which aggregates evidence across multiple levels or nodes in the graph. Here's a structured summary of the differences and retrieval limitations:
+
+1. **Fundamental Differences:**
+   - **Aggregation of Evidence:** CoRAG uses bipartitioning (entities and relations separated) to aggregate evidence from multiple levels, allowing for indirect reasoning.
+   - **Multi-Hop Reasoning:** It processes facts beyond immediate next-level relationships, considering several steps ahead.
+   - **Scalability:** Designed to handle large graphs efficiently, addressing scalability issues of traditional models.
+
+2. **Retrieval Limitations Addressed:**
+   - **Multiple Steps and Indirect Connections:** Traditional RAGs may miss truths requiring multiple reasoning steps or indirect connections.
+   - **Ambiguity Handling:** CoRAG mitigates ambiguity by considering various interpretations and paths, providing more accurate answers.
+   - **Efficiency and Performance:** Better suited for large datasets due to structured multi-hop processing.
+
+In essence, CoRAG enhances reasoning by aggregating evidence across multiple levels, thereby addressing retrieval limitations in traditional RAGs.

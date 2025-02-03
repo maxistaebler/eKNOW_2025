@@ -1,0 +1,33 @@
+CoRAG (Contextual Retrieval-Augmented Generation) fundamentally differs from traditional Retrieval-Augmented Generation (RAG) architectures in several ways, particularly when it comes to handling multi-hop reasoning. Here are the key differences and specific retrieval limitations that CoRAG addresses:
+
+### Key Differences:
+1. **Multi-Hop Reasoning**:
+   - **Traditional RAG**: Typically retrieves documents or passages relevant to a single query without considering the need for multiple steps of reasoning. It focuses on retrieving information directly related to the input question.
+   - **CoRAG**: Designed to handle multi-hop reasoning by iteratively refining retrieval queries based on intermediate results. This allows it to follow a chain of reasoning, where each step informs the next.
+
+2. **Contextual Retrieval**:
+   - **Traditional RAG**: Uses a static retrieval mechanism that does not adapt based on the context generated during the generation process.
+   - **CoRAG**: Incorporates contextual information from previous steps into the retrieval process. This means it can dynamically adjust its queries to better align with the evolving context of the conversation or reasoning chain.
+
+3. **Iterative Refinement**:
+   - **Traditional RAG**: Generally performs a single round of retrieval followed by generation.
+   - **CoRAG**: Employs an iterative approach where the retrieval and generation steps are interleaved. This allows for continuous refinement of both the retrieved information and the generated output.
+
+### Specific Retrieval Limitations Addressed:
+1. **Single-Hop Bias**:
+   - Traditional RAG architectures can suffer from a single-hop bias, meaning they struggle to retrieve information that requires multiple steps or intermediate reasoning.
+   - CoRAG mitigates this by allowing for iterative retrieval, where each step can inform the next, enabling more complex and multi-step reasoning.
+
+2. **Static Retrieval**:
+   - Traditional RAG uses static queries that do not change based on the context generated during the process.
+   - CoRAG addresses this limitation by dynamically updating its retrieval queries based on the evolving context, ensuring that the retrieved information is always relevant to the current state of the reasoning process.
+
+3. **Contextual Drift**:
+   - In traditional RAG, there can be a drift between the initial query and the final generated output due to lack of contextual adaptation.
+   - CoRAG maintains coherence by continuously updating its retrieval queries with contextual information from previous steps, reducing the likelihood of contextual drift.
+
+4. **Efficiency in Multi-Hop Scenarios**:
+   - Traditional RAG may not be efficient for multi-hop reasoning as it requires multiple separate retrievals and generations, which can be time-consuming.
+   - CoRAG optimizes this process by interleaving retrieval and generation, making it more efficient for scenarios that require multiple steps of reasoning.
+
+In summary, CoRAG enhances traditional RAG architectures by introducing iterative, contextual retrieval mechanisms that are better suited for multi-hop reasoning. This approach addresses limitations related to single-hop bias, static retrieval, contextual drift, and efficiency in handling complex reasoning tasks.

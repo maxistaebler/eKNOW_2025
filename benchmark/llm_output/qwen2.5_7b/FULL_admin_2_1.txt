@@ -1,0 +1,31 @@
+The inconsistencies in model performance across different datasets can be attributed to several factors. Here are some potential reasons for the observed behavior:
+
+1. **Dataset Characteristics**: 
+   - **HotpotQA and 2WikiMultihopQA** involve multi-hop reasoning, where the model needs to use information from multiple sentences or documents to answer questions. These tasks often require a good understanding of context and logical reasoning.
+   - **Bamboogle**, on the other hand, might have different characteristics such as simpler queries, less emphasis on long-term dependencies, or a different distribution of topics.
+
+2. **Model Architecture**:
+   - The architecture of `Search-o1-32B` (assuming it's a large model like a 32-billion parameter model) and `CoRAG` might differ in how they process information.
+   - `Search-o1-32B` could be more effective at handling the complex, multi-hop reasoning required by HotpotQA and 2WikiMultihopQA due to its larger size and potentially more sophisticated architecture.
+
+3. **Training Data**:
+   - The training data for `Search-o1-32B` might have been optimized in a way that it performs better on certain types of datasets, such as those involving deep logical reasoning.
+   - Conversely, the training process or the specific data augmentation techniques used with `CoRAG` might be more suited to the simpler queries and tasks found in Bamboogle.
+
+4. **Evaluation Metrics**:
+   - The EM (Exact Match) score improvement on HotpotQA and 2WikiMultihopQA suggests that both models are effective at generating precise, correct answers.
+   - However, the performance on Bamboogle could be driven by factors other than exact match accuracy, such as recall or more flexible answer formats.
+
+5. **Fine-tuning Strategy**:
+   - The fine-tuning process for `Search-o1-32B` and `CoRAG` might have been different, affecting their performance.
+   - For instance, certain hyperparameters, training techniques (like data augmentation), or even the specific tasks used during fine-tuning could lead to differences in performance.
+
+6. **Resource Utilization**:
+   - Larger models like `Search-o1-32B` may be more computationally intensive and require a lot of resources for both training and inference.
+   - This might give them an edge on tasks that are computationally demanding, such as those involving deep reasoning over multiple sentences.
+
+7. **Domain Adaptation**:
+   - The models might have been trained or fine-tuned on domains that align more closely with the characteristics of HotpotQA and 2WikiMultihopQA.
+   - Bamboogle could be different in its domain or task distribution, leading to better performance for `CoRAG`.
+
+In summary, the inconsistent performance across datasets can arise from differences in dataset complexity, model architecture, training data, evaluation metrics, fine-tuning strategies, resource utilization, and domain adaptation. To fully understand these differences, a detailed analysis of each factor would be necessary.
