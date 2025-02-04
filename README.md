@@ -1,39 +1,128 @@
-# eKNOW_2025
 
-## Features
+# VAULT: Verified Access Using Layered Text-to-Knowledge Translation Implementation
 
-- Ontology-driven / Vocabulary-driven knowledge graph construction
+This repository contains an implementation and evaluation framework for GraphRAG, focusing on knowledge graph construction and retrieval-augmented generation.
+
+## Overview
+
+GraphRAG enhances traditional RAG architectures by incorporating knowledge graph structures for improved multi-hop reasoning and contextual understanding. This implementation includes tools for:
+
+- Knowledge graph construction from documents
+- Multi-modal graph storage using ArangoDB
 - Fine-grained access control mechanisms
-- LLM-powered intelligent output filtering
-- ArangoDB integration for multi-modal graph storage
-- Domain-specific knowledge organization
+- LLM-powered query processing and response generation
+- Comprehensive evaluation framework
 
-## Architecture
+## Prerequisites
 
-The system consists of three main components:
+- Python 3.10+
+- ArangoDB
+- OpenAI API key or Azure OpenAI endpoint
+- Required Python packages (see requirements.txt)
 
-1. Knowledge Extractor: Processes natural language text using LLMs and domain ontologies
-2. Graph Constructor: Builds and maintains the knowledge graph structure
-3. Access Controller: Manages fine-grained access control and output filtering
+## Installation
 
-## Run RAG
+1. Install the package:
+```bash
+pip install graphrag
+```
+
+2. Set up your workspace:
+```bash
+mkdir -p ./ragtest/input
+graphrag init --root ./ragtest
+```
+
+3. Configure authentication:
+- Edit `.env` file with your OpenAI/Azure API key
+- Modify `settings.yaml` for pipeline configuration
+
+## Project Structure
+
+### /notebooks
+The notebooks directory contains Jupyter notebooks for different aspects of the GraphRAG pipeline:
+
+1. **graphrag_results_processing.ipynb**
+- Knowledge graph construction and storage
+- ArangoDB integration
+- Entity and relationship processing
+- Semantic embedding generation
+
+2. **graphrag_response_evaluation.ipynb**
+- Response analysis framework
+- Model performance evaluation
+- Comparative analysis of different approaches
+
+3. **graphrag_query_retrieval.ipynb**
+- Query processing implementation
+- Context building and retrieval
+- LLM integration for response generation
+
+4. **graph_examples.ipynb**
+- Example implementations and use cases
+- Visualization of knowledge graphs
+- Query pattern demonstrations
+
+### /benchmark
+The benchmark directory contains evaluation frameworks and results:
+
+1. **Input Processing**
+- Document preprocessing
+- Text chunking and analysis
+- Entity extraction
+
+2. **Output Analysis**
+- Model response evaluation
+- Performance metrics
+- Comparative analysis
+
+3. **LLM Output**
+- Generated responses
+- Quality assessments
+- Error analysis
 
 
-`pip install graphrag`
+## Evaluation Framework
 
-The graphrag library includes a CLI for a no-code approach to getting started. Please review the full CLI documentation for further detail.
+The evaluation framework is implemented in the notebooks directory. Key components:
 
-### Running the Indexer
-We need to set up a data project and some initial configuration. First let's get a sample dataset ready:
+1. **Response Analysis**
+Reference:
+```notebooks/graphrag_response_evaluation.ipynb
+startLine: 144
+startLine: 202
+```
 
-`mkdir -p ./ragtest/input`
+2. **Query Processing**
+Reference:
+```notebooks/graphrag_query_retrieval.ipynb
+startLine: 9
+endLine: 20
+```
 
-### Set Up Your Workspace Variables
-To initialize your workspace, first run the graphrag init command. Since we have already configured a directory named ./ragtest in the previous step, run the following command:
+## ArangoDB Integration
 
+The system uses ArangoDB for graph storage and retrieval. Configuration and setup:
 
-`graphrag init --root ./ragtest`
-This will create two files: .env and settings.yaml in the ./ragtest directory.
+Reference:
+```notebooks/graphrag_results_processing.ipynb
+startLine: 247
+endLine: 269
+```
 
-`.env` contains the environment variables required to run the GraphRAG pipeline. If you inspect the file, you'll see a single environment variable defined, GRAPHRAG_API_KEY=<API_KEY>. This is the API key for the OpenAI API or Azure OpenAI endpoint. You can replace this with your own API key. If you are using another form of authentication (i.e. managed identity), please delete this file.
-settings.yaml contains the settings for the pipeline. You can modify this file to change the settings for the pipeline.
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Microsoft GraphRAG team for the original implementation
+- ArangoDB team for database support
