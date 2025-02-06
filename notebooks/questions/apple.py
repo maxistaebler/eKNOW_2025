@@ -30,7 +30,7 @@ quiz_questions = {
     },
     
     "6": {
-        "ion": "How many RSUs of each type (performance-based and time-based) were awarded to the new CFO?",
+        "question": "How many RSUs of each type (performance-based and time-based) were awarded to the new CFO?",
         "answer": "36,767 of each type",
         "reference": "Mr. Parekh was previously awarded 36,767 performance-based restricted stock units ('RSUs'), and 36,767 time-based RSUs"
     },
